@@ -1,0 +1,34 @@
+---
+title: "Les raccourcis R avec Rstudio - Quiz"
+date: "2025-03-14"
+author: ""
+tags:
+  - Quizs
+categories:
+  - Quizs
+image: ../img/0_quiz.png
+---
+
+1. Comment appelle-t-on un tableau bidimensionnel en R ?
+a) DataFrame
+b) Vector
+c) Matrix
+d) Array
+ 
+2. Quel symbole est utilisé pour assigner une valeur à une variable en R ?
+a) =
+b) ->
+c) <-
+d) :
+
+3. Quelle commande permet d´afficher les premières lignes d'un DataFrame en R ?
+a) view()
+b) head()
+c) top()
+d) summary()
+ 
+4. Quel package est célèbre pour la manipulation de données en R ?
+a) ggplot2
+b) dplyr
+c) shiny
+d) knitr

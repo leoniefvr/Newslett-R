@@ -1,0 +1,13 @@
+---
+toc: false
+sidebar: false
+title-block-style: none
+css: homepage.css
+listing:
+  contents: 
+    - "Exercices/*.qmd"
+  type: grid
+  sort: "date"
+---
+
+## Les exercices de la newslett'R

@@ -1,0 +1,34 @@
+---
+title: "Créer un projet dans Rstudio : le fichier Rproj - Quiz"
+date: "2025-03-21"
+author: ""
+tags:
+  - Quizs
+categories:
+  - Quizs
+image: ../img/0_quiz.png
+---
+
+1. Quelle fonction peut être utilisée pour lire un fichier CSV en R ?
+A) read.csv()
+B) import.csv()
+C) load.csv()
+D) open.csv()
+
+2. Comment installer un package en R ?
+A) install.packages("ggplot2")
+B) library(ggplot2)
+C) renv::install("ggplot2")
+D) load.package("ggplot2")
+
+3. Quelle fonction permet d'afficher les dimensions d'un dataframe df ?
+A) nrow(df)
+B) ncol(df)
+C) dim(df)
+D) length(df)
+
+4. Que retourne mean(c(2, NA, 4, 6), na.rm = TRUE) ?
+A) NA
+B) 4
+C) 3.5
+D) 12

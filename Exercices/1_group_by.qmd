@@ -1,0 +1,12 @@
+---
+title: "Apprendre le group_by de dplyr"
+date: "2025-03-28"
+author: ""
+tags:
+  - Exercices
+categories:
+  - Exercices
+image: ../img/3_group_by.png
+---
+
+[Exercice group_by](../Notebooks/Exercices1_tp_groupby_dplyr.qmd)

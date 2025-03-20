@@ -1,0 +1,31 @@
+#title-block-header {
+    display: none ;
+  }
+  
+  code {
+   color:#CC0033;
+   background-color: transparent !important;
+  }
+
+  .headline {
+  font-size: 1.25em;
+  font-weight: 300;
+  padding-left: 3em;
+  }
+  
+  #banner_1 {
+    padding-top: 35px;
+    background-color: white;
+    color: CC99FF;
+  }
+
+  #banner_2 {
+    padding-top: 35px;
+    background-color: #f7dc4a;
+    color: #808080;
+  }
+  
+  #quarto-content main { 
+    margin-top: 0;
+    padding-top: 0;
+  }
