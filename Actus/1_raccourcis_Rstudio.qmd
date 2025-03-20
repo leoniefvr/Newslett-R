@@ -1,0 +1,7 @@
+---
+title: "Les raccourcis R avec Rstudio"
+date: "14/03/2025"
+author: "-"
+---
+
+Boostez votre productivité sur RStudio avec ces 10 raccourcis indispensables ! Exécutez du code en un clin d’œil, naviguez rapidement entre les fichiers, formatez votre script proprement et commentez en un geste. Que vous soyez débutant ou expert, ces raccourcis vous feront gagner un temps précieux et optimiseront votre workflow. 🚀💡
