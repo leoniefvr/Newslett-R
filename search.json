@@ -1,10 +1,24 @@
 [
   {
-    "objectID": "Actus/2_rproj.html",
-    "href": "Actus/2_rproj.html",
-    "title": "Rproj",
+    "objectID": "ressources.html",
+    "href": "ressources.html",
+    "title": "Newslett'R",
     "section": "",
-    "text": "Créer un projet RStudio permet d´organiser tous vos scripts R et les fichiers (données, sorties…) relatifs à un même projet statistique. Un projet RStudio est un environnement isolé qui évite les conflits entre différents scripts et packages de projets statistiques distincts.\n\nPour créer un projet RStudio, il suffit d´aller dans File &gt; New Project &gt; New Directory &gt; New Project &gt; (renseigner le nom de son projet, cliquer « git » et « renv » si besoin) &gt; Create Project\nRStudio va créer un fichier .Rproj à la racine du dossier du projet choisi, qui permet entre autres d´indiquer à R que vous travaillez dans ce dossier (working directory). En double-cliquant sur le Rproj, RStudio s’ouvre directement dans votre espace projet, et vous pouvez utiliser les chemins relatifs !\nEn haut à droite de l’interface RStudio, vous pouvez naviguer entre vos différents projets.\nPour la configuration du projet RStudio, il est conseillé de ne pas sauvegarder l´espace de travail (données en mémoire visibles dans votre environnement), ni de le recharger, pour des raisons de reproductibilité."
+    "text": "utilitR\nAide-mémoire SAS - R - pandas"
+  },
+  {
+    "objectID": "ressources.html#pour-en-savoir-plus-sur-r",
+    "href": "ressources.html#pour-en-savoir-plus-sur-r",
+    "title": "Newslett'R",
+    "section": "",
+    "text": "utilitR\nAide-mémoire SAS - R - pandas"
+  },
+  {
+    "objectID": "Actus/1_raccourcis_Rstudio.html",
+    "href": "Actus/1_raccourcis_Rstudio.html",
+    "title": "Les raccourcis R avec Rstudio",
+    "section": "",
+    "text": "Boostez votre productivité sur RStudio avec ces 10 raccourcis indispensables ! Exécutez du code en un clin d’œil, naviguez rapidement entre les fichiers, formatez votre script proprement et commentez en un geste. Que vous soyez débutant ou expert, ces raccourcis vous feront gagner un temps précieux et optimiseront votre workflow. 🚀💡"
   },
   {
     "objectID": "index.html",
@@ -14,10 +28,10 @@
     "text": "Newslett’R\n\n\n\n\nStar this website on Github\n\n\n\nLes dernières newslett’R : \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLes raccourcis R avec Rstudio\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nRproj\n\n\n\n\n\n\n\n\n\nMar 21, 2025\n\n\n\n\n\n\n\n:::\n\nNo matching items\n\n:::\n:::"
   },
   {
-    "objectID": "Actus/1_raccourcis_Rstudio.html",
-    "href": "Actus/1_raccourcis_Rstudio.html",
-    "title": "Les raccourcis R avec Rstudio",
+    "objectID": "Actus/2_rproj.html",
+    "href": "Actus/2_rproj.html",
+    "title": "Rproj",
     "section": "",
-    "text": "Boostez votre productivité sur RStudio avec ces 10 raccourcis indispensables ! Exécutez du code en un clin d’œil, naviguez rapidement entre les fichiers, formatez votre script proprement et commentez en un geste. Que vous soyez débutant ou expert, ces raccourcis vous feront gagner un temps précieux et optimiseront votre workflow. 🚀💡"
+    "text": "Créer un projet RStudio permet d´organiser tous vos scripts R et les fichiers (données, sorties…) relatifs à un même projet statistique. Un projet RStudio est un environnement isolé qui évite les conflits entre différents scripts et packages de projets statistiques distincts.\n\nPour créer un projet RStudio, il suffit d´aller dans File &gt; New Project &gt; New Directory &gt; New Project &gt; (renseigner le nom de son projet, cliquer « git » et « renv » si besoin) &gt; Create Project\nRStudio va créer un fichier .Rproj à la racine du dossier du projet choisi, qui permet entre autres d´indiquer à R que vous travaillez dans ce dossier (working directory). En double-cliquant sur le Rproj, RStudio s’ouvre directement dans votre espace projet, et vous pouvez utiliser les chemins relatifs !\nEn haut à droite de l’interface RStudio, vous pouvez naviguer entre vos différents projets.\nPour la configuration du projet RStudio, il est conseillé de ne pas sauvegarder l´espace de travail (données en mémoire visibles dans votre environnement), ni de le recharger, pour des raisons de reproductibilité."
   }
 ]
