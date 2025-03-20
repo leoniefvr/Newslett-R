@@ -1,0 +1,11 @@
+---
+listing:
+  contents: 
+    - "Actus/*.qmd"
+  type: grid
+  sort: "date"  
+  include:
+    tags: "Expertise"
+---
+
+## Quelques sujets avancés

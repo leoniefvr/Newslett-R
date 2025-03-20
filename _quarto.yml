@@ -1,0 +1,30 @@
+project:
+  type: website
+  
+website:
+  title: "Newslett'R"
+  navbar:
+    search: true
+    left:
+      - text: "Accueil Newslett'R"
+        href : index.qmd 
+      - text: "Je débute en R"
+        href : debute.qmd
+      - text: "J'approfondis en R"
+        href : intermediaire.qmd  
+      - text: "Je m'y connais bien en R"
+        href : expertise.qmd  
+      - text: "Quizs"
+        href : quizs.qmd  
+      - text: "Exercices"
+        href : exercices.qmd      
+      - text: "Autres ressources"
+        href : ressources.qmd
+        
+format:
+  html:
+    theme: 
+      - pulse
+      - styles.scss
+    toc: true
+editor: visual

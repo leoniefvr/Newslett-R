@@ -1,0 +1,12 @@
+---
+toc: false
+sidebar: false
+title-block-style: none
+css: homepage.css
+---
+
+## Pour en savoir plus sur R :
+
+-   [utilitR](https://utilitr.org/)
+
+-   [Aide-mémoire SAS - R - pandas](https://aide-memoire-r-sas.netlify.app/)
