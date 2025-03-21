@@ -1,9 +1,40 @@
 [
   {
+    "listing": "/quizs.html",
+    "items": [
+      "/Quizs/1_raccourcis_Rstudio_quiz.html",
+      "/Quizs/2_rproj_quiz.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/Actus/1_raccourcis_Rstudio.html",
       "/Actus/2_rproj.html"
     ]
+  },
+  {
+    "listing": "/exercices.html",
+    "items": [
+      "/Exercices/Test.html"
+    ]
+  },
+  {
+    "listing": "/expertise.html",
+    "items": [
+      "/Actus/1_raccourcis_Rstudio.html",
+      "/Actus/2_rproj.html"
+    ]
+  },
+  {
+    "listing": "/intermediaire.html",
+    "items": [
+      "/Actus/1_raccourcis_Rstudio.html",
+      "/Actus/2_rproj.html"
+    ]
+  },
+  {
+    "listing": "/debute.html",
+    "items": []
   }
 ]

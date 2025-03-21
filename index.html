@@ -78,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -132,7 +132,7 @@ window.Quarto = {
 <link rel="stylesheet" href="homepage.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -151,7 +151,27 @@ window.Quarto = {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Accueil</span></a>
+<span class="menu-text">Accueil Newslett’R</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./debute.html"> 
+<span class="menu-text">Je débute en R</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./intermediaire.html"> 
+<span class="menu-text">J’approfondis en R</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./expertise.html"> 
+<span class="menu-text">Je m’y connais bien en R</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./quizs.html"> 
+<span class="menu-text">Quizs</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./exercices.html"> 
+<span class="menu-text">Exercices</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./ressources.html"> 
@@ -168,7 +188,8 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="TmV3c2xldHRlcg==">Newsletter <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
@@ -196,7 +217,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="TmV3c2xldHRlcg==" data-listing-date-sort="1741910400000" data-listing-file-modified-sort="1742486886447" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="54">
+<div class="g-col-1" data-index="0" data-categories="TmV3c2xldHRlcg==" data-listing-date-sort="1741910400000" data-listing-file-modified-sort="1742551220136" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="54">
 <a href="./Actus/1_raccourcis_Rstudio.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -206,6 +227,11 @@ window.Quarto = {
 <h5 class="no-anchor card-title listing-title">
 Les raccourcis R avec Rstudio
 </h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('TmV3c2xldHRlcg=='); return false;">
+Newsletter
+</div>
+</div>
 <div class="card-text listing-description">
 Boostez votre productivité sur RStudio avec ces 10 raccourcis indispensables ! Exécutez du code en un clin d’œil, naviguez rapidement entre les fichiers, formatez votre…
 </div>
@@ -222,7 +248,7 @@ Mar 14, 2025
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="TmV3c2xldHRlcg==" data-listing-date-sort="1742515200000" data-listing-file-modified-sort="1742486886447" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="182">
+<div class="g-col-1" data-index="1" data-categories="TmV3c2xldHRlcg==" data-listing-date-sort="1742515200000" data-listing-file-modified-sort="1742551220137" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="182">
 <a href="./Actus/2_rproj.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -232,6 +258,11 @@ Mar 14, 2025
 <h5 class="no-anchor card-title listing-title">
 Créer un projet dans Rstudio : le fichier Rproj
 </h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('TmV3c2xldHRlcg=='); return false;">
+Newsletter
+</div>
+</div>
 <div class="card-text listing-description">
 Créer un projet RStudio permet d´organiser tous vos scripts R et les fichiers (données, sorties…) relatifs à un même projet statistique. Un projet RStudio est un…
 </div>
