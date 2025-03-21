@@ -21,16 +21,11 @@
 
   #banner_2 {
     padding-top: 35px;
-    background-color: #9999CC;
-    color: white;
+    background-color: #f7dc4a;
+    color: #808080;
   }
   
   #quarto-content main { 
     margin-top: 0;
     padding-top: 0;
-  }
-
-  .rose {
-   color:#CC0033;
-   font-weight: bold;
   }
