@@ -21,17 +21,11 @@
   },
   {
     "listing": "/expertise.html",
-    "items": [
-      "/Actus/1_raccourcis_Rstudio.html",
-      "/Actus/2_rproj.html"
-    ]
+    "items": []
   },
   {
     "listing": "/intermediaire.html",
-    "items": [
-      "/Actus/1_raccourcis_Rstudio.html",
-      "/Actus/2_rproj.html"
-    ]
+    "items": []
   },
   {
     "listing": "/debute.html",

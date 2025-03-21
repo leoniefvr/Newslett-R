@@ -32,28 +32,7 @@
     "href": "index.html#les-dernières-newslettr",
     "title": "Newslett'R",
     "section": "Les dernières newslett’R",
-    "text": "Les dernières newslett’R\n\n\n\n\n\n\n\n\n\n\nLes raccourcis R avec Rstudio\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer un projet dans Rstudio : le fichier Rproj\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 21, 2025\n\n\n\n\n\n\n\n:::\n\nNo matching items\n\n:::\n:::"
-  },
-  {
-    "objectID": "exercices.html",
-    "href": "exercices.html",
-    "title": "Newslett'R",
-    "section": "",
-    "text": "Les raccourcis R avec Rstudio\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n:::\n\nNo matching items\n\n:::\n:::"
-  },
-  {
-    "objectID": "expertise.html",
-    "href": "expertise.html",
-    "title": "Newslett'R",
-    "section": "",
-    "text": "Les raccourcis R avec Rstudio\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer un projet dans Rstudio : le fichier Rproj\n\n\n\n\n\n\n\n\n\nMar 21, 2025\n\n\n\n\n\n\n\n:::\n\nNo matching items\n\n:::\n:::"
-  },
-  {
-    "objectID": "intermediaire.html",
-    "href": "intermediaire.html",
-    "title": "Newslett'R",
-    "section": "",
-    "text": "Les raccourcis R avec Rstudio\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer un projet dans Rstudio : le fichier Rproj\n\n\n\n\n\n\n\n\n\nMar 21, 2025\n\n\n\n\n\n\n\n:::\n\nNo matching items\n\n:::\n:::"
+    "text": "Les dernières newslett’R\n\n\n\n\n\n\n\n\n\n\nLes raccourcis R avec Rstudio\n\n\n\nNewsletter\n\n\n\n\n\n\n\nCT\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer un projet dans Rstudio : le fichier Rproj\n\n\n\nNewsletter\n\n\n\n\n\n\n\nCT\n\n\nMar 21, 2025\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "Actus/1_raccourcis_Rstudio.html",
@@ -75,12 +54,5 @@
     "title": "Les raccourcis R avec Rstudio - Quiz",
     "section": "",
     "text": "Comment appelle-t-on un tableau bidimensionnel en R ?\n\n\nDataFrame\nVector\nMatrix\nArray\n\n\nQuel symbole est utilisé pour assigner une valeur à une variable en R ?\n\n\n=\n-&gt;\n&lt;-\n:\n\n\nQuelle commande permet d´afficher les premières lignes d’un DataFrame en R ?\n\n\nview()\nhead()\ntop()\nsummary()\n\n\nQuel package est célèbre pour la manipulation de données en R ?\n\n\nggplot2\ndplyr\nshiny\nknitr"
-  },
-  {
-    "objectID": "debute.html",
-    "href": "debute.html",
-    "title": "Newslett'R",
-    "section": "",
-    "text": "Les raccourcis R avec Rstudio\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n:::\n\nNo matching items\n\n:::\n:::"
   }
 ]
