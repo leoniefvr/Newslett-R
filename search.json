@@ -79,9 +79,9 @@
   {
     "objectID": "Exercices/Test.html",
     "href": "Exercices/Test.html",
-    "title": "Les raccourcis R avec Rstudio",
+    "title": "Apprendre le group_by de dplyr",
     "section": "",
-    "text": "Boostez votre productivité sur RStudio avec ces 10 raccourcis indispensables ! Exécutez du code en un clin d’œil, naviguez rapidement entre les fichiers, formatez votre script proprement et commentez en un geste. Que vous soyez débutant ou expert, ces raccourcis vous feront gagner un temps précieux et optimiseront votre workflow. 🚀💡\n\n\n\nRaccourcis R Studio"
+    "text": "[Exercice group_by](../Notebooks/Exercices1_tp_groupby_dplyr.qmd)"
   },
   {
     "objectID": "Quizs/1_raccourcis_Rstudio_quiz.html",
