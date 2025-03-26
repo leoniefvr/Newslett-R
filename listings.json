@@ -7,11 +7,12 @@
     ]
   },
   {
-    "listing": "/index.html",
-    "items": [
-      "/Actus/1_raccourcis_Rstudio.html",
-      "/Actus/2_rproj.html"
-    ]
+    "listing": "/intermediaire.html",
+    "items": []
+  },
+  {
+    "listing": "/expertise.html",
+    "items": []
   },
   {
     "listing": "/exercices.html",
@@ -20,12 +21,11 @@
     ]
   },
   {
-    "listing": "/expertise.html",
-    "items": []
-  },
-  {
-    "listing": "/intermediaire.html",
-    "items": []
+    "listing": "/index.html",
+    "items": [
+      "/Actus/1_raccourcis_Rstudio.html",
+      "/Actus/2_rproj.html"
+    ]
   },
   {
     "listing": "/debute.html",

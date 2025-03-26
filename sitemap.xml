@@ -2,50 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://leoniefvr.github.io/Newslett-R/quizs.html</loc>
-    <lastmod>2025-03-21T15:55:00.931Z</lastmod>
+    <lastmod>2025-03-26T17:50:47.379Z</lastmod>
   </url>
   <url>
     <loc>https://leoniefvr.github.io/Newslett-R/Quizs/2_rproj_quiz.html</loc>
-    <lastmod>2025-03-21T15:55:00.929Z</lastmod>
+    <lastmod>2025-03-26T17:50:47.377Z</lastmod>
   </url>
   <url>
     <loc>https://leoniefvr.github.io/Newslett-R/ressources.html</loc>
-    <lastmod>2025-03-21T15:55:00.932Z</lastmod>
+    <lastmod>2025-03-26T17:50:47.380Z</lastmod>
   </url>
   <url>
     <loc>https://leoniefvr.github.io/Newslett-R/Actus/2_rproj.html</loc>
-    <lastmod>2025-03-21T15:55:00.929Z</lastmod>
+    <lastmod>2025-03-26T17:50:47.375Z</lastmod>
   </url>
   <url>
-    <loc>https://leoniefvr.github.io/Newslett-R/index.html</loc>
-    <lastmod>2025-03-21T15:55:00.931Z</lastmod>
-  </url>
-  <url>
-    <loc>https://leoniefvr.github.io/Newslett-R/exercices.html</loc>
-    <lastmod>2025-03-21T15:55:00.929Z</lastmod>
-  </url>
-  <url>
-    <loc>https://leoniefvr.github.io/Newslett-R/expertise.html</loc>
-    <lastmod>2025-03-21T15:55:00.929Z</lastmod>
+    <loc>https://leoniefvr.github.io/Newslett-R/Notebooks/1_tp_groupby_dplyr.html</loc>
+    <lastmod>2025-03-26T17:50:47.377Z</lastmod>
   </url>
   <url>
     <loc>https://leoniefvr.github.io/Newslett-R/intermediaire.html</loc>
-    <lastmod>2025-03-21T15:55:00.931Z</lastmod>
+    <lastmod>2025-03-26T17:50:47.379Z</lastmod>
+  </url>
+  <url>
+    <loc>https://leoniefvr.github.io/Newslett-R/expertise.html</loc>
+    <lastmod>2025-03-26T17:50:47.377Z</lastmod>
+  </url>
+  <url>
+    <loc>https://leoniefvr.github.io/Newslett-R/exercices.html</loc>
+    <lastmod>2025-03-26T17:50:47.377Z</lastmod>
+  </url>
+  <url>
+    <loc>https://leoniefvr.github.io/Newslett-R/index.html</loc>
+    <lastmod>2025-03-26T17:50:47.379Z</lastmod>
   </url>
   <url>
     <loc>https://leoniefvr.github.io/Newslett-R/Actus/1_raccourcis_Rstudio.html</loc>
-    <lastmod>2025-03-21T15:55:00.929Z</lastmod>
+    <lastmod>2025-03-26T17:50:47.375Z</lastmod>
   </url>
   <url>
     <loc>https://leoniefvr.github.io/Newslett-R/Exercices/Test.html</loc>
-    <lastmod>2025-03-21T15:55:00.929Z</lastmod>
+    <lastmod>2025-03-26T17:50:47.375Z</lastmod>
   </url>
   <url>
     <loc>https://leoniefvr.github.io/Newslett-R/Quizs/1_raccourcis_Rstudio_quiz.html</loc>
-    <lastmod>2025-03-21T15:55:00.929Z</lastmod>
+    <lastmod>2025-03-26T17:50:47.377Z</lastmod>
   </url>
   <url>
     <loc>https://leoniefvr.github.io/Newslett-R/debute.html</loc>
-    <lastmod>2025-03-21T15:55:00.929Z</lastmod>
+    <lastmod>2025-03-26T17:50:47.377Z</lastmod>
   </url>
 </urlset>
