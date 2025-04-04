@@ -1,0 +1,22 @@
+---
+title: "Aides-mémoires"
+date: "2025-04-04"
+author: ""
+tags:
+  - Newsletter
+  - Initiation
+categories:
+  - Newsletter
+image: ../img/4_sheet_cheat.png
+---
+
+Il existe de nombreuses cheat sheets (aide mémoire en format poster) pour vous aider. Voici quelques-unes de nos préférées : 
+
+* [Base R Cheat Sheet](https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf)
+* [Dplyr (en français)](https://thinkr.fr/pdf/dplyr-french-cheatsheet.pdf)
+* [Ggplot2 (en français)](https://thinkr.fr/pdf/ggplot2-french-cheatsheet.pdf)
+* [Lubridate (gestion des dates en R)](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_lubridate.pdf)
+* [SQL Basics Cheat Sheet](https://learnsql.com/blog/sql-basics-cheat-sheet/)
+* [Stringr (manipulation de chaîne de caractères et expressions régulières)](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf)
+
+N'hésitez pas à les consulter et à les partager ! 
