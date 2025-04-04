@@ -21,11 +21,25 @@
     "text": "utilitR\nAide-mémoire SAS - R - pandas"
   },
   {
-    "objectID": "Actus/2_rproj.html",
-    "href": "Actus/2_rproj.html",
-    "title": "Créer un projet dans Rstudio : le fichier Rproj",
+    "objectID": "Actus/3_sheet_cheat.html",
+    "href": "Actus/3_sheet_cheat.html",
+    "title": "Aides-mémoires",
     "section": "",
-    "text": "Créer un projet RStudio permet d´organiser tous vos scripts R et les fichiers (données, sorties…) relatifs à un même projet statistique. Un projet RStudio est un environnement isolé qui évite les conflits entre différents scripts et packages de projets statistiques distincts.\n\nPour créer un projet RStudio, il suffit d´aller dans File &gt; New Project &gt; New Directory &gt; New Project &gt; (renseigner le nom de son projet, cliquer « git » et « renv » si besoin) &gt; Create Project\nRStudio va créer un fichier .Rproj à la racine du dossier du projet choisi, qui permet entre autres d’indiquer à R que vous travaillez dans ce dossier (working directory). En double-cliquant sur le Rproj, RStudio s’ouvre directement dans votre espace projet, et vous pouvez utiliser les chemins relatifs !\nEn haut à droite de l’interface RStudio, vous pouvez naviguer entre vos différents projets.\nPour la configuration du projet RStudio, il est conseillé de ne pas sauvegarder l´espace de travail (données en mémoire visibles dans votre environnement), ni de le recharger, pour des raisons de reproductibilité.\n\n\n\n\nVue RStudio du Rproj\n\n\nSi vous voulez tester vos connaissances en R : Quiz2"
+    "text": "Il existe de nombreuses cheat sheets (aide mémoire en format poster) pour vous aider. Voici quelques-unes de nos préférées :\n\nBase R Cheat Sheet\nDplyr (en français)\nGgplot2 (en français)\nLubridate (gestion des dates en R)\nSQL Basics Cheat Sheet\nStringr (manipulation de chaîne de caractères et expressions régulières)\n\nN’hésitez pas à les consulter et à les partager !"
+  },
+  {
+    "objectID": "Actus/1_raccourcis_Rstudio.html",
+    "href": "Actus/1_raccourcis_Rstudio.html",
+    "title": "Les raccourcis R avec Rstudio",
+    "section": "",
+    "text": "Boostez votre productivité sur RStudio avec ces 10 raccourcis indispensables ! Exécutez du code en un clin d’œil, naviguez rapidement entre les fichiers, formatez votre script proprement et commentez en un geste. Que vous soyez débutant ou expert, ces raccourcis vous feront gagner un temps précieux et optimiseront votre workflow. 🚀💡\n\n\n\nRaccourcis R Studio\n\n\nSi vous voulez tester vos connaissances en R : Quiz1"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Newslett'R",
+    "section": "",
+    "text": "Newslett’R\n\nChaque semaine, nous vous proposons une astuce en R, accompagnée de quiz et d’exercices, pour tous les niveaux – débutant, avancé ou expert – afin de perfectionner votre maîtrise de R.\n\n\n\nStar this website on Github\n\n\n\nLes dernières newslett’R : \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLes raccourcis R avec Rstudio\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer un projet dans Rstudio : le fichier Rproj\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 21, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAides-mémoires\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 4, 2025\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "Notebooks/1_tp_groupby_dplyr.html",
@@ -63,18 +77,11 @@
     "text": "Pour aller plus loin :\n\nsummarize peut s’écrire aussi summarise (ça dépend si vous êtes plutôt USA ou GB)\nSi vous avez terminé vos opérations de groupe, il est plutôt conseillé de revenir à un jeu de données non groupé pour éviter les erreurs\nDans le summarize, il n’est pas conseillé de chainer les variables Si on reprend l’opération précédente, en une fois dans le summarise, cela donne des résultats étonnants\nComme en SQL (e.g having-count), vous pouvez filtrer les groupes selon des conditions sur ces dits-groupes\n\n\nnv_df %&gt;% group_by(groupe_fictif) %&gt;% summarise(somme=sum(n),pourcentage=somme/sum(somme))\n\n# A tibble: 2 × 3\n  groupe_fictif somme pourcentage\n  &lt;fct&gt;         &lt;int&gt;       &lt;dbl&gt;\n1 irisA           100           1\n2 irisB            50           1\n\n\nExercice :\n\nCalculer les quantiles par espèce d’iris sur la longueur des pétales\n\n\n#iris %&gt;% group_by() %&gt;% summarize()\n\n\nGarder les espèces dont la longueur moyenne des sépales est supérieur à 5.5\n\n\n# iris %&gt;% group_by() %&gt;% filter(mean()&gt;5.5)\n\n\nEt calculer la longueur moyenne des pétales de ces espèces\n\n\n# iris %&gt;% group_by() %&gt;% filter(mean()&gt;5.5) %&gt;% summarize(mean_pl=mean())"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Newslett'R",
+    "objectID": "Actus/2_rproj.html",
+    "href": "Actus/2_rproj.html",
+    "title": "Créer un projet dans Rstudio : le fichier Rproj",
     "section": "",
-    "text": "Newslett’R\n\nChaque semaine, nous vous proposons une astuce en R, accompagnée de quiz et d’exercices, pour tous les niveaux – débutant, avancé ou expert – afin de perfectionner votre maîtrise de R.\n\n\n\nStar this website on Github\n\n\n\nLes dernières newslett’R : \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLes raccourcis R avec Rstudio\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer un projet dans Rstudio : le fichier Rproj\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 21, 2025\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "Actus/1_raccourcis_Rstudio.html",
-    "href": "Actus/1_raccourcis_Rstudio.html",
-    "title": "Les raccourcis R avec Rstudio",
-    "section": "",
-    "text": "Boostez votre productivité sur RStudio avec ces 10 raccourcis indispensables ! Exécutez du code en un clin d’œil, naviguez rapidement entre les fichiers, formatez votre script proprement et commentez en un geste. Que vous soyez débutant ou expert, ces raccourcis vous feront gagner un temps précieux et optimiseront votre workflow. 🚀💡\n\n\n\nRaccourcis R Studio\n\n\nSi vous voulez tester vos connaissances en R : Quiz1"
+    "text": "Créer un projet RStudio permet d´organiser tous vos scripts R et les fichiers (données, sorties…) relatifs à un même projet statistique. Un projet RStudio est un environnement isolé qui évite les conflits entre différents scripts et packages de projets statistiques distincts.\n\nPour créer un projet RStudio, il suffit d´aller dans File &gt; New Project &gt; New Directory &gt; New Project &gt; (renseigner le nom de son projet, cliquer « git » et « renv » si besoin) &gt; Create Project\nRStudio va créer un fichier .Rproj à la racine du dossier du projet choisi, qui permet entre autres d’indiquer à R que vous travaillez dans ce dossier (working directory). En double-cliquant sur le Rproj, RStudio s’ouvre directement dans votre espace projet, et vous pouvez utiliser les chemins relatifs !\nEn haut à droite de l’interface RStudio, vous pouvez naviguer entre vos différents projets.\nPour la configuration du projet RStudio, il est conseillé de ne pas sauvegarder l´espace de travail (données en mémoire visibles dans votre environnement), ni de le recharger, pour des raisons de reproductibilité.\n\n\n\n\nVue RStudio du Rproj\n\n\nSi vous voulez tester vos connaissances en R : Quiz2"
   },
   {
     "objectID": "Exercices/1_group_by.html",
