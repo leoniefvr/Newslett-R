@@ -1,7 +1,8 @@
 ---
 title: "TP group_by"
-format: html
 editor: visual
+format: live-html
+engine: knitr
 ---
 
 ## TP group_by avec Dplyr
@@ -12,9 +13,8 @@ Ce TP permet d'apprendre à produire des regroupements et des agrégats avec la 
 
 Installation et chargement de Dplyr
 
-```{r}
+```{webr}
 #| label: Import dplyr
-#| echo: false
 library("dplyr")
 ```
 
@@ -22,15 +22,14 @@ library("dplyr")
 
 Nous travaillerons avec le dataset iris
 
-```{r}
+```{webr}
 #| label: Chargement dataset
-#| echo: false
 df <- datasets::iris
 ```
 
 Regardons les premiers individus de ce jeu de données
 
-```{r}
+```{webr}
 #| label: Aperçu du dataset
 df %>% head(5)
 ```
@@ -43,14 +42,14 @@ Nous avons quatre variables quantitatives (longueur et largeur du sépale, longu
 
 -   Combien il y a d'espèces d'iris dans le jeu de données ?
 
-```{r}
+```{webr}
 #| label: Dénombrer les espèces
 df %>% select(Species) %>% unique()
 ```
 
 -   Combien d'individus par espèce ?
 
-```{r}
+```{webr}
 #| label: Dénombrer par espèce
 comptage_group_by <- df %>% group_by(Species) %>% count(Species)
 comptage_group_by
@@ -64,55 +63,55 @@ A ce sujet, attention, la plupart du temps dplyr souhaite en général les noms 
 
 Un aperçu des "effets de bord" que vous pouvez avoir avec des guillemets :
 
-```{r}
+```{webr}
 #| label: Ajout d'une colonne Species caractère et group_by dessus, mais compte exacte
 df %>% group_by("Species") %>% count(Species)
 ```
 
 Ici, on s'en sort plutôt bien car c'est bien ce que nous souhaitons faire
 
-```{r}
+```{webr}
 #| label: Ajout d'une colonne Species caractère et group_by dessus, et compte inexacte
 df %>% group_by("Species") %>% count("Species")
 ```
 
 Cela vaccine bien : il faut plutôt ne pas mettre de guillemets (sauf dans un éventuel by sur les jointures dplyr)
 
-```{r}
+```{webr}
 #| label: Une syntaxe particulière pour une jointure gourmande !
 df %>% inner_join(df,by="Species") %>% head(10)
 ```
 
 Si nous reprenons notre objet de comptage `comptage_group_by`, nous pouvons nous apercevoir que c'est un objet tibble 3\*2 et qu'il est actuellement groupé par "Species". Toute opération d'agrégat/groupe sera faite par rapport à cette variable.
 
-```{r}
+```{webr}
 #| label: Inspection générale !
 comptage_group_by
 ```
 
 Vous pouvez voir le groupe aussi avec `group_vars()`
 
-```{r}
+```{webr}
 #| label: Quel grand groupe ?
 comptage_group_by %>% group_vars()
 ```
 
 Pour défaire le group (et éventuellement regrouper avec une autre variable), nous pouvons utiliser la commande `ungroup` :
 
-```{r}
+```{webr}
 #| label: Dégroupage téléphonique !
 comptage_group_by %>% ungroup()
 ```
 
 Regroupons artificiellement à l'aide de valeurs fictives les deux premières espèces en irisA, et le reste en irisB :
 
-```{r}
+```{webr}
 #| label: Ajout d'une catégorie fictive
 nv_df <- comptage_group_by %>% cbind(groupe_fictif=as.factor(c("irisA","irisA","irisB")))
 nv_df
 ```
 
-```{r}
+```{webr}
 #| label: Calcul somme et part
 nv_df %>% group_by(groupe_fictif) %>% summarise(somme=sum(n))  %>% mutate(pourcentage=somme/sum(somme))
 ```
@@ -121,7 +120,7 @@ La fonction summarise est une fonction "terminale", elle synthétise et "dégrou
 
 (il est possible de garder les groupes avec `.groups = "keep"`)
 
-```{r}
+```{webr}
 #| label: Garder les groupes
 df %>% group_by(Species) %>%   summarize(mean_value = mean(Petal.Length), .groups = "keep")
 ```
@@ -133,7 +132,7 @@ df %>% group_by(Species) %>%   summarize(mean_value = mean(Petal.Length), .group
 -   Dans le summarize, il n'est pas conseillé de chainer les variables Si on reprend l'opération précédente, en une fois dans le summarise, cela donne des résultats étonnants
 -   Comme en SQL (e.g having-count), vous pouvez filtrer les groupes selon des conditions sur ces dits-groupes
 
-```{r}
+```{webr}
 #| label: Effet de bord 2 (1/1)
 nv_df %>% group_by(groupe_fictif) %>% summarise(somme=sum(n),pourcentage=somme/sum(somme))
 ```
@@ -142,21 +141,21 @@ Exercice :
 
 -   Calculer les quantiles par espèce d'iris sur la longueur des pétales
 
-```{r}
+```{webr}
 #| label: A vous de jouer !
 #iris %>% group_by() %>% summarize()
 ```
 
 -   Garder les espèces dont la longueur moyenne des sépales est supérieur à 5.5
 
-```{r}
+```{webr}
 #| label: A vous de jouer !2
 # iris %>% group_by() %>% filter(mean()>5.5)
 ```
 
 -   Et calculer la longueur moyenne des pétales de ces espèces
 
-```{r}
+```{webr}
 #| label: A vous de jouer !3
 # iris %>% group_by() %>% filter(mean()>5.5) %>% summarize(mean_pl=mean())
 ```
