@@ -9,4 +9,4 @@ categories:
 image: ../img/3_group_by.png
 ---
 
-[Exercice group_by](../Notebooks/Exercices/1_tp_groupby_dplyr.qmd)
+[Exercice group_by](../Notebooks/1_tp_groupby_dplyr.qmd)
