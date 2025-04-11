@@ -137,7 +137,7 @@ df %>% group_by(Species) %>%   summarize(mean_value = mean(Petal.Length), .group
 nv_df %>% group_by(groupe_fictif) %>% summarise(somme=sum(n),pourcentage=somme/sum(somme))
 ```
 
-Exercice :
+Exercice (à vous de compléter !) :
 
 -   Calculer les quantiles par espèce d'iris sur la longueur des pétales
 
