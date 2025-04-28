@@ -1,10 +1,38 @@
 [
   {
-    "objectID": "Quizs/2_rproj_quiz.html",
-    "href": "Quizs/2_rproj_quiz.html",
-    "title": "Créer un projet dans Rstudio : le fichier Rproj - Quiz",
+    "objectID": "Actus/3_sheet_cheat.html",
+    "href": "Actus/3_sheet_cheat.html",
+    "title": "Aides-mémoires",
     "section": "",
-    "text": "Quelle fonction peut être utilisée pour lire un fichier CSV en R ?\n\n\nread.csv()\nimport.csv()\nload.csv()\nopen.csv()\n\n\nComment installer un package en R ?\n\n\ninstall.packages(“ggplot2”)\nlibrary(ggplot2)\nrenv::install(“ggplot2”)\nload.package(“ggplot2”)\n\n\nQuelle fonction permet d’afficher les dimensions d’un dataframe df ?\n\n\nnrow(df)\nncol(df)\ndim(df)\nlength(df)\n\n\nQue retourne mean(c(2, NA, 4, 6), na.rm = TRUE) ?\n\n\nNA\n4\n3.5\n12"
+    "text": "Il existe de nombreuses cheat sheets (aide mémoire en format poster) pour vous aider. Voici quelques-unes de nos préférées :\n\nBase R Cheat Sheet\nDplyr (en français)\nGgplot2 (en français)\nLubridate (gestion des dates en R)\nSQL Basics Cheat Sheet\nStringr (manipulation de chaîne de caractères et expressions régulières)\n\nN’hésitez pas à les consulter et à les partager !"
+  },
+  {
+    "objectID": "Actus/4_aide_memoire.html",
+    "href": "Actus/4_aide_memoire.html",
+    "title": "Aides-mémoires",
+    "section": "",
+    "text": "Le saviez-vous ? Un aide-mémoire est disponible pour vous guider dans la conversion de code SAS vers d’autres langages tels que R, DuckDB et Python. Retrouvez-le à cette adresse Aide-mémoire SAS - R - pandas] ! Ce guide est également collaboratif : vous pouvez y contribuer en proposant de nouvelles traductions, en l’enrichissant ou en corrigeant d’éventuelles erreurs. N’hésitez pas à participer !"
+  },
+  {
+    "objectID": "Exercices/1_group_by.html",
+    "href": "Exercices/1_group_by.html",
+    "title": "Apprendre le group_by de dplyr",
+    "section": "",
+    "text": "Exercice group_by"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Newslett'R",
+    "section": "",
+    "text": "Newslett’R\n\nChaque semaine, nous vous proposons une astuce en R, accompagnée de quiz et d’exercices, pour tous les niveaux – débutant, avancé ou expert – afin de perfectionner votre maîtrise de R.\n\n\n\nStar this website on Github\n\n\n\nLes dernières newslett’R : \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLes raccourcis R avec Rstudio\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer un projet dans Rstudio : le fichier Rproj\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 21, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAides-mémoires\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 4, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAides-mémoires\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 25, 2025\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "Quizs/1_raccourcis_Rstudio_quiz.html",
+    "href": "Quizs/1_raccourcis_Rstudio_quiz.html",
+    "title": "Les raccourcis R avec Rstudio - Quiz",
+    "section": "",
+    "text": "Comment appelle-t-on un tableau bidimensionnel en R ?\n\n\nDataFrame\nVector\nMatrix\nArray\n\n\nQuel symbole est utilisé pour assigner une valeur à une variable en R ?\n\n\n=\n-&gt;\n&lt;-\n:\n\n\nQuelle commande permet d´afficher les premières lignes d’un DataFrame en R ?\n\n\nview()\nhead()\ntop()\nsummary()\n\n\nQuel package est célèbre pour la manipulation de données en R ?\n\n\nggplot2\ndplyr\nshiny\nknitr"
   },
   {
     "objectID": "ressources.html",
@@ -21,25 +49,11 @@
     "text": "utilitR\nAide-mémoire SAS - R - pandas"
   },
   {
-    "objectID": "Actus/3_sheet_cheat.html",
-    "href": "Actus/3_sheet_cheat.html",
-    "title": "Aides-mémoires",
+    "objectID": "Quizs/2_rproj_quiz.html",
+    "href": "Quizs/2_rproj_quiz.html",
+    "title": "Créer un projet dans Rstudio : le fichier Rproj - Quiz",
     "section": "",
-    "text": "Il existe de nombreuses cheat sheets (aide mémoire en format poster) pour vous aider. Voici quelques-unes de nos préférées :\n\nBase R Cheat Sheet\nDplyr (en français)\nGgplot2 (en français)\nLubridate (gestion des dates en R)\nSQL Basics Cheat Sheet\nStringr (manipulation de chaîne de caractères et expressions régulières)\n\nN’hésitez pas à les consulter et à les partager !"
-  },
-  {
-    "objectID": "Actus/1_raccourcis_Rstudio.html",
-    "href": "Actus/1_raccourcis_Rstudio.html",
-    "title": "Les raccourcis R avec Rstudio",
-    "section": "",
-    "text": "Boostez votre productivité sur RStudio avec ces 10 raccourcis indispensables ! Exécutez du code en un clin d’œil, naviguez rapidement entre les fichiers, formatez votre script proprement et commentez en un geste. Que vous soyez débutant ou expert, ces raccourcis vous feront gagner un temps précieux et optimiseront votre workflow. 🚀💡\n\n\n\nRaccourcis R Studio\n\n\nSi vous voulez tester vos connaissances en R : Quiz1"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Newslett'R",
-    "section": "",
-    "text": "Newslett’R\n\nChaque semaine, nous vous proposons une astuce en R, accompagnée de quiz et d’exercices, pour tous les niveaux – débutant, avancé ou expert – afin de perfectionner votre maîtrise de R.\n\n\n\nStar this website on Github\n\n\n\nLes dernières newslett’R : \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLes raccourcis R avec Rstudio\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer un projet dans Rstudio : le fichier Rproj\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 21, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAides-mémoires\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 4, 2025\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Quelle fonction peut être utilisée pour lire un fichier CSV en R ?\n\n\nread.csv()\nimport.csv()\nload.csv()\nopen.csv()\n\n\nComment installer un package en R ?\n\n\ninstall.packages(“ggplot2”)\nlibrary(ggplot2)\nrenv::install(“ggplot2”)\nload.package(“ggplot2”)\n\n\nQuelle fonction permet d’afficher les dimensions d’un dataframe df ?\n\n\nnrow(df)\nncol(df)\ndim(df)\nlength(df)\n\n\nQue retourne mean(c(2, NA, 4, 6), na.rm = TRUE) ?\n\n\nNA\n4\n3.5\n12"
   },
   {
     "objectID": "Notebooks/1_tp_groupby_dplyr.html",
@@ -84,17 +98,10 @@
     "text": "Créer un projet RStudio permet d´organiser tous vos scripts R et les fichiers (données, sorties…) relatifs à un même projet statistique. Un projet RStudio est un environnement isolé qui évite les conflits entre différents scripts et packages de projets statistiques distincts.\n\nPour créer un projet RStudio, il suffit d´aller dans File &gt; New Project &gt; New Directory &gt; New Project &gt; (renseigner le nom de son projet, cliquer « git » et « renv » si besoin) &gt; Create Project\nRStudio va créer un fichier .Rproj à la racine du dossier du projet choisi, qui permet entre autres d’indiquer à R que vous travaillez dans ce dossier (working directory). En double-cliquant sur le Rproj, RStudio s’ouvre directement dans votre espace projet, et vous pouvez utiliser les chemins relatifs !\nEn haut à droite de l’interface RStudio, vous pouvez naviguer entre vos différents projets.\nPour la configuration du projet RStudio, il est conseillé de ne pas sauvegarder l´espace de travail (données en mémoire visibles dans votre environnement), ni de le recharger, pour des raisons de reproductibilité.\n\n\n\n\nVue RStudio du Rproj\n\n\nSi vous voulez tester vos connaissances en R : Quiz2"
   },
   {
-    "objectID": "Exercices/1_group_by.html",
-    "href": "Exercices/1_group_by.html",
-    "title": "Apprendre le group_by de dplyr",
+    "objectID": "Actus/1_raccourcis_Rstudio.html",
+    "href": "Actus/1_raccourcis_Rstudio.html",
+    "title": "Les raccourcis R avec Rstudio",
     "section": "",
-    "text": "Exercice group_by"
-  },
-  {
-    "objectID": "Quizs/1_raccourcis_Rstudio_quiz.html",
-    "href": "Quizs/1_raccourcis_Rstudio_quiz.html",
-    "title": "Les raccourcis R avec Rstudio - Quiz",
-    "section": "",
-    "text": "Comment appelle-t-on un tableau bidimensionnel en R ?\n\n\nDataFrame\nVector\nMatrix\nArray\n\n\nQuel symbole est utilisé pour assigner une valeur à une variable en R ?\n\n\n=\n-&gt;\n&lt;-\n:\n\n\nQuelle commande permet d´afficher les premières lignes d’un DataFrame en R ?\n\n\nview()\nhead()\ntop()\nsummary()\n\n\nQuel package est célèbre pour la manipulation de données en R ?\n\n\nggplot2\ndplyr\nshiny\nknitr"
+    "text": "Boostez votre productivité sur RStudio avec ces 10 raccourcis indispensables ! Exécutez du code en un clin d’œil, naviguez rapidement entre les fichiers, formatez votre script proprement et commentez en un geste. Que vous soyez débutant ou expert, ces raccourcis vous feront gagner un temps précieux et optimiseront votre workflow. 🚀💡\n\n\n\nRaccourcis R Studio\n\n\nSi vous voulez tester vos connaissances en R : Quiz1"
   }
 ]

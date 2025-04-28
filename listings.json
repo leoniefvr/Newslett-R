@@ -1,5 +1,23 @@
 [
   {
+    "listing": "/index.html",
+    "items": [
+      "/Actus/1_raccourcis_Rstudio.html",
+      "/Actus/2_rproj.html",
+      "/Actus/3_sheet_cheat.html",
+      "/Actus/4_aide_memoire.html"
+    ]
+  },
+  {
+    "listing": "/debute.html",
+    "items": [
+      "/Actus/1_raccourcis_Rstudio.html",
+      "/Actus/2_rproj.html",
+      "/Actus/3_sheet_cheat.html",
+      "/Actus/4_aide_memoire.html"
+    ]
+  },
+  {
     "listing": "/quizs.html",
     "items": [
       "/Quizs/1_raccourcis_Rstudio_quiz.html",
@@ -7,12 +25,8 @@
     ]
   },
   {
-    "listing": "/index.html",
-    "items": [
-      "/Actus/1_raccourcis_Rstudio.html",
-      "/Actus/2_rproj.html",
-      "/Actus/3_sheet_cheat.html"
-    ]
+    "listing": "/intermediaire.html",
+    "items": []
   },
   {
     "listing": "/exercices.html",
@@ -23,17 +37,5 @@
   {
     "listing": "/expertise.html",
     "items": []
-  },
-  {
-    "listing": "/intermediaire.html",
-    "items": []
-  },
-  {
-    "listing": "/debute.html",
-    "items": [
-      "/Actus/1_raccourcis_Rstudio.html",
-      "/Actus/2_rproj.html",
-      "/Actus/3_sheet_cheat.html"
-    ]
   }
 ]
