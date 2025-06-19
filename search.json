@@ -46,7 +46,7 @@
     "href": "Actus/6_structuration_projet.html",
     "title": "Structuration des projets",
     "section": "",
-    "text": "Une fois ton projet créé dans RStudio avec un fichier .Rproj, il est temps de passer à la vitesse supérieure : organiser proprement ton espace de travail.\n🔹 Dossier data/ : pour stocker tes données brutes. Attention, elles sont souvent sensibles, donc on évite de les versionner avec Git.\n🔹 Dossier R/ ou scripts/ : ici, tu ranges tous tes scripts R. Fini le code éparpillé !\n🔹 Dossier outputs/ : pour les résultats générés par tes analyses. Tu peux même le subdiviser :\noutputs/tmp/ pour les sorties temporaires (non suivies par Git),\noutputs/final/ pour les résultats finaux (eux aussi souvent exclus de Git).\n💡 Une structure claire, c’est du temps gagné, moins d’erreurs, et une collaboration facilitée."
+    "text": "Une fois ton projet créé dans RStudio avec un fichier .Rproj, il est temps de passer à la vitesse supérieure : organiser proprement ton espace de travail.\n🔹 Dossier data/ : pour stocker tes données brutes. Attention, elles sont souvent sensibles, donc on évite de les versionner avec Git.\n🔹 Dossier R/ ou scripts/ : ici, tu ranges tous tes scripts R. Fini le code éparpillé !\n🔹 Dossier outputs/ : pour les résultats générés par tes analyses. Tu peux même le subdiviser :\noutputs/tmp/ pour les sorties temporaires (non suivies par Git),\noutputs/final/ pour les résultats finaux (eux aussi souvent exclus de Git).\n💡 Une structure claire, c’est du temps gagné, moins d’erreurs, et une collaboration facilitée.\n\n\n\nExemple vu de Rstudio"
   },
   {
     "objectID": "Actus/1_raccourcis_Rstudio.html",
