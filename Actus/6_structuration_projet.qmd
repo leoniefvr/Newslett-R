@@ -23,3 +23,5 @@ outputs/tmp/ pour les sorties temporaires (non suivies par Git),
 outputs/final/ pour les résultats finaux (eux aussi souvent exclus de Git).
 
 💡 Une structure claire, c’est du temps gagné, moins d’erreurs, et une collaboration facilitée.
+
+![Exemple vu de Rstudio](../img/6_structuration_projet.png)
