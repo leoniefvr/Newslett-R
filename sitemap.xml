@@ -2,66 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://leoniefvr.github.io/Newslett-R/Quizs/2_rproj_quiz.html</loc>
-    <lastmod>2025-06-19T08:06:51.966Z</lastmod>
+    <lastmod>2025-06-19T08:16:53.127Z</lastmod>
   </url>
   <url>
     <loc>https://leoniefvr.github.io/Newslett-R/Notebooks/1_tp_groupby_dplyr.html</loc>
-    <lastmod>2025-06-19T08:06:51.965Z</lastmod>
+    <lastmod>2025-06-19T08:16:53.127Z</lastmod>
   </url>
   <url>
     <loc>https://leoniefvr.github.io/Newslett-R/debute.html</loc>
-    <lastmod>2025-06-19T08:06:51.971Z</lastmod>
+    <lastmod>2025-06-19T08:16:53.132Z</lastmod>
   </url>
   <url>
-    <loc>https://leoniefvr.github.io/Newslett-R/Actus/4_aide_memoire.html</loc>
-    <lastmod>2025-06-19T08:06:51.964Z</lastmod>
-  </url>
-  <url>
-    <loc>https://leoniefvr.github.io/Newslett-R/Actus/2_rproj.html</loc>
-    <lastmod>2025-06-19T08:06:51.964Z</lastmod>
-  </url>
-  <url>
-    <loc>https://leoniefvr.github.io/Newslett-R/expertise.html</loc>
-    <lastmod>2025-06-19T08:06:51.971Z</lastmod>
-  </url>
-  <url>
-    <loc>https://leoniefvr.github.io/Newslett-R/intermediaire.html</loc>
-    <lastmod>2025-06-19T08:06:51.978Z</lastmod>
-  </url>
-  <url>
-    <loc>https://leoniefvr.github.io/Newslett-R/quizs.html</loc>
-    <lastmod>2025-06-19T08:06:51.978Z</lastmod>
-  </url>
-  <url>
-    <loc>https://leoniefvr.github.io/Newslett-R/ressources.html</loc>
-    <lastmod>2025-06-19T08:06:51.979Z</lastmod>
-  </url>
-  <url>
-    <loc>https://leoniefvr.github.io/Newslett-R/Exercices/1_group_by.html</loc>
-    <lastmod>2025-06-19T08:06:51.964Z</lastmod>
-  </url>
-  <url>
-    <loc>https://leoniefvr.github.io/Newslett-R/index.html</loc>
-    <lastmod>2025-06-19T08:06:51.978Z</lastmod>
-  </url>
-  <url>
-    <loc>https://leoniefvr.github.io/Newslett-R/Actus/5_lecture_donnees.html</loc>
-    <lastmod>2025-06-19T08:06:51.964Z</lastmod>
+    <loc>https://leoniefvr.github.io/Newslett-R/Actus/6_structuration_projet.html</loc>
+    <lastmod>2025-06-19T08:16:53.126Z</lastmod>
   </url>
   <url>
     <loc>https://leoniefvr.github.io/Newslett-R/Actus/1_raccourcis_Rstudio.html</loc>
-    <lastmod>2025-06-19T08:06:51.964Z</lastmod>
+    <lastmod>2025-06-19T08:16:53.125Z</lastmod>
+  </url>
+  <url>
+    <loc>https://leoniefvr.github.io/Newslett-R/Actus/5_lecture_donnees.html</loc>
+    <lastmod>2025-06-19T08:16:53.125Z</lastmod>
+  </url>
+  <url>
+    <loc>https://leoniefvr.github.io/Newslett-R/index.html</loc>
+    <lastmod>2025-06-19T08:16:53.140Z</lastmod>
+  </url>
+  <url>
+    <loc>https://leoniefvr.github.io/Newslett-R/Exercices/1_group_by.html</loc>
+    <lastmod>2025-06-19T08:16:53.126Z</lastmod>
+  </url>
+  <url>
+    <loc>https://leoniefvr.github.io/Newslett-R/ressources.html</loc>
+    <lastmod>2025-06-19T08:16:53.140Z</lastmod>
+  </url>
+  <url>
+    <loc>https://leoniefvr.github.io/Newslett-R/quizs.html</loc>
+    <lastmod>2025-06-19T08:16:53.140Z</lastmod>
+  </url>
+  <url>
+    <loc>https://leoniefvr.github.io/Newslett-R/intermediaire.html</loc>
+    <lastmod>2025-06-19T08:16:53.140Z</lastmod>
+  </url>
+  <url>
+    <loc>https://leoniefvr.github.io/Newslett-R/expertise.html</loc>
+    <lastmod>2025-06-19T08:16:53.132Z</lastmod>
+  </url>
+  <url>
+    <loc>https://leoniefvr.github.io/Newslett-R/Actus/2_rproj.html</loc>
+    <lastmod>2025-06-19T08:16:53.125Z</lastmod>
+  </url>
+  <url>
+    <loc>https://leoniefvr.github.io/Newslett-R/Actus/4_aide_memoire.html</loc>
+    <lastmod>2025-06-19T08:16:53.125Z</lastmod>
   </url>
   <url>
     <loc>https://leoniefvr.github.io/Newslett-R/Actus/3_sheet_cheat.html</loc>
-    <lastmod>2025-06-19T08:06:51.964Z</lastmod>
+    <lastmod>2025-06-19T08:16:53.125Z</lastmod>
   </url>
   <url>
     <loc>https://leoniefvr.github.io/Newslett-R/exercices.html</loc>
-    <lastmod>2025-06-19T08:06:51.971Z</lastmod>
+    <lastmod>2025-06-19T08:16:53.132Z</lastmod>
   </url>
   <url>
     <loc>https://leoniefvr.github.io/Newslett-R/Quizs/1_raccourcis_Rstudio_quiz.html</loc>
-    <lastmod>2025-06-19T08:06:51.965Z</lastmod>
+    <lastmod>2025-06-19T08:16:53.127Z</lastmod>
   </url>
 </urlset>

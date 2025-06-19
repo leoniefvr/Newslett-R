@@ -6,22 +6,8 @@
       "/Actus/2_rproj.html",
       "/Actus/3_sheet_cheat.html",
       "/Actus/4_aide_memoire.html",
-      "/Actus/5_lecture_donnees.html"
-    ]
-  },
-  {
-    "listing": "/expertise.html",
-    "items": []
-  },
-  {
-    "listing": "/intermediaire.html",
-    "items": []
-  },
-  {
-    "listing": "/quizs.html",
-    "items": [
-      "/Quizs/1_raccourcis_Rstudio_quiz.html",
-      "/Quizs/2_rproj_quiz.html"
+      "/Actus/5_lecture_donnees.html",
+      "/Actus/6_structuration_projet.html"
     ]
   },
   {
@@ -31,8 +17,24 @@
       "/Actus/2_rproj.html",
       "/Actus/3_sheet_cheat.html",
       "/Actus/4_aide_memoire.html",
-      "/Actus/5_lecture_donnees.html"
+      "/Actus/5_lecture_donnees.html",
+      "/Actus/6_structuration_projet.html"
     ]
+  },
+  {
+    "listing": "/quizs.html",
+    "items": [
+      "/Quizs/1_raccourcis_Rstudio_quiz.html",
+      "/Quizs/2_rproj_quiz.html"
+    ]
+  },
+  {
+    "listing": "/intermediaire.html",
+    "items": []
+  },
+  {
+    "listing": "/expertise.html",
+    "items": []
   },
   {
     "listing": "/exercices.html",
