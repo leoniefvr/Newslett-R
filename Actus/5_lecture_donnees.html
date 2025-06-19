@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="">
+<meta name="dcterms.date" content="2025-06-19">
 
-<title>intermediaire – Newslett'R</title>
+<title>Lecture des données – Newslett’R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +25,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-23887634c5b85ef1cc62e9940143e734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-23887634c5b85ef1cc62e9940143e734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,65 +69,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-image"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -138,7 +80,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Newslett’R</span>
     </a>
   </div>
@@ -149,31 +91,31 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Accueil Newslett’R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./debute.html"> 
+    <a class="nav-link" href="../debute.html"> 
 <span class="menu-text">Je débute en R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./intermediaire.html" aria-current="page"> 
+    <a class="nav-link" href="../intermediaire.html"> 
 <span class="menu-text">J’approfondis en R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./expertise.html"> 
+    <a class="nav-link" href="../expertise.html"> 
 <span class="menu-text">Je m’y connais bien en R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./quizs.html"> 
+    <a class="nav-link" href="../quizs.html"> 
 <span class="menu-text">Quizs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./exercices.html"> 
+    <a class="nav-link" href="../exercices.html"> 
 <span class="menu-text">Exercices</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./ressources.html"> 
+    <a class="nav-link" href="../ressources.html"> 
 <span class="menu-text">Autres ressources</span></a>
   </li>  
 </ul>
@@ -187,34 +129,45 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#japprofondis" id="toc-japprofondis" class="nav-link active" data-scroll-target="#japprofondis">J’approfondis</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lecture des données</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Newsletter</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="japprofondis" class="level2">
-<h2 class="anchored" data-anchor-id="japprofondis">J’approfondis</h2>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 19, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>📢 Aujourd’hui, on vous apprend à lire des données en R ! Il existe plusieurs formats de réprésentation des données : 🔹 Fichiers plats (CSV, TXT, TSV, etc.) 👉 Utilisez read.csv(), read.table() ou fread() (plus rapide avec {data.table}). 🔹 Fichiers Excel et formats spécifiques (JSON, XML, YAML, etc.) 👉 Pour Excel : readxl::read_excel() ou openxlsx::read.xlsx(). 👉 Pour JSON : jsonlite::fromJSON(), pour XML : xml2::read_xml(), et pour YAML : yaml::read_yaml(). 🔹 Bases de données 👉 Pour SQL : DBI::dbReadTable(), pour SQLite : RSQLite::dbReadTable(), ou encore RODBC::sqlQuery() pour l’ODBC. 🔹 Web et HTML 👉 Pour lire du HTML : rvest::read_html() permet de scraper des pages web facilement. 👉 Vous pouvez aussi récupérer des données via des API avec httr::GET(). 🔹 Parquet 👉 Utilisez arrow::read_parquet() ou arrow::open_dataset() pour lire des fichiers Parquet. 🌟 Astuce : Avec ces fonctions, vous pouvez ajuster le paramètre memory = TRUE ou memory = FALSE. memory = TRUE : Charge directement les données sous forme de data.frame dans R, ce qui est plus pratique si vous avez besoin de manipuler immédiatement l’ensemble des données. memory = FALSE : Permet d’effectuer des opérations plus ciblées sans charger toute la table en mémoire. Idéal lorsque vous travaillez avec de très gros fichiers et souhaitez filtrer ou transformer les données avant de les charger en mémoire à l’aide de la fonction arrow::collect() Bonus : La librairie RIO 👉 La librairie {rio} simplifie la lecture de fichiers dans différents formats, en offrant une méthode universelle avec rio::import() pour des fichiers CSV, Excel, JSON, SAS, et bien plus encore ! 🛠️ Et vous, quel format utilisez-vous le plus ? 😊</p>
 
 
 
-</section>
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
