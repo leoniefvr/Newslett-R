@@ -163,7 +163,27 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>📢 Aujourd’hui, on vous apprend à lire des données en R ! Il existe plusieurs formats de réprésentation des données : 🔹 Fichiers plats (CSV, TXT, TSV, etc.) 👉 Utilisez read.csv(), read.table() ou fread() (plus rapide avec {data.table}). 🔹 Fichiers Excel et formats spécifiques (JSON, XML, YAML, etc.) 👉 Pour Excel : readxl::read_excel() ou openxlsx::read.xlsx(). 👉 Pour JSON : jsonlite::fromJSON(), pour XML : xml2::read_xml(), et pour YAML : yaml::read_yaml(). 🔹 Bases de données 👉 Pour SQL : DBI::dbReadTable(), pour SQLite : RSQLite::dbReadTable(), ou encore RODBC::sqlQuery() pour l’ODBC. 🔹 Web et HTML 👉 Pour lire du HTML : rvest::read_html() permet de scraper des pages web facilement. 👉 Vous pouvez aussi récupérer des données via des API avec httr::GET(). 🔹 Parquet 👉 Utilisez arrow::read_parquet() ou arrow::open_dataset() pour lire des fichiers Parquet. 🌟 Astuce : Avec ces fonctions, vous pouvez ajuster le paramètre memory = TRUE ou memory = FALSE. memory = TRUE : Charge directement les données sous forme de data.frame dans R, ce qui est plus pratique si vous avez besoin de manipuler immédiatement l’ensemble des données. memory = FALSE : Permet d’effectuer des opérations plus ciblées sans charger toute la table en mémoire. Idéal lorsque vous travaillez avec de très gros fichiers et souhaitez filtrer ou transformer les données avant de les charger en mémoire à l’aide de la fonction arrow::collect() Bonus : La librairie RIO 👉 La librairie {rio} simplifie la lecture de fichiers dans différents formats, en offrant une méthode universelle avec rio::import() pour des fichiers CSV, Excel, JSON, SAS, et bien plus encore ! 🛠️ Et vous, quel format utilisez-vous le plus ? 😊</p>
+<p>📢 Aujourd’hui, on vous apprend à lire des données en R ! Il existe plusieurs formats de réprésentation des données :</p>
+<p>🔹 Fichiers plats (CSV, TXT, TSV, etc.)</p>
+<p>👉 Utilisez read.csv(), read.table() ou fread() (plus rapide avec {data.table}).</p>
+<p>🔹 Fichiers Excel et formats spécifiques (JSON, XML, YAML, etc.)</p>
+<p>👉 Pour Excel : readxl::read_excel() ou openxlsx::read.xlsx().</p>
+<p>👉 Pour JSON : jsonlite::fromJSON(), pour XML : xml2::read_xml(), et pour YAML : yaml::read_yaml().</p>
+<p>🔹 Bases de données</p>
+<p>👉 Pour SQL : DBI::dbReadTable(), pour SQLite : RSQLite::dbReadTable(), ou encore RODBC::sqlQuery() pour l’ODBC.</p>
+<p>🔹 Web et HTML</p>
+<p>👉 Pour lire du HTML : rvest::read_html() permet de scraper des pages web facilement.</p>
+<p>👉 Vous pouvez aussi récupérer des données via des API avec httr::GET().</p>
+<p>🔹 Parquet</p>
+<p>👉 Utilisez arrow::read_parquet() ou arrow::open_dataset() pour lire des fichiers Parquet.</p>
+<p>🌟 Astuce : Avec ces fonctions, vous pouvez ajuster le paramètre memory = TRUE ou memory = FALSE.</p>
+<ul>
+<li>memory = TRUE : Charge directement les données sous forme de data.frame dans R, ce qui est plus pratique si vous avez besoin de manipuler immédiatement l’ensemble des données.</li>
+<li>memory = FALSE : Permet d’effectuer des opérations plus ciblées sans charger toute la table en mémoire. Idéal lorsque vous travaillez avec de très gros fichiers et souhaitez filtrer ou transformer les données avant de les charger en mémoire à l’aide de la fonction arrow::collect()</li>
+</ul>
+<p><em>Bonus : La librairie RIO</em></p>
+<p>👉 La librairie {rio} simplifie la lecture de fichiers dans différents formats, en offrant une méthode universelle avec rio::import() pour des fichiers CSV, Excel, JSON, SAS, et bien plus encore !</p>
+<p>🛠️ Et vous, quel format utilisez-vous le plus ? 😊</p>
 
 
 
