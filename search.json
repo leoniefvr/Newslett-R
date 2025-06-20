@@ -49,32 +49,18 @@
     "text": "Une fois ton projet créé dans RStudio avec un fichier .Rproj, il est temps de passer à la vitesse supérieure : organiser proprement ton espace de travail.\n🔹 Dossier data/ : pour stocker tes données brutes. Attention, elles sont souvent sensibles, donc on évite de les versionner avec Git.\n🔹 Dossier R/ ou scripts/ : ici, tu ranges tous tes scripts R. Fini le code éparpillé !\n🔹 Dossier outputs/ : pour les résultats générés par tes analyses. Tu peux même le subdiviser :\noutputs/tmp/ pour les sorties temporaires (non suivies par Git),\noutputs/final/ pour les résultats finaux (eux aussi souvent exclus de Git).\n💡 Une structure claire, c’est du temps gagné, moins d’erreurs, et une collaboration facilitée.\n\n\n\nExemple vu de Rstudio"
   },
   {
-    "objectID": "Actus/1_raccourcis_Rstudio.html",
-    "href": "Actus/1_raccourcis_Rstudio.html",
-    "title": "Les raccourcis R avec Rstudio",
+    "objectID": "Actus/7_stat_dplyr.html",
+    "href": "Actus/7_stat_dplyr.html",
+    "title": "Statistiques de base avec dplyr",
     "section": "",
-    "text": "Boostez votre productivité sur RStudio avec ces 10 raccourcis indispensables ! Exécutez du code en un clin d’œil, naviguez rapidement entre les fichiers, formatez votre script proprement et commentez en un geste. Que vous soyez débutant ou expert, ces raccourcis vous feront gagner un temps précieux et optimiseront votre workflow. 🚀💡\n\n\n\nRaccourcis R Studio\n\n\nSi vous voulez tester vos connaissances en R : Quiz1"
+    "text": "filter() = Filtrer des lignes select() = Sélectionner des colonnes mutate() = Créer de nouvelles variables summarise() = Calculer des statistiques résumées group_by() = Grouper avant de résumer arrange() = Trier des lignes\ndata %&gt;% summarise( mean_var = mean(ma_variable, na.rm = TRUE), median_var = median(ma_variable, na.rm = TRUE) min_var = min(ma_variable, na.rm = TRUE), max_var = max(ma_variable, na.rm = TRUE), sd_var = sd(ma_variable, na.rm = TRUE), n_obs = n() )\net vous, quelle est votre fonction préférée ?"
   },
   {
-    "objectID": "Actus/5_lecture_donnees.html",
-    "href": "Actus/5_lecture_donnees.html",
-    "title": "Lecture des données",
+    "objectID": "Actus/2_rproj.html",
+    "href": "Actus/2_rproj.html",
+    "title": "Créer un projet dans Rstudio : le fichier Rproj",
     "section": "",
-    "text": "📢 Aujourd’hui, on vous apprend à lire des données en R ! Il existe plusieurs formats de réprésentation des données :\n🔹 Fichiers plats (CSV, TXT, TSV, etc.)\n👉 Utilisez read.csv(), read.table() ou fread() (plus rapide avec {data.table}).\n🔹 Fichiers Excel et formats spécifiques (JSON, XML, YAML, etc.)\n👉 Pour Excel : readxl::read_excel() ou openxlsx::read.xlsx().\n👉 Pour JSON : jsonlite::fromJSON(), pour XML : xml2::read_xml(), et pour YAML : yaml::read_yaml().\n🔹 Bases de données\n👉 Pour SQL : DBI::dbReadTable(), pour SQLite : RSQLite::dbReadTable(), ou encore RODBC::sqlQuery() pour l’ODBC.\n🔹 Web et HTML\n👉 Pour lire du HTML : rvest::read_html() permet de scraper des pages web facilement.\n👉 Vous pouvez aussi récupérer des données via des API avec httr::GET().\n🔹 Parquet\n👉 Utilisez arrow::read_parquet() ou arrow::open_dataset() pour lire des fichiers Parquet.\n🌟 Astuce : Avec ces fonctions, vous pouvez ajuster le paramètre memory = TRUE ou memory = FALSE.\n\nmemory = TRUE : Charge directement les données sous forme de data.frame dans R, ce qui est plus pratique si vous avez besoin de manipuler immédiatement l’ensemble des données.\nmemory = FALSE : Permet d’effectuer des opérations plus ciblées sans charger toute la table en mémoire. Idéal lorsque vous travaillez avec de très gros fichiers et souhaitez filtrer ou transformer les données avant de les charger en mémoire à l’aide de la fonction arrow::collect()\n\nBonus : La librairie RIO\n👉 La librairie {rio} simplifie la lecture de fichiers dans différents formats, en offrant une méthode universelle avec rio::import() pour des fichiers CSV, Excel, JSON, SAS, et bien plus encore !\n🛠️ Et vous, quel format utilisez-vous le plus ? 😊"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Newslett'R",
-    "section": "",
-    "text": "Newslett’R\n\nChaque semaine, nous vous proposons une astuce en R, accompagnée de quiz et d’exercices, pour tous les niveaux – débutant, avancé ou expert – afin de perfectionner votre maîtrise de R.\n\n\n\nStar this website on Github\n\n\n\nLes dernières newslett’R : \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLes raccourcis R avec Rstudio\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer un projet dans Rstudio : le fichier Rproj\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 21, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nAides-mémoires\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 4, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nAide-mémoire SAS-R\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 25, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nLecture des données\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nStructuration des projets\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "Exercices/1_group_by.html",
-    "href": "Exercices/1_group_by.html",
-    "title": "Apprendre le group_by de dplyr",
-    "section": "",
-    "text": "Exercice group_by"
+    "text": "Créer un projet RStudio permet d´organiser tous vos scripts R et les fichiers (données, sorties…) relatifs à un même projet statistique. Un projet RStudio est un environnement isolé qui évite les conflits entre différents scripts et packages de projets statistiques distincts.\n\nPour créer un projet RStudio, il suffit d´aller dans File &gt; New Project &gt; New Directory &gt; New Project &gt; (renseigner le nom de son projet, cliquer « git » et « renv » si besoin) &gt; Create Project\nRStudio va créer un fichier .Rproj à la racine du dossier du projet choisi, qui permet entre autres d’indiquer à R que vous travaillez dans ce dossier (working directory). En double-cliquant sur le Rproj, RStudio s’ouvre directement dans votre espace projet, et vous pouvez utiliser les chemins relatifs !\nEn haut à droite de l’interface RStudio, vous pouvez naviguer entre vos différents projets.\nPour la configuration du projet RStudio, il est conseillé de ne pas sauvegarder l´espace de travail (données en mémoire visibles dans votre environnement), ni de le recharger, pour des raisons de reproductibilité.\n\n\n\n\nVue RStudio du Rproj\n\n\nSi vous voulez tester vos connaissances en R : Quiz2"
   },
   {
     "objectID": "ressources.html",
@@ -91,11 +77,32 @@
     "text": "utilitR\nAide-mémoire SAS - R - pandas"
   },
   {
-    "objectID": "Actus/2_rproj.html",
-    "href": "Actus/2_rproj.html",
-    "title": "Créer un projet dans Rstudio : le fichier Rproj",
+    "objectID": "Exercices/1_group_by.html",
+    "href": "Exercices/1_group_by.html",
+    "title": "Apprendre le group_by de dplyr",
     "section": "",
-    "text": "Créer un projet RStudio permet d´organiser tous vos scripts R et les fichiers (données, sorties…) relatifs à un même projet statistique. Un projet RStudio est un environnement isolé qui évite les conflits entre différents scripts et packages de projets statistiques distincts.\n\nPour créer un projet RStudio, il suffit d´aller dans File &gt; New Project &gt; New Directory &gt; New Project &gt; (renseigner le nom de son projet, cliquer « git » et « renv » si besoin) &gt; Create Project\nRStudio va créer un fichier .Rproj à la racine du dossier du projet choisi, qui permet entre autres d’indiquer à R que vous travaillez dans ce dossier (working directory). En double-cliquant sur le Rproj, RStudio s’ouvre directement dans votre espace projet, et vous pouvez utiliser les chemins relatifs !\nEn haut à droite de l’interface RStudio, vous pouvez naviguer entre vos différents projets.\nPour la configuration du projet RStudio, il est conseillé de ne pas sauvegarder l´espace de travail (données en mémoire visibles dans votre environnement), ni de le recharger, pour des raisons de reproductibilité.\n\n\n\n\nVue RStudio du Rproj\n\n\nSi vous voulez tester vos connaissances en R : Quiz2"
+    "text": "Exercice group_by"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Newslett'R",
+    "section": "",
+    "text": "Newslett’R\n\nChaque semaine, nous vous proposons une astuce en R, accompagnée de quiz et d’exercices, pour tous les niveaux – débutant, avancé ou expert – afin de perfectionner votre maîtrise de R.\n\n\n\nStar this website on Github\n\n\n\nLes dernières newslett’R : \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLes raccourcis R avec Rstudio\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer un projet dans Rstudio : le fichier Rproj\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 21, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nAides-mémoires\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 4, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nAide-mémoire SAS-R\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 25, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nLecture des données\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nStructuration des projets\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistiques de base avec dplyr\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 20, 2025\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "Actus/5_lecture_donnees.html",
+    "href": "Actus/5_lecture_donnees.html",
+    "title": "Lecture des données",
+    "section": "",
+    "text": "📢 Aujourd’hui, on vous apprend à lire des données en R ! Il existe plusieurs formats de réprésentation des données :\n🔹 Fichiers plats (CSV, TXT, TSV, etc.)\n👉 Utilisez read.csv(), read.table() ou fread() (plus rapide avec {data.table}).\n🔹 Fichiers Excel et formats spécifiques (JSON, XML, YAML, etc.)\n👉 Pour Excel : readxl::read_excel() ou openxlsx::read.xlsx().\n👉 Pour JSON : jsonlite::fromJSON(), pour XML : xml2::read_xml(), et pour YAML : yaml::read_yaml().\n🔹 Bases de données\n👉 Pour SQL : DBI::dbReadTable(), pour SQLite : RSQLite::dbReadTable(), ou encore RODBC::sqlQuery() pour l’ODBC.\n🔹 Web et HTML\n👉 Pour lire du HTML : rvest::read_html() permet de scraper des pages web facilement.\n👉 Vous pouvez aussi récupérer des données via des API avec httr::GET().\n🔹 Parquet\n👉 Utilisez arrow::read_parquet() ou arrow::open_dataset() pour lire des fichiers Parquet.\n🌟 Astuce : Avec ces fonctions, vous pouvez ajuster le paramètre memory = TRUE ou memory = FALSE.\n\nmemory = TRUE : Charge directement les données sous forme de data.frame dans R, ce qui est plus pratique si vous avez besoin de manipuler immédiatement l’ensemble des données.\nmemory = FALSE : Permet d’effectuer des opérations plus ciblées sans charger toute la table en mémoire. Idéal lorsque vous travaillez avec de très gros fichiers et souhaitez filtrer ou transformer les données avant de les charger en mémoire à l’aide de la fonction arrow::collect()\n\nBonus : La librairie RIO\n👉 La librairie {rio} simplifie la lecture de fichiers dans différents formats, en offrant une méthode universelle avec rio::import() pour des fichiers CSV, Excel, JSON, SAS, et bien plus encore !\n🛠️ Et vous, quel format utilisez-vous le plus ? 😊"
+  },
+  {
+    "objectID": "Actus/1_raccourcis_Rstudio.html",
+    "href": "Actus/1_raccourcis_Rstudio.html",
+    "title": "Les raccourcis R avec Rstudio",
+    "section": "",
+    "text": "Boostez votre productivité sur RStudio avec ces 10 raccourcis indispensables ! Exécutez du code en un clin d’œil, naviguez rapidement entre les fichiers, formatez votre script proprement et commentez en un geste. Que vous soyez débutant ou expert, ces raccourcis vous feront gagner un temps précieux et optimiseront votre workflow. 🚀💡\n\n\n\nRaccourcis R Studio\n\n\nSi vous voulez tester vos connaissances en R : Quiz1"
   },
   {
     "objectID": "Actus/4_aide_memoire.html",
