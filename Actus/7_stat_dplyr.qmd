@@ -22,6 +22,9 @@ group_by() =	Grouper avant de résumer
 
 arrange() =	Trier des lignes
 
+
+* Exemple pour le summarise :
+
 ```
 data %>%
   summarise(
@@ -33,5 +36,7 @@ data %>%
     n_obs = n()
 )
 ```
+
+Pour plus d'informations pour les fonctions utilisables dans le summarise : [Documentation dplyr](https://dplyr.tidyverse.org/reference/summarise.html#useful-functions)
 
 et vous, quelle est votre fonction préférée ?
