@@ -53,7 +53,7 @@
     "href": "Actus/7_stat_dplyr.html",
     "title": "Statistiques de base avec dplyr",
     "section": "",
-    "text": "filter() = Filtrer des lignes\nselect() = Sélectionner des colonnes\nmutate() = Créer de nouvelles variables\nsummarise() = Calculer des statistiques résumées\ngroup_by() = Grouper avant de résumer\narrange() = Trier des lignes\ndata %&gt;%\n  summarise(\n    mean_var = mean(ma_variable, na.rm = TRUE),\n    median_var = median(ma_variable, na.rm = TRUE)\n    min_var = min(ma_variable, na.rm = TRUE),\n    max_var = max(ma_variable, na.rm = TRUE),\n    sd_var = sd(ma_variable, na.rm = TRUE),\n    n_obs = n()\n)\net vous, quelle est votre fonction préférée ?"
+    "text": "filter() = Filtrer des lignes\nselect() = Sélectionner des colonnes\nmutate() = Créer de nouvelles variables\nsummarise() = Calculer des statistiques résumées\ngroup_by() = Grouper avant de résumer\narrange() = Trier des lignes\n\nExemple pour le summarise :\n\ndata %&gt;%\n  summarise(\n    mean_var = mean(ma_variable, na.rm = TRUE),\n    median_var = median(ma_variable, na.rm = TRUE)\n    min_var = min(ma_variable, na.rm = TRUE),\n    max_var = max(ma_variable, na.rm = TRUE),\n    sd_var = sd(ma_variable, na.rm = TRUE),\n    n_obs = n()\n)\nPour plus d’informations pour les fonctions utilisables dans le summarise : Documentation dplyr\net vous, quelle est votre fonction préférée ?"
   },
   {
     "objectID": "Actus/2_rproj.html",

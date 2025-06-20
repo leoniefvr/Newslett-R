@@ -169,6 +169,9 @@ ul.task-list li input[type="checkbox"] {
 <p>summarise() = Calculer des statistiques résumées</p>
 <p>group_by() = Grouper avant de résumer</p>
 <p>arrange() = Trier des lignes</p>
+<ul>
+<li>Exemple pour le summarise :</li>
+</ul>
 <pre><code>data %&gt;%
   summarise(
     mean_var = mean(ma_variable, na.rm = TRUE),
@@ -178,6 +181,7 @@ ul.task-list li input[type="checkbox"] {
     sd_var = sd(ma_variable, na.rm = TRUE),
     n_obs = n()
 )</code></pre>
+<p>Pour plus d’informations pour les fonctions utilisables dans le summarise : <a href="https://dplyr.tidyverse.org/reference/summarise.html#useful-functions">Documentation dplyr</a></p>
 <p>et vous, quelle est votre fonction préférée ?</p>
 
 
