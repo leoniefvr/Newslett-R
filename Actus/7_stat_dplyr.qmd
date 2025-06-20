@@ -1,0 +1,30 @@
+---
+title: "Statistiques de base avec dplyr"
+date: "2025-06-20"
+author: ""
+tags:
+  - Newsletter
+  - Initiation
+categories:
+  - Newsletter
+image: ../img/7_stat_dplyr.png
+---
+
+filter() 	= Filtrer des lignes
+select() = 	Sélectionner des colonnes
+mutate() = 	Créer de nouvelles variables
+summarise() =	Calculer des statistiques résumées
+group_by() =	Grouper avant de résumer
+arrange() =	Trier des lignes
+
+data %>%
+  summarise(
+    mean_var = mean(ma_variable, na.rm = TRUE),
+    median_var = median(ma_variable, na.rm = TRUE)
+    min_var = min(ma_variable, na.rm = TRUE),
+    max_var = max(ma_variable, na.rm = TRUE),
+    sd_var = sd(ma_variable, na.rm = TRUE),
+    n_obs = n()
+)
+
+et vous, quelle est votre fonction préférée ?
