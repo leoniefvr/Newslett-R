@@ -1,0 +1,39 @@
+---
+title: "Transformer des variables avec across"
+date: "2025-07-28"
+author: ""
+tags:
+  - Newsletter
+  - Intermédiaire
+categories:
+  - Newsletter
+image: ../img/7_stat_dplyr.png
+---
+
+Depuis dplyr 1.0, certaines fonctions comme mutate_at(), mutate_if(), mutate_all() sont dépréciées au profit de la fonction plus polyvalente across(). Elle permet d’appliquer facilement des opérations à plusieurs colonnes selon des critères précis dans mutate(), summarise(), filter() etc.
+
+```
+library(dplyr)
+# Exemple iris : calculer le carré de toutes les colonnes numériques
+datasets::iris %>% mutate(across(where(is.numeric), ~ .x^2))
+Dans la fonction across(), on peut passer une fonction anonyme pour définir la transformation à appliquer à chaque colonne sélectionnée. Cette fonction anonyme est écrite avec la syntaxe tilde (~).
+```
+•	Le tilde ~ signifie "fonction anonyme".
+•	.x représente la colonne en cours de traitement.
+•	Donc, ~ .x ^2 signifie « pour chaque valeur dans la colonne, calcule son carré ».
+
+```
+# Exemple : diviser par 2 uniquement les colonnes qui commencent par "Petal"
+datasets::iris %>%  mutate(across(starts_with("Petal"), ~ .x / 2))
+# Multiplier par 10 toutes les colonnes sauf Species
+datasets::iris %>%  mutate(across(-Species, ~ .x * 10))
+```
+
+Remarque : across conserve les noms originaux des colonnes en les transformant. 
+
+On peut aussi utiliser everything() pour sélectionner toutes les colonnes : il est souvent utilisé dans select() 
+
+```
+# Réordonner en mettant Species en premier, puis tout le reste
+datasets::iris %>%  select(Species, everything())
+```

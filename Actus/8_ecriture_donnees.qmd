@@ -1,0 +1,23 @@
+---
+title: "Ecrire de la donnée avec dplyr"
+date: "2025-07-28"
+author: ""
+tags:
+  - Newsletter
+  - Initiation
+categories:
+  - Newsletter
+image: ../img/7_stat_dplyr.png
+---
+
+En parquet (format privilégié) :
+write_parquet() => write_parquet(data, "fichier.parquet")
+
+En csv :
+write.csv() => write.csv(data, "fichier.csv", row.names = FALSE)
+
+En xlsx :
+write_xlsx() => write_xlsx(data, "fichier.xlsx")
+
+En Rds (format R non interopérable) :
+saveRDS() => saveRDS(data, "fichier.rds")
