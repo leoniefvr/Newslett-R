@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="">
-<meta name="dcterms.date" content="2025-06-19">
+<meta name="dcterms.date" content="2025-07-28">
 
-<title>Structuration des projets – Newslett’R</title>
+<title>Transformer des variables avec across – Newslett’R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -137,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Structuration des projets</h1>
+<h1 class="title">Transformer des variables avec across</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Newsletter</div>
   </div>
@@ -151,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 19, 2025</p>
+      <p class="date">July 28, 2025</p>
     </div>
   </div>
   
@@ -163,19 +163,20 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Une fois ton projet créé dans RStudio avec un fichier .Rproj, il est temps de passer à la vitesse supérieure : organiser proprement ton espace de travail.</p>
-<p>🔹 Dossier data/ : pour stocker tes données brutes. Attention, elles sont souvent sensibles, donc on évite de les versionner avec Git.</p>
-<p>🔹 Dossier R/ ou scripts/ : ici, tu ranges tous tes scripts R. Fini le code éparpillé !</p>
-<p>🔹 Dossier outputs/ : pour les résultats générés par tes analyses. Tu peux même le subdiviser :</p>
-<p>outputs/tmp/ pour les sorties temporaires (non suivies par Git),</p>
-<p>outputs/final/ pour les résultats finaux (eux aussi souvent exclus de Git).</p>
-<p>💡 Une structure claire, c’est du temps gagné, moins d’erreurs, et une collaboration facilitée.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../img/6_structuration_projet.png" class="img-fluid figure-img"></p>
-<figcaption>Exemple vu de Rstudio</figcaption>
-</figure>
-</div>
+<p>Depuis dplyr 1.0, certaines fonctions comme mutate_at(), mutate_if(), mutate_all() sont dépréciées au profit de la fonction plus polyvalente across(). Elle permet d’appliquer facilement des opérations à plusieurs colonnes selon des critères précis dans mutate(), summarise(), filter() etc.</p>
+<pre><code>library(dplyr)
+# Exemple iris : calculer le carré de toutes les colonnes numériques
+datasets::iris %&gt;% mutate(across(where(is.numeric), ~ .x^2))
+Dans la fonction across(), on peut passer une fonction anonyme pour définir la transformation à appliquer à chaque colonne sélectionnée. Cette fonction anonyme est écrite avec la syntaxe tilde (~).</code></pre>
+<p>• Le tilde ~ signifie “fonction anonyme”. • .x représente la colonne en cours de traitement. • Donc, ~ .x ^2 signifie « pour chaque valeur dans la colonne, calcule son carré ».</p>
+<pre><code># Exemple : diviser par 2 uniquement les colonnes qui commencent par "Petal"
+datasets::iris %&gt;%  mutate(across(starts_with("Petal"), ~ .x / 2))
+# Multiplier par 10 toutes les colonnes sauf Species
+datasets::iris %&gt;%  mutate(across(-Species, ~ .x * 10))</code></pre>
+<p>Remarque : across conserve les noms originaux des colonnes en les transformant.</p>
+<p>On peut aussi utiliser everything() pour sélectionner toutes les colonnes : il est souvent utilisé dans select()</p>
+<pre><code># Réordonner en mettant Species en premier, puis tout le reste
+datasets::iris %&gt;%  select(Species, everything())</code></pre>
 
 
 
