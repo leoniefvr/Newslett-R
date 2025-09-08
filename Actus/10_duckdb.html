@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="">
-<meta name="dcterms.date" content="2025-04-04">
+<meta name="dcterms.date" content="2025-09-05">
 
-<title>Aides-mémoires – Newslett’R</title>
+<title>Duckdb – Newslett’R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -129,15 +129,30 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#quest-ce-que-duckdb" id="toc-quest-ce-que-duckdb" class="nav-link active" data-scroll-target="#quest-ce-que-duckdb">Qu’est-ce que duckdb ?</a>
+  <ul class="collapse">
+  <li><a href="#utilisation-de-duckdbduckplyr" id="toc-utilisation-de-duckdbduckplyr" class="nav-link" data-scroll-target="#utilisation-de-duckdbduckplyr">1. Utilisation de duckdb+duckplyr</a>
+  <ul class="collapse">
+  <li><a href="#a---charger-et-manipuler-une-table-tibble-dans-duckdbduckplyr" id="toc-a---charger-et-manipuler-une-table-tibble-dans-duckdbduckplyr" class="nav-link" data-scroll-target="#a---charger-et-manipuler-une-table-tibble-dans-duckdbduckplyr">A - charger et manipuler une table tibble dans duckdb/duckplyr</a></li>
+  <li><a href="#b---manipuler-des-fichiers-sur-internet" id="toc-b---manipuler-des-fichiers-sur-internet" class="nav-link" data-scroll-target="#b---manipuler-des-fichiers-sur-internet">B - manipuler des fichiers sur Internet</a></li>
+  </ul></li>
+  <li><a href="#utilisation-de-duckdbsqldplyr" id="toc-utilisation-de-duckdbsqldplyr" class="nav-link" data-scroll-target="#utilisation-de-duckdbsqldplyr">2 . Utilisation de duckdb+SQL/dplyr</a></li>
+  <li><a href="#utile-pour-git" id="toc-utile-pour-git" class="nav-link" data-scroll-target="#utile-pour-git">Utile pour git</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Aides-mémoires</h1>
+<h1 class="title">Duckdb</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Newsletter</div>
   </div>
@@ -151,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 4, 2025</p>
+      <p class="date">September 5, 2025</p>
     </div>
   </div>
   
@@ -163,18 +178,113 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Il existe de nombreuses cheat sheets (aide mémoire en format poster) pour vous aider. Voici quelques-unes de nos préférées :</p>
-<ul>
-<li><a href="https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf">Base R Cheat Sheet</a></li>
-<li><a href="https://thinkr.fr/pdf/dplyr-french-cheatsheet.pdf">Dplyr (en français)</a></li>
-<li><a href="https://thinkr.fr/pdf/ggplot2-french-cheatsheet.pdf">Ggplot2 (en français)</a></li>
-<li><a href="https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_lubridate.pdf">Lubridate (gestion des dates en R)</a></li>
-<li><a href="https://learnsql.com/blog/sql-basics-cheat-sheet/">SQL Basics Cheat Sheet</a></li>
-<li><a href="https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf">Stringr (manipulation de chaîne de caractères et expressions régulières)</a></li>
-</ul>
-<p>N’hésitez pas à les consulter et à les partager !</p>
+<section id="quest-ce-que-duckdb" class="level1">
+<h1>Qu’est-ce que duckdb ?</h1>
+<p>DuckDB est un logiciel qui permet de manipuler des données sans avoir à tout charger en mémoire, tout en réalisant des traitements statistiques efficaces. Il est particulièrement adapté au traitement de données de taille moyenne (de l’ordre de 10 à 100 Go), en ne chargeant en mémoire que les données nécessaires. Pour cela, DuckDB s’appuie sur un moteur d’optimisation (query optimizer) qui détermine la meilleure stratégie pour lire et traiter les fichiers de données de manière performante.</p>
+<p>Deux manières de commencer en R : 1. Utilisation de duckdb+duckplyr 2. Utilisation de duckdb+SQL/dplyr</p>
+<section id="utilisation-de-duckdbduckplyr" class="level2">
+<h2 class="anchored" data-anchor-id="utilisation-de-duckdbduckplyr">1. Utilisation de duckdb+duckplyr</h2>
+<section id="a---charger-et-manipuler-une-table-tibble-dans-duckdbduckplyr" class="level3">
+<h3 class="anchored" data-anchor-id="a---charger-et-manipuler-une-table-tibble-dans-duckdbduckplyr">A - charger et manipuler une table tibble dans duckdb/duckplyr</h3>
+<pre><code>renv::install("duckplyr")
+library("duckplyr")
+
+flights_df_lazy &lt;- as_duckdb_tibble(flights_df())
+
+out &lt;-
+flights_df_lazy |&gt;
+filter(!is.na(arr_delay), !is.na(dep_delay)) |&gt;
+mutate(inflight_delay = arr_delay - dep_delay) |&gt;
+summarize(
+.by = c(year, month),
+mean_inflight_delay = mean(inflight_delay),
+median_inflight_delay = median(inflight_delay),
+) |&gt;
+filter(month &lt;= 6)
+
+out |&gt;
+explain()
+
+out |&gt;
+collect()</code></pre>
+</section>
+<section id="b---manipuler-des-fichiers-sur-internet" class="level3">
+<h3 class="anchored" data-anchor-id="b---manipuler-des-fichiers-sur-internet">B - manipuler des fichiers sur Internet</h3>
+<pre><code>db_exec("INSTALL httpfs")
+db_exec("LOAD httpfs")
+flights &lt;- read_parquet_duckdb(urls)
 
 
+out &lt;-
+flights |&gt;
+mutate(InFlightDelay = ArrDelay - DepDelay) |&gt;
+summarize(
+.by = c(Year, Month),
+MeanInFlightDelay = mean(InFlightDelay, na.rm = TRUE),
+MedianInFlightDelay = median(InFlightDelay, na.rm = TRUE),
+) |&gt;
+filter(Year &lt; 2024)
+out |&gt;
+explain()</code></pre>
+<hr>
+</section>
+</section>
+<section id="utilisation-de-duckdbsqldplyr" class="level2">
+<h2 class="anchored" data-anchor-id="utilisation-de-duckdbsqldplyr">2 . Utilisation de duckdb+SQL/dplyr</h2>
+<pre><code>library("duckdb")
+library("dplyr")
+library("arrow")
+con &lt;- dbConnect(duckdb())
+
+# 1. Lire et manipuler un csv
+# Ecriture de mtcars au format csv pour l'exemple
+write.csv(mtcars, "mtcars.csv")
+# avec dplyr (dbplyr)
+tbl(con, "mtcars.csv") |&gt;
+group_by(cyl) |&gt;
+summarise(across(disp:wt, .fns = mean)) |&gt;
+collect()
+# en SQL
+result &lt;- dbGetQuery(con, paste0("SELECT * FROM read_csv(mtcars.csv)"))
+# ou depuis la 1.3.0, duckdb détecte automatiquement l'extension
+result &lt;- dbGetQuery(con, paste0("SELECT * FROM mtcars.csv"))
+
+
+# 2. Enregistrer et manipuler un tibble
+
+duckdb_register(con, "flights", nycflights13::flights)
+tbl(con, "flights") |&gt;
+group_by(dest) |&gt;
+summarise(delay = mean(dep_time, na.rm = TRUE)) |&gt;
+collect()
+
+# 3. Lire et manipuler un fichier parquet
+# Ecriture de mtcars au format parquet pour l'exemple
+arrow::write_parquet(mtcars,sink="mtcars.parquet")
+parquet_file &lt;- "mtcars.parquet"
+result &lt;- dbGetQuery(con, paste0("SELECT * FROM parquet_scan('", parquet_file, "')"))
+# Ou de depuis la 1.3.0 de DuckDB
+result &lt;- dbGetQuery(con, "SELECT * FROM mtcars.parquet")
+
+
+# Z- connaître la version de Duckdb
+version &lt;- dbGetQuery(con, "SELECT version()") # ou "PRAGMA version;"
+print(version)
+
+dbDisconnect(con, shutdown = TRUE)
+</code></pre>
+</section>
+<section id="utile-pour-git" class="level2">
+<h2 class="anchored" data-anchor-id="utile-pour-git">Utile pour git</h2>
+<pre><code> # à ajouter dans le .gitignore : 
+*.duckdb*
+*.wal
+*.tmp
+</code></pre>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
