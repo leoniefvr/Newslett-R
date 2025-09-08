@@ -1,0 +1,133 @@
+---
+title: "Duckdb"
+date: "2025-09-05"
+author: ""
+tags:
+  - Newsletter
+  - Initiation
+categories:
+  - Newsletter
+image: ../img/10_duckdb.png
+---
+
+# Qu'est-ce que duckdb ?
+DuckDB est un logiciel qui permet de manipuler des données sans avoir à tout charger en mémoire, tout en réalisant des traitements statistiques efficaces.
+Il est particulièrement adapté au traitement de données de taille moyenne (de l’ordre de 10 à 100 Go), en ne chargeant en mémoire que les données nécessaires.
+Pour cela, DuckDB s’appuie sur un moteur d’optimisation (query optimizer) qui détermine la meilleure stratégie pour lire et traiter les fichiers de données de manière performante.
+
+
+Deux manières de commencer en R :
+1. Utilisation de duckdb+duckplyr
+2. Utilisation de duckdb+SQL/dplyr
+
+
+## 1. Utilisation de duckdb+duckplyr
+### A - charger et manipuler une table tibble dans duckdb/duckplyr
+
+```
+renv::install("duckplyr")
+library("duckplyr")
+
+flights_df_lazy <- as_duckdb_tibble(flights_df())
+
+out <-
+flights_df_lazy |>
+filter(!is.na(arr_delay), !is.na(dep_delay)) |>
+mutate(inflight_delay = arr_delay - dep_delay) |>
+summarize(
+.by = c(year, month),
+mean_inflight_delay = mean(inflight_delay),
+median_inflight_delay = median(inflight_delay),
+) |>
+filter(month <= 6)
+
+out |>
+explain()
+
+out |>
+collect()
+```
+
+
+### B - manipuler des fichiers sur Internet
+
+```
+db_exec("INSTALL httpfs")
+db_exec("LOAD httpfs")
+flights <- read_parquet_duckdb(urls)
+
+
+out <-
+flights |>
+mutate(InFlightDelay = ArrDelay - DepDelay) |>
+summarize(
+.by = c(Year, Month),
+MeanInFlightDelay = mean(InFlightDelay, na.rm = TRUE),
+MedianInFlightDelay = median(InFlightDelay, na.rm = TRUE),
+) |>
+filter(Year < 2024)
+out |>
+explain()
+```
+
+-----
+
+## 2 . Utilisation de duckdb+SQL/dplyr
+
+
+```
+library("duckdb")
+library("dplyr")
+library("arrow")
+con <- dbConnect(duckdb())
+
+# 1. Lire et manipuler un csv
+# Ecriture de mtcars au format csv pour l'exemple
+write.csv(mtcars, "mtcars.csv")
+# avec dplyr (dbplyr)
+tbl(con, "mtcars.csv") |>
+group_by(cyl) |>
+summarise(across(disp:wt, .fns = mean)) |>
+collect()
+# en SQL
+result <- dbGetQuery(con, paste0("SELECT * FROM read_csv(mtcars.csv)"))
+# ou depuis la 1.3.0, duckdb détecte automatiquement l'extension
+result <- dbGetQuery(con, paste0("SELECT * FROM mtcars.csv"))
+
+
+# 2. Enregistrer et manipuler un tibble
+
+duckdb_register(con, "flights", nycflights13::flights)
+tbl(con, "flights") |>
+group_by(dest) |>
+summarise(delay = mean(dep_time, na.rm = TRUE)) |>
+collect()
+
+# 3. Lire et manipuler un fichier parquet
+# Ecriture de mtcars au format parquet pour l'exemple
+arrow::write_parquet(mtcars,sink="mtcars.parquet")
+parquet_file <- "mtcars.parquet"
+result <- dbGetQuery(con, paste0("SELECT * FROM parquet_scan('", parquet_file, "')"))
+# Ou de depuis la 1.3.0 de DuckDB
+result <- dbGetQuery(con, "SELECT * FROM mtcars.parquet")
+
+
+# Z- connaître la version de Duckdb
+version <- dbGetQuery(con, "SELECT version()") # ou "PRAGMA version;"
+print(version)
+
+dbDisconnect(con, shutdown = TRUE)
+
+```
+
+
+## Utile pour git 
+
+
+```
+ # à ajouter dans le .gitignore : 
+*.duckdb*
+*.wal
+*.tmp
+
+```
