@@ -10,4 +10,4 @@ categories:
 image: ../img/11_bonnes_pratiques.png
 ---
 
-![Bonnes pratiques en R](./img/11_bonnes_pratiques.png)
+![Bonnes pratiques en R](../img/11_bonnes_pratiques.png)
