@@ -7,53 +7,81 @@
     "text": "En parquet (format privilégié) : write_parquet() =&gt; write_parquet(data, “fichier.parquet”)\nEn csv : write.csv() =&gt; write.csv(data, “fichier.csv”, row.names = FALSE)\nEn xlsx : write_xlsx() =&gt; write_xlsx(data, “fichier.xlsx”)\nEn Rds (format R non interopérable) : saveRDS() =&gt; saveRDS(data, “fichier.rds”)"
   },
   {
-    "objectID": "Actus/5_lecture_donnees.html",
-    "href": "Actus/5_lecture_donnees.html",
-    "title": "Lecture des données",
+    "objectID": "Actus/1_raccourcis_Rstudio.html",
+    "href": "Actus/1_raccourcis_Rstudio.html",
+    "title": "Les raccourcis R avec Rstudio",
     "section": "",
-    "text": "📢 Aujourd’hui, on vous apprend à lire des données en R ! Il existe plusieurs formats de réprésentation des données :\n🔹 Fichiers plats (CSV, TXT, TSV, etc.)\n👉 Utilisez read.csv(), read.table() ou fread() (plus rapide avec {data.table}).\n🔹 Fichiers Excel et formats spécifiques (JSON, XML, YAML, etc.)\n👉 Pour Excel : readxl::read_excel() ou openxlsx::read.xlsx().\n👉 Pour JSON : jsonlite::fromJSON(), pour XML : xml2::read_xml(), et pour YAML : yaml::read_yaml().\n🔹 Bases de données\n👉 Pour SQL : DBI::dbReadTable(), pour SQLite : RSQLite::dbReadTable(), ou encore RODBC::sqlQuery() pour l’ODBC.\n🔹 Web et HTML\n👉 Pour lire du HTML : rvest::read_html() permet de scraper des pages web facilement.\n👉 Vous pouvez aussi récupérer des données via des API avec httr::GET().\n🔹 Parquet\n👉 Utilisez arrow::read_parquet() ou arrow::open_dataset() pour lire des fichiers Parquet.\n🌟 Astuce : Avec ces fonctions, vous pouvez ajuster le paramètre memory = TRUE ou memory = FALSE.\n\nmemory = TRUE : Charge directement les données sous forme de data.frame dans R, ce qui est plus pratique si vous avez besoin de manipuler immédiatement l’ensemble des données.\nmemory = FALSE : Permet d’effectuer des opérations plus ciblées sans charger toute la table en mémoire. Idéal lorsque vous travaillez avec de très gros fichiers et souhaitez filtrer ou transformer les données avant de les charger en mémoire à l’aide de la fonction arrow::collect()\n\nBonus : La librairie RIO\n👉 La librairie {rio} simplifie la lecture de fichiers dans différents formats, en offrant une méthode universelle avec rio::import() pour des fichiers CSV, Excel, JSON, SAS, et bien plus encore !\n🛠️ Et vous, quel format utilisez-vous le plus ? 😊"
+    "text": "Boostez votre productivité sur RStudio avec ces 10 raccourcis indispensables ! Exécutez du code en un clin d’œil, naviguez rapidement entre les fichiers, formatez votre script proprement et commentez en un geste. Que vous soyez débutant ou expert, ces raccourcis vous feront gagner un temps précieux et optimiseront votre workflow. 🚀💡\n\n\n\nRaccourcis R Studio\n\n\nSi vous voulez tester vos connaissances en R : Quiz1"
   },
   {
-    "objectID": "Actus/2_rproj.html",
-    "href": "Actus/2_rproj.html",
-    "title": "Créer un projet dans Rstudio : le fichier Rproj",
+    "objectID": "Actus/7_stat_dplyr.html",
+    "href": "Actus/7_stat_dplyr.html",
+    "title": "Statistiques de base avec dplyr",
     "section": "",
-    "text": "Créer un projet RStudio permet d´organiser tous vos scripts R et les fichiers (données, sorties…) relatifs à un même projet statistique. Un projet RStudio est un environnement isolé qui évite les conflits entre différents scripts et packages de projets statistiques distincts.\n\nPour créer un projet RStudio, il suffit d´aller dans File &gt; New Project &gt; New Directory &gt; New Project &gt; (renseigner le nom de son projet, cliquer « git » et « renv » si besoin) &gt; Create Project\nRStudio va créer un fichier .Rproj à la racine du dossier du projet choisi, qui permet entre autres d’indiquer à R que vous travaillez dans ce dossier (working directory). En double-cliquant sur le Rproj, RStudio s’ouvre directement dans votre espace projet, et vous pouvez utiliser les chemins relatifs !\nEn haut à droite de l’interface RStudio, vous pouvez naviguer entre vos différents projets.\nPour la configuration du projet RStudio, il est conseillé de ne pas sauvegarder l´espace de travail (données en mémoire visibles dans votre environnement), ni de le recharger, pour des raisons de reproductibilité.\n\n\n\n\nVue RStudio du Rproj\n\n\nSi vous voulez tester vos connaissances en R : Quiz2"
+    "text": "filter() = Filtrer des lignes\nselect() = Sélectionner des colonnes\nmutate() = Créer de nouvelles variables\nsummarise() = Calculer des statistiques résumées\ngroup_by() = Grouper avant de résumer\narrange() = Trier des lignes\n\nExemple pour le summarise :\n\ndata %&gt;%\n  summarise(\n    mean_var = mean(ma_variable, na.rm = TRUE),\n    median_var = median(ma_variable, na.rm = TRUE)\n    min_var = min(ma_variable, na.rm = TRUE),\n    max_var = max(ma_variable, na.rm = TRUE),\n    sd_var = sd(ma_variable, na.rm = TRUE),\n    n_obs = n()\n)\nPour plus d’informations pour les fonctions utilisables dans le summarise : Documentation dplyr\net vous, quelle est votre fonction préférée ?"
   },
   {
-    "objectID": "Actus/10_duckdb.html",
-    "href": "Actus/10_duckdb.html",
-    "title": "Duckdb",
+    "objectID": "Actus/3_sheet_cheat.html",
+    "href": "Actus/3_sheet_cheat.html",
+    "title": "Aides-mémoires",
     "section": "",
-    "text": "DuckDB est un logiciel qui permet de manipuler des données sans avoir à tout charger en mémoire, tout en réalisant des traitements statistiques efficaces. Il est particulièrement adapté au traitement de données de taille moyenne (de l’ordre de 10 à 100 Go), en ne chargeant en mémoire que les données nécessaires. Pour cela, DuckDB s’appuie sur un moteur d’optimisation (query optimizer) qui détermine la meilleure stratégie pour lire et traiter les fichiers de données de manière performante.\nDeux manières de commencer en R : 1. Utilisation de duckdb+duckplyr 2. Utilisation de duckdb+SQL/dplyr\n\n\n\n\nrenv::install(\"duckplyr\")\nlibrary(\"duckplyr\")\n\nflights_df_lazy &lt;- as_duckdb_tibble(flights_df())\n\nout &lt;-\nflights_df_lazy |&gt;\nfilter(!is.na(arr_delay), !is.na(dep_delay)) |&gt;\nmutate(inflight_delay = arr_delay - dep_delay) |&gt;\nsummarize(\n.by = c(year, month),\nmean_inflight_delay = mean(inflight_delay),\nmedian_inflight_delay = median(inflight_delay),\n) |&gt;\nfilter(month &lt;= 6)\n\nout |&gt;\nexplain()\n\nout |&gt;\ncollect()\n\n\n\ndb_exec(\"INSTALL httpfs\")\ndb_exec(\"LOAD httpfs\")\nflights &lt;- read_parquet_duckdb(urls)\n\n\nout &lt;-\nflights |&gt;\nmutate(InFlightDelay = ArrDelay - DepDelay) |&gt;\nsummarize(\n.by = c(Year, Month),\nMeanInFlightDelay = mean(InFlightDelay, na.rm = TRUE),\nMedianInFlightDelay = median(InFlightDelay, na.rm = TRUE),\n) |&gt;\nfilter(Year &lt; 2024)\nout |&gt;\nexplain()\n\n\n\n\n\nlibrary(\"duckdb\")\nlibrary(\"dplyr\")\nlibrary(\"arrow\")\ncon &lt;- dbConnect(duckdb())\n\n# 1. Lire et manipuler un csv\n# Ecriture de mtcars au format csv pour l'exemple\nwrite.csv(mtcars, \"mtcars.csv\")\n# avec dplyr (dbplyr)\ntbl(con, \"mtcars.csv\") |&gt;\ngroup_by(cyl) |&gt;\nsummarise(across(disp:wt, .fns = mean)) |&gt;\ncollect()\n# en SQL\nresult &lt;- dbGetQuery(con, paste0(\"SELECT * FROM read_csv(mtcars.csv)\"))\n# ou depuis la 1.3.0, duckdb détecte automatiquement l'extension\nresult &lt;- dbGetQuery(con, paste0(\"SELECT * FROM mtcars.csv\"))\n\n\n# 2. Enregistrer et manipuler un tibble\n\nduckdb_register(con, \"flights\", nycflights13::flights)\ntbl(con, \"flights\") |&gt;\ngroup_by(dest) |&gt;\nsummarise(delay = mean(dep_time, na.rm = TRUE)) |&gt;\ncollect()\n\n# 3. Lire et manipuler un fichier parquet\n# Ecriture de mtcars au format parquet pour l'exemple\narrow::write_parquet(mtcars,sink=\"mtcars.parquet\")\nparquet_file &lt;- \"mtcars.parquet\"\nresult &lt;- dbGetQuery(con, paste0(\"SELECT * FROM parquet_scan('\", parquet_file, \"')\"))\n# Ou de depuis la 1.3.0 de DuckDB\nresult &lt;- dbGetQuery(con, \"SELECT * FROM mtcars.parquet\")\n\n\n# Z- connaître la version de Duckdb\nversion &lt;- dbGetQuery(con, \"SELECT version()\") # ou \"PRAGMA version;\"\nprint(version)\n\ndbDisconnect(con, shutdown = TRUE)\n\n\n\n\n # à ajouter dans le .gitignore : \n*.duckdb*\n*.wal\n*.tmp"
+    "text": "Il existe de nombreuses cheat sheets (aide mémoire en format poster) pour vous aider. Voici quelques-unes de nos préférées :\n\nBase R Cheat Sheet\nDplyr (en français)\nGgplot2 (en français)\nLubridate (gestion des dates en R)\nSQL Basics Cheat Sheet\nStringr (manipulation de chaîne de caractères et expressions régulières)\n\nN’hésitez pas à les consulter et à les partager !"
   },
   {
-    "objectID": "Actus/10_duckdb.html#utilisation-de-duckdbduckplyr",
-    "href": "Actus/10_duckdb.html#utilisation-de-duckdbduckplyr",
-    "title": "Duckdb",
+    "objectID": "Actus/9_transformer_across.html",
+    "href": "Actus/9_transformer_across.html",
+    "title": "Transformer des variables avec across",
     "section": "",
-    "text": "renv::install(\"duckplyr\")\nlibrary(\"duckplyr\")\n\nflights_df_lazy &lt;- as_duckdb_tibble(flights_df())\n\nout &lt;-\nflights_df_lazy |&gt;\nfilter(!is.na(arr_delay), !is.na(dep_delay)) |&gt;\nmutate(inflight_delay = arr_delay - dep_delay) |&gt;\nsummarize(\n.by = c(year, month),\nmean_inflight_delay = mean(inflight_delay),\nmedian_inflight_delay = median(inflight_delay),\n) |&gt;\nfilter(month &lt;= 6)\n\nout |&gt;\nexplain()\n\nout |&gt;\ncollect()\n\n\n\ndb_exec(\"INSTALL httpfs\")\ndb_exec(\"LOAD httpfs\")\nflights &lt;- read_parquet_duckdb(urls)\n\n\nout &lt;-\nflights |&gt;\nmutate(InFlightDelay = ArrDelay - DepDelay) |&gt;\nsummarize(\n.by = c(Year, Month),\nMeanInFlightDelay = mean(InFlightDelay, na.rm = TRUE),\nMedianInFlightDelay = median(InFlightDelay, na.rm = TRUE),\n) |&gt;\nfilter(Year &lt; 2024)\nout |&gt;\nexplain()"
+    "text": "Depuis dplyr 1.0, certaines fonctions comme mutate_at(), mutate_if(), mutate_all() sont dépréciées au profit de la fonction plus polyvalente across(). Elle permet d’appliquer facilement des opérations à plusieurs colonnes selon des critères précis dans mutate(), summarise(), filter() etc.\nlibrary(dplyr)\n# Exemple iris : calculer le carré de toutes les colonnes numériques\ndatasets::iris %&gt;% mutate(across(where(is.numeric), ~ .x^2))\nDans la fonction across(), on peut passer une fonction anonyme pour définir la transformation à appliquer à chaque colonne sélectionnée. Cette fonction anonyme est écrite avec la syntaxe tilde (~).\n• Le tilde ~ signifie “fonction anonyme”. • .x représente la colonne en cours de traitement. • Donc, ~ .x ^2 signifie « pour chaque valeur dans la colonne, calcule son carré ».\n# Exemple : diviser par 2 uniquement les colonnes qui commencent par \"Petal\"\ndatasets::iris %&gt;%  mutate(across(starts_with(\"Petal\"), ~ .x / 2))\n# Multiplier par 10 toutes les colonnes sauf Species\ndatasets::iris %&gt;%  mutate(across(-Species, ~ .x * 10))\nRemarque : across conserve les noms originaux des colonnes en les transformant.\nOn peut aussi utiliser everything() pour sélectionner toutes les colonnes : il est souvent utilisé dans select()\n# Réordonner en mettant Species en premier, puis tout le reste\ndatasets::iris %&gt;%  select(Species, everything())"
   },
   {
-    "objectID": "Actus/10_duckdb.html#utilisation-de-duckdbsqldplyr",
-    "href": "Actus/10_duckdb.html#utilisation-de-duckdbsqldplyr",
-    "title": "Duckdb",
+    "objectID": "Actus/4_aide_memoire.html",
+    "href": "Actus/4_aide_memoire.html",
+    "title": "Aide-mémoire SAS-R",
     "section": "",
-    "text": "library(\"duckdb\")\nlibrary(\"dplyr\")\nlibrary(\"arrow\")\ncon &lt;- dbConnect(duckdb())\n\n# 1. Lire et manipuler un csv\n# Ecriture de mtcars au format csv pour l'exemple\nwrite.csv(mtcars, \"mtcars.csv\")\n# avec dplyr (dbplyr)\ntbl(con, \"mtcars.csv\") |&gt;\ngroup_by(cyl) |&gt;\nsummarise(across(disp:wt, .fns = mean)) |&gt;\ncollect()\n# en SQL\nresult &lt;- dbGetQuery(con, paste0(\"SELECT * FROM read_csv(mtcars.csv)\"))\n# ou depuis la 1.3.0, duckdb détecte automatiquement l'extension\nresult &lt;- dbGetQuery(con, paste0(\"SELECT * FROM mtcars.csv\"))\n\n\n# 2. Enregistrer et manipuler un tibble\n\nduckdb_register(con, \"flights\", nycflights13::flights)\ntbl(con, \"flights\") |&gt;\ngroup_by(dest) |&gt;\nsummarise(delay = mean(dep_time, na.rm = TRUE)) |&gt;\ncollect()\n\n# 3. Lire et manipuler un fichier parquet\n# Ecriture de mtcars au format parquet pour l'exemple\narrow::write_parquet(mtcars,sink=\"mtcars.parquet\")\nparquet_file &lt;- \"mtcars.parquet\"\nresult &lt;- dbGetQuery(con, paste0(\"SELECT * FROM parquet_scan('\", parquet_file, \"')\"))\n# Ou de depuis la 1.3.0 de DuckDB\nresult &lt;- dbGetQuery(con, \"SELECT * FROM mtcars.parquet\")\n\n\n# Z- connaître la version de Duckdb\nversion &lt;- dbGetQuery(con, \"SELECT version()\") # ou \"PRAGMA version;\"\nprint(version)\n\ndbDisconnect(con, shutdown = TRUE)"
+    "text": "Le saviez-vous ? Un aide-mémoire est disponible pour vous guider dans la conversion de code SAS vers d’autres langages tels que R, DuckDB et Python. Retrouvez-le à cette adresse Aide-mémoire SAS - R - pandas] ! Ce guide est également collaboratif : vous pouvez y contribuer en proposant de nouvelles traductions, en l’enrichissant ou en corrigeant d’éventuelles erreurs. N’hésitez pas à participer !"
   },
   {
-    "objectID": "Actus/10_duckdb.html#utile-pour-git",
-    "href": "Actus/10_duckdb.html#utile-pour-git",
-    "title": "Duckdb",
+    "objectID": "Quizs/1_raccourcis_Rstudio_quiz.html",
+    "href": "Quizs/1_raccourcis_Rstudio_quiz.html",
+    "title": "Les raccourcis R avec Rstudio - Quiz",
     "section": "",
-    "text": "# à ajouter dans le .gitignore : \n*.duckdb*\n*.wal\n*.tmp"
+    "text": "Comment appelle-t-on un tableau bidimensionnel en R ?\n\n\nDataFrame\nVector\nMatrix\nArray\n\n\nQuel symbole est utilisé pour assigner une valeur à une variable en R ?\n\n\n=\n-&gt;\n&lt;-\n:\n\n\nQuelle commande permet d´afficher les premières lignes d’un DataFrame en R ?\n\n\nview()\nhead()\ntop()\nsummary()\n\n\nQuel package est célèbre pour la manipulation de données en R ?\n\n\nggplot2\ndplyr\nshiny\nknitr"
   },
   {
-    "objectID": "Actus/6_structuration_projet.html",
-    "href": "Actus/6_structuration_projet.html",
-    "title": "Structuration des projets",
+    "objectID": "Exercices/1_group_by.html",
+    "href": "Exercices/1_group_by.html",
+    "title": "Apprendre le group_by de dplyr",
     "section": "",
-    "text": "Une fois ton projet créé dans RStudio avec un fichier .Rproj, il est temps de passer à la vitesse supérieure : organiser proprement ton espace de travail.\n🔹 Dossier data/ : pour stocker tes données brutes. Attention, elles sont souvent sensibles, donc on évite de les versionner avec Git.\n🔹 Dossier R/ ou scripts/ : ici, tu ranges tous tes scripts R. Fini le code éparpillé !\n🔹 Dossier outputs/ : pour les résultats générés par tes analyses. Tu peux même le subdiviser :\noutputs/tmp/ pour les sorties temporaires (non suivies par Git),\noutputs/final/ pour les résultats finaux (eux aussi souvent exclus de Git).\n💡 Une structure claire, c’est du temps gagné, moins d’erreurs, et une collaboration facilitée.\n\n\n\nExemple vu de Rstudio"
+    "text": "Exercice group_by"
+  },
+  {
+    "objectID": "ressources.html",
+    "href": "ressources.html",
+    "title": "Newslett'R",
+    "section": "",
+    "text": "utilitR\nAide-mémoire SAS - R - pandas"
+  },
+  {
+    "objectID": "ressources.html#pour-en-savoir-plus-sur-r",
+    "href": "ressources.html#pour-en-savoir-plus-sur-r",
+    "title": "Newslett'R",
+    "section": "",
+    "text": "utilitR\nAide-mémoire SAS - R - pandas"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Newslett'R",
+    "section": "",
+    "text": "Newslett’R\n\nChaque semaine, nous vous proposons une astuce en R, accompagnée de quiz et d’exercices, pour tous les niveaux – débutant, avancé ou expert – afin de perfectionner votre maîtrise de R.\n\n\n\nStar this website on Github\n\n\n\nLes dernières newslett’R : \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLes raccourcis R avec Rstudio\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer un projet dans Rstudio : le fichier Rproj\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 21, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nAides-mémoires\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 4, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nAide-mémoire SAS-R\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 25, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nLecture des données\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nStructuration des projets\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistiques de base avec dplyr\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 20, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nEcrire de la donnée avec dplyr\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJul 28, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nTransformer des variables avec across\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJul 28, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nDuckdb\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nSep 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nBonnes pratiques\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nSep 13, 2025\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "Quizs/2_rproj_quiz.html",
+    "href": "Quizs/2_rproj_quiz.html",
+    "title": "Créer un projet dans Rstudio : le fichier Rproj - Quiz",
+    "section": "",
+    "text": "Quelle fonction peut être utilisée pour lire un fichier CSV en R ?\n\n\nread.csv()\nimport.csv()\nload.csv()\nopen.csv()\n\n\nComment installer un package en R ?\n\n\ninstall.packages(“ggplot2”)\nlibrary(ggplot2)\nrenv::install(“ggplot2”)\nload.package(“ggplot2”)\n\n\nQuelle fonction permet d’afficher les dimensions d’un dataframe df ?\n\n\nnrow(df)\nncol(df)\ndim(df)\nlength(df)\n\n\nQue retourne mean(c(2, NA, 4, 6), na.rm = TRUE) ?\n\n\nNA\n4\n3.5\n12"
   },
   {
     "objectID": "Notebooks/1_tp_groupby_dplyr.html",
@@ -91,80 +119,59 @@
     "text": "Pour aller plus loin :\n\nsummarize peut s’écrire aussi summarise (ça dépend si vous êtes plutôt USA ou GB)\nSi vous avez terminé vos opérations de groupe, il est plutôt conseillé de revenir à un jeu de données non groupé pour éviter les erreurs\nDans le summarize, il n’est pas conseillé de chainer les variables Si on reprend l’opération précédente, en une fois dans le summarise, cela donne des résultats étonnants\nComme en SQL (e.g having-count), vous pouvez filtrer les groupes selon des conditions sur ces dits-groupes\n\n\n\n\n\n\n\n\n\nExercice (à vous de compléter !) :\n\nCalculer les quantiles par espèce d’iris sur la longueur des pétales\n\n\n\n\n\n\n\n\n\n\nGarder les espèces dont la longueur moyenne des sépales est supérieur à 5.5\n\n\n\n\n\n\n\n\n\n\nEt calculer la longueur moyenne des pétales de ces espèces"
   },
   {
-    "objectID": "Quizs/2_rproj_quiz.html",
-    "href": "Quizs/2_rproj_quiz.html",
-    "title": "Créer un projet dans Rstudio : le fichier Rproj - Quiz",
+    "objectID": "Actus/6_structuration_projet.html",
+    "href": "Actus/6_structuration_projet.html",
+    "title": "Structuration des projets",
     "section": "",
-    "text": "Quelle fonction peut être utilisée pour lire un fichier CSV en R ?\n\n\nread.csv()\nimport.csv()\nload.csv()\nopen.csv()\n\n\nComment installer un package en R ?\n\n\ninstall.packages(“ggplot2”)\nlibrary(ggplot2)\nrenv::install(“ggplot2”)\nload.package(“ggplot2”)\n\n\nQuelle fonction permet d’afficher les dimensions d’un dataframe df ?\n\n\nnrow(df)\nncol(df)\ndim(df)\nlength(df)\n\n\nQue retourne mean(c(2, NA, 4, 6), na.rm = TRUE) ?\n\n\nNA\n4\n3.5\n12"
+    "text": "Une fois ton projet créé dans RStudio avec un fichier .Rproj, il est temps de passer à la vitesse supérieure : organiser proprement ton espace de travail.\n🔹 Dossier data/ : pour stocker tes données brutes. Attention, elles sont souvent sensibles, donc on évite de les versionner avec Git.\n🔹 Dossier R/ ou scripts/ : ici, tu ranges tous tes scripts R. Fini le code éparpillé !\n🔹 Dossier outputs/ : pour les résultats générés par tes analyses. Tu peux même le subdiviser :\noutputs/tmp/ pour les sorties temporaires (non suivies par Git),\noutputs/final/ pour les résultats finaux (eux aussi souvent exclus de Git).\n💡 Une structure claire, c’est du temps gagné, moins d’erreurs, et une collaboration facilitée.\n\n\n\nExemple vu de Rstudio"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Newslett'R",
+    "objectID": "Actus/10_duckdb.html",
+    "href": "Actus/10_duckdb.html",
+    "title": "Duckdb",
     "section": "",
-    "text": "Newslett’R\n\nChaque semaine, nous vous proposons une astuce en R, accompagnée de quiz et d’exercices, pour tous les niveaux – débutant, avancé ou expert – afin de perfectionner votre maîtrise de R.\n\n\n\nStar this website on Github\n\n\n\nLes dernières newslett’R : \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLes raccourcis R avec Rstudio\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer un projet dans Rstudio : le fichier Rproj\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 21, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nAides-mémoires\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 4, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nAide-mémoire SAS-R\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 25, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nLecture des données\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nStructuration des projets\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistiques de base avec dplyr\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 20, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nEcrire de la donnée avec dplyr\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJul 28, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nTransformer des variables avec across\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJul 28, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nDuckdb\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nSep 5, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "DuckDB est un logiciel qui permet de manipuler des données sans avoir à tout charger en mémoire, tout en réalisant des traitements statistiques efficaces. Il est particulièrement adapté au traitement de données de taille moyenne (de l’ordre de 10 à 100 Go), en ne chargeant en mémoire que les données nécessaires. Pour cela, DuckDB s’appuie sur un moteur d’optimisation (query optimizer) qui détermine la meilleure stratégie pour lire et traiter les fichiers de données de manière performante.\nDeux manières de commencer en R :\n\nUtilisation de duckdb+duckplyr\nUtilisation de duckdb+SQL/dplyr\n\n\n\n\n\nrenv::install(\"duckplyr\")\nlibrary(\"duckplyr\")\n\nflights_df_lazy &lt;- as_duckdb_tibble(flights_df())\n\nout &lt;-\nflights_df_lazy |&gt;\nfilter(!is.na(arr_delay), !is.na(dep_delay)) |&gt;\nmutate(inflight_delay = arr_delay - dep_delay) |&gt;\nsummarize(\n.by = c(year, month),\nmean_inflight_delay = mean(inflight_delay),\nmedian_inflight_delay = median(inflight_delay),\n) |&gt;\nfilter(month &lt;= 6)\n\nout |&gt;\nexplain()\n\nout |&gt;\ncollect()\n\n\n\ndb_exec(\"INSTALL httpfs\")\ndb_exec(\"LOAD httpfs\")\nflights &lt;- read_parquet_duckdb(urls)\n\n\nout &lt;-\nflights |&gt;\nmutate(InFlightDelay = ArrDelay - DepDelay) |&gt;\nsummarize(\n.by = c(Year, Month),\nMeanInFlightDelay = mean(InFlightDelay, na.rm = TRUE),\nMedianInFlightDelay = median(InFlightDelay, na.rm = TRUE),\n) |&gt;\nfilter(Year &lt; 2024)\nout |&gt;\nexplain()\n\n\n\n\n\nlibrary(\"duckdb\")\nlibrary(\"dplyr\")\nlibrary(\"arrow\")\ncon &lt;- dbConnect(duckdb())\n\n# 1. Lire et manipuler un csv\n# Ecriture de mtcars au format csv pour l'exemple\nwrite.csv(mtcars, \"mtcars.csv\")\n# avec dplyr (dbplyr)\ntbl(con, \"mtcars.csv\") |&gt;\ngroup_by(cyl) |&gt;\nsummarise(across(disp:wt, .fns = mean)) |&gt;\ncollect()\n# en SQL\nresult &lt;- dbGetQuery(con, paste0(\"SELECT * FROM read_csv(mtcars.csv)\"))\n# ou depuis la 1.3.0, duckdb détecte automatiquement l'extension\nresult &lt;- dbGetQuery(con, paste0(\"SELECT * FROM mtcars.csv\"))\n\n\n# 2. Enregistrer et manipuler un tibble\n\nduckdb_register(con, \"flights\", nycflights13::flights)\ntbl(con, \"flights\") |&gt;\ngroup_by(dest) |&gt;\nsummarise(delay = mean(dep_time, na.rm = TRUE)) |&gt;\ncollect()\n\n# 3. Lire et manipuler un fichier parquet\n# Ecriture de mtcars au format parquet pour l'exemple\narrow::write_parquet(mtcars,sink=\"mtcars.parquet\")\nparquet_file &lt;- \"mtcars.parquet\"\nresult &lt;- dbGetQuery(con, paste0(\"SELECT * FROM parquet_scan('\", parquet_file, \"')\"))\n# Ou de depuis la 1.3.0 de DuckDB\nresult &lt;- dbGetQuery(con, \"SELECT * FROM mtcars.parquet\")\n\n\n# Z- connaître la version de Duckdb\nversion &lt;- dbGetQuery(con, \"SELECT version()\") # ou \"PRAGMA version;\"\nprint(version)\n\ndbDisconnect(con, shutdown = TRUE)\n\n\n\n\n # à ajouter dans le .gitignore : \n*.duckdb*\n*.wal\n*.tmp"
   },
   {
-    "objectID": "ressources.html",
-    "href": "ressources.html",
-    "title": "Newslett'R",
+    "objectID": "Actus/10_duckdb.html#utilisation-de-duckdbduckplyr",
+    "href": "Actus/10_duckdb.html#utilisation-de-duckdbduckplyr",
+    "title": "Duckdb",
     "section": "",
-    "text": "utilitR\nAide-mémoire SAS - R - pandas"
+    "text": "renv::install(\"duckplyr\")\nlibrary(\"duckplyr\")\n\nflights_df_lazy &lt;- as_duckdb_tibble(flights_df())\n\nout &lt;-\nflights_df_lazy |&gt;\nfilter(!is.na(arr_delay), !is.na(dep_delay)) |&gt;\nmutate(inflight_delay = arr_delay - dep_delay) |&gt;\nsummarize(\n.by = c(year, month),\nmean_inflight_delay = mean(inflight_delay),\nmedian_inflight_delay = median(inflight_delay),\n) |&gt;\nfilter(month &lt;= 6)\n\nout |&gt;\nexplain()\n\nout |&gt;\ncollect()\n\n\n\ndb_exec(\"INSTALL httpfs\")\ndb_exec(\"LOAD httpfs\")\nflights &lt;- read_parquet_duckdb(urls)\n\n\nout &lt;-\nflights |&gt;\nmutate(InFlightDelay = ArrDelay - DepDelay) |&gt;\nsummarize(\n.by = c(Year, Month),\nMeanInFlightDelay = mean(InFlightDelay, na.rm = TRUE),\nMedianInFlightDelay = median(InFlightDelay, na.rm = TRUE),\n) |&gt;\nfilter(Year &lt; 2024)\nout |&gt;\nexplain()"
   },
   {
-    "objectID": "ressources.html#pour-en-savoir-plus-sur-r",
-    "href": "ressources.html#pour-en-savoir-plus-sur-r",
-    "title": "Newslett'R",
+    "objectID": "Actus/10_duckdb.html#utilisation-de-duckdbsqldplyr",
+    "href": "Actus/10_duckdb.html#utilisation-de-duckdbsqldplyr",
+    "title": "Duckdb",
     "section": "",
-    "text": "utilitR\nAide-mémoire SAS - R - pandas"
+    "text": "library(\"duckdb\")\nlibrary(\"dplyr\")\nlibrary(\"arrow\")\ncon &lt;- dbConnect(duckdb())\n\n# 1. Lire et manipuler un csv\n# Ecriture de mtcars au format csv pour l'exemple\nwrite.csv(mtcars, \"mtcars.csv\")\n# avec dplyr (dbplyr)\ntbl(con, \"mtcars.csv\") |&gt;\ngroup_by(cyl) |&gt;\nsummarise(across(disp:wt, .fns = mean)) |&gt;\ncollect()\n# en SQL\nresult &lt;- dbGetQuery(con, paste0(\"SELECT * FROM read_csv(mtcars.csv)\"))\n# ou depuis la 1.3.0, duckdb détecte automatiquement l'extension\nresult &lt;- dbGetQuery(con, paste0(\"SELECT * FROM mtcars.csv\"))\n\n\n# 2. Enregistrer et manipuler un tibble\n\nduckdb_register(con, \"flights\", nycflights13::flights)\ntbl(con, \"flights\") |&gt;\ngroup_by(dest) |&gt;\nsummarise(delay = mean(dep_time, na.rm = TRUE)) |&gt;\ncollect()\n\n# 3. Lire et manipuler un fichier parquet\n# Ecriture de mtcars au format parquet pour l'exemple\narrow::write_parquet(mtcars,sink=\"mtcars.parquet\")\nparquet_file &lt;- \"mtcars.parquet\"\nresult &lt;- dbGetQuery(con, paste0(\"SELECT * FROM parquet_scan('\", parquet_file, \"')\"))\n# Ou de depuis la 1.3.0 de DuckDB\nresult &lt;- dbGetQuery(con, \"SELECT * FROM mtcars.parquet\")\n\n\n# Z- connaître la version de Duckdb\nversion &lt;- dbGetQuery(con, \"SELECT version()\") # ou \"PRAGMA version;\"\nprint(version)\n\ndbDisconnect(con, shutdown = TRUE)"
   },
   {
-    "objectID": "Exercices/1_group_by.html",
-    "href": "Exercices/1_group_by.html",
-    "title": "Apprendre le group_by de dplyr",
+    "objectID": "Actus/10_duckdb.html#utile-pour-git",
+    "href": "Actus/10_duckdb.html#utile-pour-git",
+    "title": "Duckdb",
     "section": "",
-    "text": "Exercice group_by"
+    "text": "# à ajouter dans le .gitignore : \n*.duckdb*\n*.wal\n*.tmp"
   },
   {
-    "objectID": "Quizs/1_raccourcis_Rstudio_quiz.html",
-    "href": "Quizs/1_raccourcis_Rstudio_quiz.html",
-    "title": "Les raccourcis R avec Rstudio - Quiz",
+    "objectID": "Actus/2_rproj.html",
+    "href": "Actus/2_rproj.html",
+    "title": "Créer un projet dans Rstudio : le fichier Rproj",
     "section": "",
-    "text": "Comment appelle-t-on un tableau bidimensionnel en R ?\n\n\nDataFrame\nVector\nMatrix\nArray\n\n\nQuel symbole est utilisé pour assigner une valeur à une variable en R ?\n\n\n=\n-&gt;\n&lt;-\n:\n\n\nQuelle commande permet d´afficher les premières lignes d’un DataFrame en R ?\n\n\nview()\nhead()\ntop()\nsummary()\n\n\nQuel package est célèbre pour la manipulation de données en R ?\n\n\nggplot2\ndplyr\nshiny\nknitr"
+    "text": "Créer un projet RStudio permet d´organiser tous vos scripts R et les fichiers (données, sorties…) relatifs à un même projet statistique. Un projet RStudio est un environnement isolé qui évite les conflits entre différents scripts et packages de projets statistiques distincts.\n\nPour créer un projet RStudio, il suffit d´aller dans File &gt; New Project &gt; New Directory &gt; New Project &gt; (renseigner le nom de son projet, cliquer « git » et « renv » si besoin) &gt; Create Project\nRStudio va créer un fichier .Rproj à la racine du dossier du projet choisi, qui permet entre autres d’indiquer à R que vous travaillez dans ce dossier (working directory). En double-cliquant sur le Rproj, RStudio s’ouvre directement dans votre espace projet, et vous pouvez utiliser les chemins relatifs !\nEn haut à droite de l’interface RStudio, vous pouvez naviguer entre vos différents projets.\nPour la configuration du projet RStudio, il est conseillé de ne pas sauvegarder l´espace de travail (données en mémoire visibles dans votre environnement), ni de le recharger, pour des raisons de reproductibilité.\n\n\n\n\nVue RStudio du Rproj\n\n\nSi vous voulez tester vos connaissances en R : Quiz2"
   },
   {
-    "objectID": "Actus/4_aide_memoire.html",
-    "href": "Actus/4_aide_memoire.html",
-    "title": "Aide-mémoire SAS-R",
+    "objectID": "Actus/5_lecture_donnees.html",
+    "href": "Actus/5_lecture_donnees.html",
+    "title": "Lecture des données",
     "section": "",
-    "text": "Le saviez-vous ? Un aide-mémoire est disponible pour vous guider dans la conversion de code SAS vers d’autres langages tels que R, DuckDB et Python. Retrouvez-le à cette adresse Aide-mémoire SAS - R - pandas] ! Ce guide est également collaboratif : vous pouvez y contribuer en proposant de nouvelles traductions, en l’enrichissant ou en corrigeant d’éventuelles erreurs. N’hésitez pas à participer !"
+    "text": "📢 Aujourd’hui, on vous apprend à lire des données en R ! Il existe plusieurs formats de réprésentation des données :\n🔹 Fichiers plats (CSV, TXT, TSV, etc.)\n👉 Utilisez read.csv(), read.table() ou fread() (plus rapide avec {data.table}).\n🔹 Fichiers Excel et formats spécifiques (JSON, XML, YAML, etc.)\n👉 Pour Excel : readxl::read_excel() ou openxlsx::read.xlsx().\n👉 Pour JSON : jsonlite::fromJSON(), pour XML : xml2::read_xml(), et pour YAML : yaml::read_yaml().\n🔹 Bases de données\n👉 Pour SQL : DBI::dbReadTable(), pour SQLite : RSQLite::dbReadTable(), ou encore RODBC::sqlQuery() pour l’ODBC.\n🔹 Web et HTML\n👉 Pour lire du HTML : rvest::read_html() permet de scraper des pages web facilement.\n👉 Vous pouvez aussi récupérer des données via des API avec httr::GET().\n🔹 Parquet\n👉 Utilisez arrow::read_parquet() ou arrow::open_dataset() pour lire des fichiers Parquet.\n🌟 Astuce : Avec ces fonctions, vous pouvez ajuster le paramètre memory = TRUE ou memory = FALSE.\n\nmemory = TRUE : Charge directement les données sous forme de data.frame dans R, ce qui est plus pratique si vous avez besoin de manipuler immédiatement l’ensemble des données.\nmemory = FALSE : Permet d’effectuer des opérations plus ciblées sans charger toute la table en mémoire. Idéal lorsque vous travaillez avec de très gros fichiers et souhaitez filtrer ou transformer les données avant de les charger en mémoire à l’aide de la fonction arrow::collect()\n\nBonus : La librairie RIO\n👉 La librairie {rio} simplifie la lecture de fichiers dans différents formats, en offrant une méthode universelle avec rio::import() pour des fichiers CSV, Excel, JSON, SAS, et bien plus encore !\n🛠️ Et vous, quel format utilisez-vous le plus ? 😊"
   },
   {
-    "objectID": "Actus/9_transformer_across.html",
-    "href": "Actus/9_transformer_across.html",
-    "title": "Transformer des variables avec across",
+    "objectID": "Actus/11_bonnes_pratiques.html",
+    "href": "Actus/11_bonnes_pratiques.html",
+    "title": "Bonnes pratiques",
     "section": "",
-    "text": "Depuis dplyr 1.0, certaines fonctions comme mutate_at(), mutate_if(), mutate_all() sont dépréciées au profit de la fonction plus polyvalente across(). Elle permet d’appliquer facilement des opérations à plusieurs colonnes selon des critères précis dans mutate(), summarise(), filter() etc.\nlibrary(dplyr)\n# Exemple iris : calculer le carré de toutes les colonnes numériques\ndatasets::iris %&gt;% mutate(across(where(is.numeric), ~ .x^2))\nDans la fonction across(), on peut passer une fonction anonyme pour définir la transformation à appliquer à chaque colonne sélectionnée. Cette fonction anonyme est écrite avec la syntaxe tilde (~).\n• Le tilde ~ signifie “fonction anonyme”. • .x représente la colonne en cours de traitement. • Donc, ~ .x ^2 signifie « pour chaque valeur dans la colonne, calcule son carré ».\n# Exemple : diviser par 2 uniquement les colonnes qui commencent par \"Petal\"\ndatasets::iris %&gt;%  mutate(across(starts_with(\"Petal\"), ~ .x / 2))\n# Multiplier par 10 toutes les colonnes sauf Species\ndatasets::iris %&gt;%  mutate(across(-Species, ~ .x * 10))\nRemarque : across conserve les noms originaux des colonnes en les transformant.\nOn peut aussi utiliser everything() pour sélectionner toutes les colonnes : il est souvent utilisé dans select()\n# Réordonner en mettant Species en premier, puis tout le reste\ndatasets::iris %&gt;%  select(Species, everything())"
-  },
-  {
-    "objectID": "Actus/3_sheet_cheat.html",
-    "href": "Actus/3_sheet_cheat.html",
-    "title": "Aides-mémoires",
-    "section": "",
-    "text": "Il existe de nombreuses cheat sheets (aide mémoire en format poster) pour vous aider. Voici quelques-unes de nos préférées :\n\nBase R Cheat Sheet\nDplyr (en français)\nGgplot2 (en français)\nLubridate (gestion des dates en R)\nSQL Basics Cheat Sheet\nStringr (manipulation de chaîne de caractères et expressions régulières)\n\nN’hésitez pas à les consulter et à les partager !"
-  },
-  {
-    "objectID": "Actus/7_stat_dplyr.html",
-    "href": "Actus/7_stat_dplyr.html",
-    "title": "Statistiques de base avec dplyr",
-    "section": "",
-    "text": "filter() = Filtrer des lignes\nselect() = Sélectionner des colonnes\nmutate() = Créer de nouvelles variables\nsummarise() = Calculer des statistiques résumées\ngroup_by() = Grouper avant de résumer\narrange() = Trier des lignes\n\nExemple pour le summarise :\n\ndata %&gt;%\n  summarise(\n    mean_var = mean(ma_variable, na.rm = TRUE),\n    median_var = median(ma_variable, na.rm = TRUE)\n    min_var = min(ma_variable, na.rm = TRUE),\n    max_var = max(ma_variable, na.rm = TRUE),\n    sd_var = sd(ma_variable, na.rm = TRUE),\n    n_obs = n()\n)\nPour plus d’informations pour les fonctions utilisables dans le summarise : Documentation dplyr\net vous, quelle est votre fonction préférée ?"
-  },
-  {
-    "objectID": "Actus/1_raccourcis_Rstudio.html",
-    "href": "Actus/1_raccourcis_Rstudio.html",
-    "title": "Les raccourcis R avec Rstudio",
-    "section": "",
-    "text": "Boostez votre productivité sur RStudio avec ces 10 raccourcis indispensables ! Exécutez du code en un clin d’œil, naviguez rapidement entre les fichiers, formatez votre script proprement et commentez en un geste. Que vous soyez débutant ou expert, ces raccourcis vous feront gagner un temps précieux et optimiseront votre workflow. 🚀💡\n\n\n\nRaccourcis R Studio\n\n\nSi vous voulez tester vos connaissances en R : Quiz1"
+    "text": "Bonnes pratiques en R"
   }
 ]

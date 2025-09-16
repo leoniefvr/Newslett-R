@@ -1,5 +1,43 @@
 [
   {
+    "listing": "/debute.html",
+    "items": [
+      "/Actus/1_raccourcis_Rstudio.html",
+      "/Actus/2_rproj.html",
+      "/Actus/3_sheet_cheat.html",
+      "/Actus/4_aide_memoire.html",
+      "/Actus/5_lecture_donnees.html",
+      "/Actus/6_structuration_projet.html",
+      "/Actus/7_stat_dplyr.html",
+      "/Actus/8_ecriture_donnees.html",
+      "/Actus/10_duckdb.html",
+      "/Actus/11_bonnes_pratiques.html"
+    ]
+  },
+  {
+    "listing": "/exercices.html",
+    "items": [
+      "/Exercices/1_group_by.html"
+    ]
+  },
+  {
+    "listing": "/intermediaire.html",
+    "items": [
+      "/Actus/9_transformer_across.html"
+    ]
+  },
+  {
+    "listing": "/quizs.html",
+    "items": [
+      "/Quizs/1_raccourcis_Rstudio_quiz.html",
+      "/Quizs/2_rproj_quiz.html"
+    ]
+  },
+  {
+    "listing": "/expertise.html",
+    "items": []
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/Actus/1_raccourcis_Rstudio.html",
@@ -11,44 +49,8 @@
       "/Actus/7_stat_dplyr.html",
       "/Actus/8_ecriture_donnees.html",
       "/Actus/9_transformer_across.html",
-      "/Actus/10_duckdb.html"
-    ]
-  },
-  {
-    "listing": "/expertise.html",
-    "items": []
-  },
-  {
-    "listing": "/quizs.html",
-    "items": [
-      "/Quizs/1_raccourcis_Rstudio_quiz.html",
-      "/Quizs/2_rproj_quiz.html"
-    ]
-  },
-  {
-    "listing": "/intermediaire.html",
-    "items": [
-      "/Actus/9_transformer_across.html"
-    ]
-  },
-  {
-    "listing": "/exercices.html",
-    "items": [
-      "/Exercices/1_group_by.html"
-    ]
-  },
-  {
-    "listing": "/debute.html",
-    "items": [
-      "/Actus/1_raccourcis_Rstudio.html",
-      "/Actus/2_rproj.html",
-      "/Actus/3_sheet_cheat.html",
-      "/Actus/4_aide_memoire.html",
-      "/Actus/5_lecture_donnees.html",
-      "/Actus/6_structuration_projet.html",
-      "/Actus/7_stat_dplyr.html",
-      "/Actus/8_ecriture_donnees.html",
-      "/Actus/10_duckdb.html"
+      "/Actus/10_duckdb.html",
+      "/Actus/11_bonnes_pratiques.html"
     ]
   }
 ]
