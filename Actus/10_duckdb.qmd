@@ -11,12 +11,14 @@ image: ../img/10_duckdb.png
 ---
 
 # Qu'est-ce que duckdb ?
+
 DuckDB est un logiciel qui permet de manipuler des données sans avoir à tout charger en mémoire, tout en réalisant des traitements statistiques efficaces.
 Il est particulièrement adapté au traitement de données de taille moyenne (de l’ordre de 10 à 100 Go), en ne chargeant en mémoire que les données nécessaires.
 Pour cela, DuckDB s’appuie sur un moteur d’optimisation (query optimizer) qui détermine la meilleure stratégie pour lire et traiter les fichiers de données de manière performante.
 
 
 Deux manières de commencer en R :
+
 1. Utilisation de duckdb+duckplyr
 2. Utilisation de duckdb+SQL/dplyr
 
