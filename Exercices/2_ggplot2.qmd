@@ -1,6 +1,8 @@
 ---
-title: "Untitled"
-format: revealjs
+title: "TP ggplot2"
+editor: visual
+format: live-html
+engine: knitr
 ---
 
 ## TP group_by avec ggplot2 !
