@@ -1,0 +1,12 @@
+---
+title: "Apprendre ggplot2"
+date: "2025-11-18"
+author: ""
+tags:
+  - Exercices
+categories:
+  - Exercices
+image: ../img/12_ggplot2.png
+---
+
+[Exercice ggplot2](../Notebooks/2_tp_ggplot2.qmd)

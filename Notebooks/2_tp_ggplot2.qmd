@@ -5,7 +5,7 @@ format: live-html
 engine: knitr
 ---
 
-## TP group_by avec ggplot2 !
+## TP avec ggplot2 !
 
 Ce TP permet d'apprendre à construire des graphiques avec la librairie ggplot2
 
