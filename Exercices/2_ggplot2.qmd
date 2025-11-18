@@ -1,0 +1,266 @@
+---
+title: "Untitled"
+format: revealjs
+---
+
+## TP group_by avec ggplot2 !
+
+Ce TP permet d'apprendre à construire des graphiques avec la librairie ggplot2
+
+## Prérequis
+
+Installation et chargement de Dplyr et de ggplot2
+
+```{webr}
+#| label: Import dplyr et ggplot2
+library("dplyr")
+library("ggplot2")
+```
+
+## Les fondamentaux avec Ggplot2
+
+Nous travaillerons avec le dataset mpg fourni avec ggplot2 et nous suivrons les possibilités énoncés dans le cheat sheet de ggplot2 par Rstudio (https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf)
+
+```{webr}
+#| label: Import dataset
+df <- ggplot2::mpg
+```
+
+```{webr}
+#| label: Affichage dataset
+df %>% head(5)
+```
+
+https://ggplot2.tidyverse.org/reference/mpg.html
+
+Ce jeu de données représente des modèles populaires de voitures aux Etats-Unis entre 1999 et 2008
+
+On s'intéressera à deux variables quantitatives
+
+-   cty = city miles per gallon (nombre de miles parcourus par gallon en ville)
+
+-   hwy = highway miles per gallon (nombre de miles parcourus par gallon sur autoroute)
+
+et une variable qualitative :
+
+-   cyl =number of cylinders (nombre de cylindres du moteur; quatre modalités 4 5 6 8)
+
+Les deux variables prennent des valeurs entières entre 9 et 19 et 12 et 22
+
+```{webr}
+#| label: Comptage cty
+df %>% group_by(cty) %>% count(cty)
+```
+
+```{webr}
+#| label: Comptage hwy
+df %>% group_by(hwy) %>% count(hwy)
+```
+
+## Philosophie générale
+
+Ggplot2 se présente comme un librairie de grammaire de graphique. L'idée est de composer plusieurs éléments/verbes pour construire le graphique pas à pas.
+
+Une première fonction rapide (fonction `qplot` pour "quick plot"; dépréciée mais utile) permet de construire un graphique sans personnalisation. On peut représenter facilement le nuage de point cty\*hwy \| cyl
+
+```{webr}
+#| label: qplot
+df %>% qplot(data=.,x = cty, y = hwy, color = cyl, geom = "point")
+```
+
+Et une version plus modulaire et personnalisée :
+
+```{webr}
+#| label: ggplot équivalent qplot
+df %>% ggplot( aes(hwy, cty)) +
+  geom_point(aes(color = cyl)) +
+  coord_cartesian()+
+  facet_null()+
+  scale_color_gradient()+
+  theme_bw()
+```
+
+La grammaire est la suivante :
+
+-   Jeu de données et sélection des variables = ggplot()
+
+-   Une fonction géométrique (nuage de point, histogramme, courbe, ligne)
+
+-   (Optionnellement, par défaut rien) d'autres fonctions géométriques (comme des lignes notamment)
+
+-   (Optionnellement, par défaut cartésien) une fonction de représentation des coordonnées (cartésien, polaire)
+
+-   (Optionnellement, par défaut facet_null) une fonction de facettage (cadre de présentation : monographique, multigraphique)
+
+-   (Optionnellement, par défaut automatique) une fonction d'échelle
+
+-   (Optionnellement, par défault theme_gray) une fonction de thème (thème minimal, thème classique)
+
+Ggplot2 peut représenter les données à une dimension, deux dimensions et trois dimensions.
+
+## Données à une dimension
+
+Il s'agit majoritairement des comptages d'une variable, comme un histogramme
+
+On travaille avec la variable hwy comme variable discrète (elle est continue, mais comme elle prend des valeurs finis d'entier, on va la considérer comme une variable discrète dans un premier temps)
+
+1- D'abord, on peut initialiser un graphique vide en explicitant la variable
+
+```{webr}
+#| label: Graphique vide et sélection hwy
+df %>% ggplot(aes(x=hwy))
+```
+
+2 - Ensuite, on rajoute un type de graphique (ici un histogramme à barre pour une variable discrète)
+
+```{webr}
+#| label: Mon premier histogramme
+df %>% ggplot(aes(x=hwy)) + geom_bar()
+```
+
+3- Même chose, pour une variable continue (displ) :
+
+```{webr}
+#| label: Histogramme quanti
+df %>% ggplot(aes(x=displ)) + geom_histogram()
+```
+
+```{webr}
+#| label: Densité quanti
+df %>% ggplot(aes(x=displ)) + geom_density(kernel="gaussian")
+```
+
+```{webr}
+#| label: Surface quanti
+df %>% ggplot(aes(x=displ)) + geom_area(stat="bin")
+```
+
+On peut s'amuser à faire les trois en même temps, même si cela n'a ici pas d'utilité !
+
+```{webr}
+#| label: Trois graphiques en un
+df %>% ggplot(aes(x=displ)) + geom_histogram() + geom_density(kernel="gaussian") + geom_area(stat="bin")
+```
+
+## Données à deux dimensions ou plus
+
+On considère les variables cty et hwy comme des variables "continues"
+
+```{webr}
+#| label: Graphique 2D représentation en label
+df %>% ggplot(aes(cty,hwy)) + geom_label(aes(label=cty))
+```
+
+```{webr}
+#| label: Graphique 2D représentation en texte
+df %>% ggplot(aes(cty,hwy)) + geom_text(aes(label=cty))
+```
+
+```{webr}
+#| label: Graphique 2D représentation en points
+df %>% ggplot(aes(cty,hwy)) + geom_point()
+```
+
+Entre une variable quanti et quali :
+
+```{webr}
+#| label: Graphique 2D représentation en regression
+df %>% ggplot(aes(cty,hwy)) + geom_smooth()
+```
+
+```{webr}
+#| label: Graphique 2D représentation en violon
+df %>% ggplot(aes(class,hwy)) + geom_violin(scale="area")
+```
+
+Il y a plein d'autres fonctions pour deux ou trois variables, vous pouvez vous référer au sheet cheat !
+
+## Personnalisation graphique
+
+-   Système de coordonnées
+-   Mise à l'échelle
+-   Disposition du/des graphique(s)
+-   Labels et légendes
+-   Thèmes graphiques
+
+Il est plutôt rare de modifier le système de coordonnées, pour cela se référer à la documentation et au cheat sheet.
+
+Pour la mise à l'échelle, il est plutôt commun de limiter le max ou min
+
+```{webr}
+#| label: Graphique borné avec xlim/ylim
+df %>% ggplot(aes(cty,hwy)) +
+  geom_point() +
+  xlim(10, 15) +
+  ylim(15,20)
+```
+
+Ou passer par l'option dans la partie coordonnées (non vue)
+
+```{webr}
+#| label: Graphique borné avec xlim/ylim dans coord_
+df %>% ggplot(aes(cty,hwy)) +
+  geom_point() +
+  coord_cartesian(xlim = c(10, 15), ylim=c(15,20))
+```
+
+GGplot2 gère relativement bien la mise à l'échelle automatique, pour plus de précision si besoin se réferer à la documentation ou au cheat sheet.
+
+L'ajout de label et de légende se fait avec un module +labs()
+
+```{webr}
+#| label: Labels et légendes
+df %>% ggplot(aes(cty,hwy)) +
+  geom_point() +
+  labs(title="Mon titre", x="mon axe x", y="mon axe y")
+```
+
+On peut disposer plusieurs graphiques côte à côte
+
+```{webr}
+#| label: Plusieurs graphiques en fonction de class, horizontal
+df %>% ggplot(aes(x=cty,y=hwy)) + geom_point() + facet_grid(. ~ class)
+```
+
+```{webr}
+#| label: Plusieurs graphiques en fonction de class, vertical
+df %>% ggplot(aes(x=cty,y=hwy)) + geom_point() + facet_grid(class ~ .)
+
+```
+
+```{webr}
+#| label: Plusieurs graphiques en fonction de class, wrap
+df %>% ggplot(aes(x=cty,y=hwy)) + geom_point() + facet_wrap(class ~ .)
+```
+
+Dernier élement, des thèmes automatiques pour agrémenter le visuel 
+
+
+```{webr}
+#| label: Plusieurs graphiques en fonction de class, wrap + thème black and white
+df %>% ggplot(aes(x=cty,y=hwy)) + geom_point() + facet_wrap(class ~ .) + theme_bw()
+```
+
+```{webr}
+#| label: Plusieurs graphiques en fonction de class, wrap + thème minimal
+df %>% ggplot(aes(x=cty,y=hwy)) + geom_point() + facet_wrap(class ~ .) + theme_minimal()
+```
+
+
+```{webr}
+#| label: Plusieurs graphiques en fonction de class, wrap + thème classique
+df %>% ggplot(aes(x=cty,y=hwy)) + geom_point() + facet_wrap(class ~ .) + theme_classic()
+```
+
+Il y a possibilité de choisir les palettes de couleurs dans les modules concernées (histogramme, courbes, surfaces, etc) et cela est laissé en exercice :)
+
+
+## Pour aller plus loin
+
+Il existe des fonctions stat\_ qui permettent de produire des graphiques par défaut, avec une syntaxe condensée (comme qplot)
+
+```{webr}
+#| label: Graphique avec stat_count
+#df %>% ggplot(aes(x=hwy)) + geom_bar()
+df %>% ggplot(aes(x=hwy)) + stat_count(geom="bar")
+```
