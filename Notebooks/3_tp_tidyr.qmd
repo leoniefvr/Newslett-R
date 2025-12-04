@@ -1,0 +1,146 @@
+---
+title: "TP tidyr"
+editor: visual
+format:
+  live-html:
+    embed-resources: true
+resources:
+  - ../data/donnees_synthetiques_structure_iae.parquet
+engine: knitr
+---
+
+## TP pivot avec tidyr !
+
+-   Documentation : https://rstudio.github.io/cheatsheets/html/tidyr.html
+
+-   Cheat sheat : https://rstudio.github.io/cheatsheets/tidyr.pdf
+
+Ce TP permet d'apprendre à adapter la forme de vos données dans la meilleure disposition.
+
+Les séries longues sont parfois représentées sous forme de millésimes empilées avec le même individu présent sur plusieurs lignes, notamment dans le cadre des productions périodiques où l'on peut concaténer les bases de porduction : le même individu statistique est donc présent plusieurs fois, mais pour un millésime différent. Il est parfois pratique de revenir à un format "une ligne = un individu stat". Nous utiliserons pour cela la fonction **pivot_wider** (format longer à wider).
+
+Les données qu'on reçoit peuvent aussi être au format wider pour certaines variables d'intérêt, il s'agit de linéariser en un seul concept, de donc de revenir à un format "1 ligne= 1 individu stat \* millésime". Nous utiliserons la fonction **pivot_longer** (format wider à longer)
+
+longer (format long) = j'augmente le nombre de lignes (et je réduis le nombre de colonnes)
+
+wider (format large) = j'aumente le nombre de colonnes (et je réduis le nombre de lignes)
+
+![](images/clipboard-2310270395.png)
+
+## Prérequis
+
+Installation et chargement de Dplyr et de tidyr
+
+```{webr}
+#| label: Import dplyr et ggplot2
+library("dplyr")
+library("tidyr")
+library("arrow")
+```
+
+## Import des données
+
+```{webr}
+#| label: Import données
+df <- read_parquet("../data/donnees_synthetiques_structure_iae.parquet")
+```
+
+```{webr}
+#| label: vue colonnes
+df %>% select(id_siae,annee,effectif)
+```
+
+```{webr}
+#| label: totaux
+df %>% group_by(annee) %>% summarise(total=n())
+```
+
+## De Long à Wide (millésimes empilées à millésimes en colonnes)
+
+Nous allons mettre la variable effectif en colonne, suffixé par le millésime effectif_2025, effectif_2024, etc....
+
+Pour cela, nous allons utiliser la fonction **pivot_wider()**
+
+A minima, il faut lui spécifier :
+
+-   le jeu de données,
+
+<!-- -->
+
+-   les valeurs à transposer (*values\_\**)
+
+<!-- -->
+
+-    et le nom des nouvelles colonnes (*names\_\**)
+
+```{webr}
+#| label: monr premier pivot wider
+df %>% pivot_wider(id_cols=id_siae,names_from = annee ,values_from = effectif)
+```
+
+Les noms de colonnes ne sont pas très jolis, car il reprend ici les modalités de la variable année, à nous de spécifier correctement avec un présuffixe avant :
+
+```{webr}
+#| label: pivot wider
+df_wider <- df %>% pivot_wider(id_cols=id_siae,names_from = annee ,values_from = effectif , names_prefix = "effectif_")
+df_wider
+```
+
+Dans ce format, on peut visualiser plus facilement la série longue. On peut aussi faire le calcul de somme par ligne, colonnes à colonnes, plutôt que précédemment avec un group_by
+
+```{webr}
+#| label: somme sur colonnes
+df_wider %>%
+  rowwise() %>%
+  mutate(total_effectif = sum(c_across(starts_with("effectif_")), na.rm = TRUE))
+```
+
+## De Wide à Long (Variables en colonnes à "linéariser")
+
+Nous allons maintenant remettre des valeurs de colonnes d'un même concept sous un seul concept et multiplier les lignes
+
+Sur notre exemple, prenons le siret. Pour l'exercice, on souhaite empiler ces deux colonnes en une (en gardant évidemment les autres colonnes intactes).
+
+```{webr}
+#| label: vue siret
+df %>% select(id_siae,siret_signature,siret_actualise)
+```
+
+Nous allons utiliser la fonction **pivot_longer()**
+
+Cette fonction prend en paramètre :
+
+-   le tableau de données,
+
+-   les colonnes à linéariser (cols),
+
+-   le nom de colonne qui va accueillir les valeurs des colonnes initiales (values_to),
+
+-    le nom de la colonne qui va accueillir les noms des colonnes initiales (names_to)
+
+```{webr}
+#| label: mon premier pivot longer
+df %>%
+  select(id_siae, siret_signature, siret_actualise) %>%
+  pivot_longer(
+    cols = c(siret_signature, siret_actualise),
+    names_to = "colonne_nom_variable_init",
+    values_to = "colonne_valeur_variable_init"
+  )
+```
+
+Dans notre problématique :
+
+```{webr}
+#| label: pivot longer
+df %>%
+  pivot_longer(
+    cols = c(siret_signature, siret_actualise),
+    names_to = "type_siret",
+    values_to = "siret"
+  ) 
+```
+
+On peut évidemment modifier avec plus de finesse les valeurs, notamment avec les paramètres *names_transform, values_transform*
+
+En dehors de cette exemple, ce format est pratique pour filtrer des années par la suite, si vous aviez des valeurs en colonnes.

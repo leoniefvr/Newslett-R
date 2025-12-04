@@ -1,0 +1,12 @@
+---
+title: "Apprendre tidyr"
+date: "2025-12-04"
+author: ""
+tags:
+  - Exercices
+categories:
+  - Exercices
+image: ../img/13_tidyr.png
+---
+
+[Exercice tidyr](../Notebooks/3_tp_tidyr.qmd)
