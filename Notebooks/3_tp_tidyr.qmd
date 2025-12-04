@@ -32,17 +32,16 @@ wider (format large) = j'aumente le nombre de colonnes (et je réduis le nombre 
 Installation et chargement de Dplyr et de tidyr
 
 ```{webr}
-#| label: Import dplyr et ggplot2
+#| label: Import dplyr et tidyr
 library("dplyr")
 library("tidyr")
-library("arrow")
 ```
 
 ## Import des données
 
 ```{webr}
 #| label: Import données
-df <- read_parquet("../data/donnees_synthetiques_structure_iae.csv")
+df <- read.csv2("./data/donnees_synthetiques_structure_iae.csv")
 ```
 
 ```{webr}
