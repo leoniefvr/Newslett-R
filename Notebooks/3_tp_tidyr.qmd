@@ -81,7 +81,7 @@ Les noms de colonnes ne sont pas très jolis, car il reprend ici les modalités 
 
 ```{webr}
 #| label: pivot wider
-df_wider <- df %>% pivot_wider(id_cols=id_siae,names_from = annee ,values_from = effectif , names_prefix = "effectif_")
+df_wider <- df %>% pivot_wider(id_cols=id_siae,names_from = annee ,values_from = effectif , names_prefix = "eff_")
 df_wider %>% head(10)
 ```
 
@@ -91,7 +91,7 @@ Dans ce format, on peut visualiser plus facilement la série longue. On peut aus
 #| label: somme sur colonnes
 df_wider %>%
   rowwise() %>%
-  mutate(total_effectif = sum(c_across(starts_with("effectif_")), na.rm = TRUE)) %>% head(10)
+  mutate(total_effectif = sum(c_across(starts_with("eff_")), na.rm = TRUE)) %>% head(10)
 ```
 
 ## De Wide à Long (Variables en colonnes à "linéariser")
