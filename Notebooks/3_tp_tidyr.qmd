@@ -5,7 +5,7 @@ format:
   live-html:
     embed-resources: true
 resources:
-  - ../data/donnees_synthetiques_structure_iae.parquet
+  - ../data/donnees_synthetiques_structure_iae.csv
 engine: knitr
 ---
 
@@ -42,7 +42,7 @@ library("arrow")
 
 ```{webr}
 #| label: Import données
-df <- read_parquet("../data/donnees_synthetiques_structure_iae.parquet")
+df <- read_parquet("../data/donnees_synthetiques_structure_iae.csv")
 ```
 
 ```{webr}
