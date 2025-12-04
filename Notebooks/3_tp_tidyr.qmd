@@ -46,7 +46,7 @@ df <- read.csv2("./data/donnees_synthetiques_structure_iae.csv")
 
 ```{webr}
 #| label: vue colonnes
-df %>% select(id_siae,annee,effectif)
+df %>% select(id_siae,annee,effectif) %>% head(10)
 ```
 
 ```{webr}
@@ -82,7 +82,7 @@ Les noms de colonnes ne sont pas très jolis, car il reprend ici les modalités 
 ```{webr}
 #| label: pivot wider
 df_wider <- df %>% pivot_wider(id_cols=id_siae,names_from = annee ,values_from = effectif , names_prefix = "effectif_")
-df_wider
+df_wider %>% head(10)
 ```
 
 Dans ce format, on peut visualiser plus facilement la série longue. On peut aussi faire le calcul de somme par ligne, colonnes à colonnes, plutôt que précédemment avec un group_by
@@ -91,7 +91,7 @@ Dans ce format, on peut visualiser plus facilement la série longue. On peut aus
 #| label: somme sur colonnes
 df_wider %>%
   rowwise() %>%
-  mutate(total_effectif = sum(c_across(starts_with("effectif_")), na.rm = TRUE))
+  mutate(total_effectif = sum(c_across(starts_with("effectif_")), na.rm = TRUE)) %>% head(10)
 ```
 
 ## De Wide à Long (Variables en colonnes à "linéariser")
@@ -102,7 +102,7 @@ Sur notre exemple, prenons le siret. Pour l'exercice, on souhaite empiler ces de
 
 ```{webr}
 #| label: vue siret
-df %>% select(id_siae,siret_signature,siret_actualise)
+df %>% select(id_siae,siret_signature,siret_actualise) %>% head(10)
 ```
 
 Nous allons utiliser la fonction **pivot_longer()**
@@ -125,7 +125,7 @@ df %>%
     cols = c(siret_signature, siret_actualise),
     names_to = "colonne_nom_variable_init",
     values_to = "colonne_valeur_variable_init"
-  )
+  ) %>% head(10)
 ```
 
 Dans notre problématique :
@@ -137,7 +137,7 @@ df %>%
     cols = c(siret_signature, siret_actualise),
     names_to = "type_siret",
     values_to = "siret"
-  ) 
+  ) %>% head(10) 
 ```
 
 On peut évidemment modifier avec plus de finesse les valeurs, notamment avec les paramètres *names_transform, values_transform*
