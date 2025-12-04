@@ -1,87 +1,87 @@
 [
   {
-    "objectID": "Notebooks/2_tp_ggplot2.html",
-    "href": "Notebooks/2_tp_ggplot2.html",
-    "title": "TP ggplot2",
+    "objectID": "Notebooks/3_tp_tidyr.html",
+    "href": "Notebooks/3_tp_tidyr.html",
+    "title": "TP tidyr",
     "section": "",
-    "text": "Ce TP permet d’apprendre à construire des graphiques avec la librairie ggplot2"
+    "text": "Documentation : https://rstudio.github.io/cheatsheets/html/tidyr.html\nCheat sheat : https://rstudio.github.io/cheatsheets/tidyr.pdf\n\nCe TP permet d’apprendre à adapter la forme de vos données dans la meilleure disposition.\nLes séries longues sont parfois représentées sous forme de millésimes empilées avec le même individu présent sur plusieurs lignes, notamment dans le cadre des productions périodiques où l’on peut concaténer les bases de porduction : le même individu statistique est donc présent plusieurs fois, mais pour un millésime différent. Il est parfois pratique de revenir à un format “une ligne = un individu stat”. Nous utiliserons pour cela la fonction pivot_wider (format longer à wider).\nLes données qu’on reçoit peuvent aussi être au format wider pour certaines variables d’intérêt, il s’agit de linéariser en un seul concept, de donc de revenir à un format “1 ligne= 1 individu stat * millésime”. Nous utiliserons la fonction pivot_longer (format wider à longer)\nlonger (format long) = j’augmente le nombre de lignes (et je réduis le nombre de colonnes)\nwider (format large) = j’aumente le nombre de colonnes (et je réduis le nombre de lignes)"
   },
   {
-    "objectID": "Notebooks/2_tp_ggplot2.html#tp-avec-ggplot2",
-    "href": "Notebooks/2_tp_ggplot2.html#tp-avec-ggplot2",
-    "title": "TP ggplot2",
+    "objectID": "Notebooks/3_tp_tidyr.html#tp-pivot-avec-tidyr",
+    "href": "Notebooks/3_tp_tidyr.html#tp-pivot-avec-tidyr",
+    "title": "TP tidyr",
     "section": "",
-    "text": "Ce TP permet d’apprendre à construire des graphiques avec la librairie ggplot2"
+    "text": "Documentation : https://rstudio.github.io/cheatsheets/html/tidyr.html\nCheat sheat : https://rstudio.github.io/cheatsheets/tidyr.pdf\n\nCe TP permet d’apprendre à adapter la forme de vos données dans la meilleure disposition.\nLes séries longues sont parfois représentées sous forme de millésimes empilées avec le même individu présent sur plusieurs lignes, notamment dans le cadre des productions périodiques où l’on peut concaténer les bases de porduction : le même individu statistique est donc présent plusieurs fois, mais pour un millésime différent. Il est parfois pratique de revenir à un format “une ligne = un individu stat”. Nous utiliserons pour cela la fonction pivot_wider (format longer à wider).\nLes données qu’on reçoit peuvent aussi être au format wider pour certaines variables d’intérêt, il s’agit de linéariser en un seul concept, de donc de revenir à un format “1 ligne= 1 individu stat * millésime”. Nous utiliserons la fonction pivot_longer (format wider à longer)\nlonger (format long) = j’augmente le nombre de lignes (et je réduis le nombre de colonnes)\nwider (format large) = j’aumente le nombre de colonnes (et je réduis le nombre de lignes)"
   },
   {
-    "objectID": "Notebooks/2_tp_ggplot2.html#prérequis",
-    "href": "Notebooks/2_tp_ggplot2.html#prérequis",
-    "title": "TP ggplot2",
+    "objectID": "Notebooks/3_tp_tidyr.html#prérequis",
+    "href": "Notebooks/3_tp_tidyr.html#prérequis",
+    "title": "TP tidyr",
     "section": "Prérequis",
-    "text": "Prérequis\nInstallation et chargement de Dplyr et de ggplot2"
+    "text": "Prérequis\nInstallation et chargement de Dplyr et de tidyr"
   },
   {
-    "objectID": "Notebooks/2_tp_ggplot2.html#les-fondamentaux-avec-ggplot2",
-    "href": "Notebooks/2_tp_ggplot2.html#les-fondamentaux-avec-ggplot2",
-    "title": "TP ggplot2",
-    "section": "Les fondamentaux avec Ggplot2",
-    "text": "Les fondamentaux avec Ggplot2\nNous travaillerons avec le dataset mpg fourni avec ggplot2 et nous suivrons les possibilités énoncés dans le cheat sheet de ggplot2 par Rstudio (https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://ggplot2.tidyverse.org/reference/mpg.html\nCe jeu de données représente des modèles populaires de voitures aux Etats-Unis entre 1999 et 2008\nOn s’intéressera à deux variables quantitatives\n\ncty = city miles per gallon (nombre de miles parcourus par gallon en ville)\nhwy = highway miles per gallon (nombre de miles parcourus par gallon sur autoroute)\n\net une variable qualitative :\n\ncyl =number of cylinders (nombre de cylindres du moteur; quatre modalités 4 5 6 8)\n\nLes deux variables prennent des valeurs entières entre 9 et 19 et 12 et 22"
+    "objectID": "Notebooks/3_tp_tidyr.html#import-des-données",
+    "href": "Notebooks/3_tp_tidyr.html#import-des-données",
+    "title": "TP tidyr",
+    "section": "Import des données",
+    "text": "Import des données"
   },
   {
-    "objectID": "Notebooks/2_tp_ggplot2.html#philosophie-générale",
-    "href": "Notebooks/2_tp_ggplot2.html#philosophie-générale",
-    "title": "TP ggplot2",
-    "section": "Philosophie générale",
-    "text": "Philosophie générale\nGgplot2 se présente comme un librairie de grammaire de graphique. L’idée est de composer plusieurs éléments/verbes pour construire le graphique pas à pas.\nUne première fonction rapide (fonction qplot pour “quick plot”; dépréciée mais utile) permet de construire un graphique sans personnalisation. On peut représenter facilement le nuage de point cty*hwy | cyl\n\n\n\n\n\n\n\n\nEt une version plus modulaire et personnalisée :\n\n\n\n\n\n\n\n\nLa grammaire est la suivante :\n\nJeu de données et sélection des variables = ggplot()\nUne fonction géométrique (nuage de point, histogramme, courbe, ligne)\n(Optionnellement, par défaut rien) d’autres fonctions géométriques (comme des lignes notamment)\n(Optionnellement, par défaut cartésien) une fonction de représentation des coordonnées (cartésien, polaire)\n(Optionnellement, par défaut facet_null) une fonction de facettage (cadre de présentation : monographique, multigraphique)\n(Optionnellement, par défaut automatique) une fonction d’échelle\n(Optionnellement, par défault theme_gray) une fonction de thème (thème minimal, thème classique)\n\nGgplot2 peut représenter les données à une dimension, deux dimensions et trois dimensions."
+    "objectID": "Notebooks/3_tp_tidyr.html#de-long-à-wide-millésimes-empilées-à-millésimes-en-colonnes",
+    "href": "Notebooks/3_tp_tidyr.html#de-long-à-wide-millésimes-empilées-à-millésimes-en-colonnes",
+    "title": "TP tidyr",
+    "section": "De Long à Wide (millésimes empilées à millésimes en colonnes)",
+    "text": "De Long à Wide (millésimes empilées à millésimes en colonnes)\nNous allons mettre la variable effectif en colonne, suffixé par le millésime effectif_2025, effectif_2024, etc….\nPour cela, nous allons utiliser la fonction pivot_wider()\nA minima, il faut lui spécifier :\n\nle jeu de données,\n\n\n\nles valeurs à transposer (values_*)\n\n\n\net le nom des nouvelles colonnes (names_*)\n\n\n\n\n\n\n\n\n\nLes noms de colonnes ne sont pas très jolis, car il reprend ici les modalités de la variable année, à nous de spécifier correctement avec un présuffixe avant :\n\n\n\n\n\n\n\n\nDans ce format, on peut visualiser plus facilement la série longue. On peut aussi faire le calcul de somme par ligne, colonnes à colonnes, plutôt que précédemment avec un group_by"
   },
   {
-    "objectID": "Notebooks/2_tp_ggplot2.html#données-à-une-dimension",
-    "href": "Notebooks/2_tp_ggplot2.html#données-à-une-dimension",
-    "title": "TP ggplot2",
-    "section": "Données à une dimension",
-    "text": "Données à une dimension\nIl s’agit majoritairement des comptages d’une variable, comme un histogramme\nOn travaille avec la variable hwy comme variable discrète (elle est continue, mais comme elle prend des valeurs finis d’entier, on va la considérer comme une variable discrète dans un premier temps)\n1- D’abord, on peut initialiser un graphique vide en explicitant la variable\n\n\n\n\n\n\n\n\n2 - Ensuite, on rajoute un type de graphique (ici un histogramme à barre pour une variable discrète)\n\n\n\n\n\n\n\n\n3- Même chose, pour une variable continue (displ) :\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOn peut s’amuser à faire les trois en même temps, même si cela n’a ici pas d’utilité !"
+    "objectID": "Notebooks/3_tp_tidyr.html#de-wide-à-long-variables-en-colonnes-à-linéariser",
+    "href": "Notebooks/3_tp_tidyr.html#de-wide-à-long-variables-en-colonnes-à-linéariser",
+    "title": "TP tidyr",
+    "section": "De Wide à Long (Variables en colonnes à “linéariser”)",
+    "text": "De Wide à Long (Variables en colonnes à “linéariser”)\nNous allons maintenant remettre des valeurs de colonnes d’un même concept sous un seul concept et multiplier les lignes\nSur notre exemple, prenons le siret. Pour l’exercice, on souhaite empiler ces deux colonnes en une (en gardant évidemment les autres colonnes intactes).\n\n\n\n\n\n\n\n\nNous allons utiliser la fonction pivot_longer()\nCette fonction prend en paramètre :\n\nle tableau de données,\nles colonnes à linéariser (cols),\nle nom de colonne qui va accueillir les valeurs des colonnes initiales (values_to),\nle nom de la colonne qui va accueillir les noms des colonnes initiales (names_to)\n\n\n\n\n\n\n\n\n\nDans notre problématique :\n\n\n\n\n\n\n\n\nOn peut évidemment modifier avec plus de finesse les valeurs, notamment avec les paramètres names_transform, values_transform\nEn dehors de cette exemple, ce format est pratique pour filtrer des années par la suite, si vous aviez des valeurs en colonnes."
   },
   {
-    "objectID": "Notebooks/2_tp_ggplot2.html#données-à-deux-dimensions-ou-plus",
-    "href": "Notebooks/2_tp_ggplot2.html#données-à-deux-dimensions-ou-plus",
-    "title": "TP ggplot2",
-    "section": "Données à deux dimensions ou plus",
-    "text": "Données à deux dimensions ou plus\nOn considère les variables cty et hwy comme des variables “continues”\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEntre une variable quanti et quali :\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIl y a plein d’autres fonctions pour deux ou trois variables, vous pouvez vous référer au sheet cheat !"
-  },
-  {
-    "objectID": "Notebooks/2_tp_ggplot2.html#personnalisation-graphique",
-    "href": "Notebooks/2_tp_ggplot2.html#personnalisation-graphique",
-    "title": "TP ggplot2",
-    "section": "Personnalisation graphique",
-    "text": "Personnalisation graphique\n\nSystème de coordonnées\nMise à l’échelle\nDisposition du/des graphique(s)\nLabels et légendes\nThèmes graphiques\n\nIl est plutôt rare de modifier le système de coordonnées, pour cela se référer à la documentation et au cheat sheet.\nPour la mise à l’échelle, il est plutôt commun de limiter le max ou min\n\n\n\n\n\n\n\n\nOu passer par l’option dans la partie coordonnées (non vue)\n\n\n\n\n\n\n\n\nGGplot2 gère relativement bien la mise à l’échelle automatique, pour plus de précision si besoin se réferer à la documentation ou au cheat sheet.\nL’ajout de label et de légende se fait avec un module +labs()\n\n\n\n\n\n\n\n\nOn peut disposer plusieurs graphiques côte à côte\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDernier élement, des thèmes automatiques pour agrémenter le visuel\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIl y a possibilité de choisir les palettes de couleurs dans les modules concernées (histogramme, courbes, surfaces, etc) et cela est laissé en exercice :)"
-  },
-  {
-    "objectID": "Notebooks/2_tp_ggplot2.html#pour-aller-plus-loin",
-    "href": "Notebooks/2_tp_ggplot2.html#pour-aller-plus-loin",
-    "title": "TP ggplot2",
-    "section": "Pour aller plus loin",
-    "text": "Pour aller plus loin\nIl existe des fonctions stat_ qui permettent de produire des graphiques par défaut, avec une syntaxe condensée (comme qplot)"
-  },
-  {
-    "objectID": "ressources.html",
-    "href": "ressources.html",
-    "title": "Newslett'R",
+    "objectID": "Notebooks/1_tp_groupby_dplyr.html",
+    "href": "Notebooks/1_tp_groupby_dplyr.html",
+    "title": "TP group_by",
     "section": "",
-    "text": "utilitR\nAide-mémoire SAS - R - pandas"
+    "text": "Ce TP permet d’apprendre à produire des regroupements et des agrégats avec la librairie Dplyr"
   },
   {
-    "objectID": "ressources.html#pour-en-savoir-plus-sur-r",
-    "href": "ressources.html#pour-en-savoir-plus-sur-r",
-    "title": "Newslett'R",
+    "objectID": "Notebooks/1_tp_groupby_dplyr.html#tp-group_by-avec-dplyr",
+    "href": "Notebooks/1_tp_groupby_dplyr.html#tp-group_by-avec-dplyr",
+    "title": "TP group_by",
     "section": "",
-    "text": "utilitR\nAide-mémoire SAS - R - pandas"
+    "text": "Ce TP permet d’apprendre à produire des regroupements et des agrégats avec la librairie Dplyr"
   },
   {
-    "objectID": "Exercices/1_ggplot2.html",
-    "href": "Exercices/1_ggplot2.html",
-    "title": "Apprendre ggplot2",
+    "objectID": "Notebooks/1_tp_groupby_dplyr.html#prérequis",
+    "href": "Notebooks/1_tp_groupby_dplyr.html#prérequis",
+    "title": "TP group_by",
+    "section": "Prérequis",
+    "text": "Prérequis\nInstallation et chargement de Dplyr"
+  },
+  {
+    "objectID": "Notebooks/1_tp_groupby_dplyr.html#les-fondamentaux-avec-dplyr",
+    "href": "Notebooks/1_tp_groupby_dplyr.html#les-fondamentaux-avec-dplyr",
+    "title": "TP group_by",
+    "section": "Les fondamentaux avec Dplyr",
+    "text": "Les fondamentaux avec Dplyr\nNous travaillerons avec le dataset iris\n\n\n\n\n\n\n\n\nRegardons les premiers individus de ce jeu de données\n\n\n\n\n\n\n\n\nNous avons quatre variables quantitatives (longueur et largeur du sépale, longueur et largeur de la pétale) et une variable catégorielle (l’espèce de l’iris)\n\n[illustration Wikipedia]\n\nCombien il y a d’espèces d’iris dans le jeu de données ?\n\n\n\n\n\n\n\n\n\n\nCombien d’individus par espèce ?\n\n\n\n\n\n\n\n\n\nEn voilà un jeu de données bien équilibré :)\nDplyr lit automatiquement les noms de variables à l’intérieur des fonctions dplyr (dplyr::group_by, dplyr::count), il y a une “traduction” automatique.\nA ce sujet, attention, la plupart du temps dplyr souhaite en général les noms des variables sans “” (à de rares exceptions)\nUn aperçu des “effets de bord” que vous pouvez avoir avec des guillemets :\n\n\n\n\n\n\n\n\nIci, on s’en sort plutôt bien car c’est bien ce que nous souhaitons faire\n\n\n\n\n\n\n\n\nCela vaccine bien : il faut plutôt ne pas mettre de guillemets (sauf dans un éventuel by sur les jointures dplyr)\n\n\n\n\n\n\n\n\nSi nous reprenons notre objet de comptage comptage_group_by, nous pouvons nous apercevoir que c’est un objet tibble 3*2 et qu’il est actuellement groupé par “Species”. Toute opération d’agrégat/groupe sera faite par rapport à cette variable.\n\n\n\n\n\n\n\n\nVous pouvez voir le groupe aussi avec group_vars()\n\n\n\n\n\n\n\n\nPour défaire le group (et éventuellement regrouper avec une autre variable), nous pouvons utiliser la commande ungroup :\n\n\n\n\n\n\n\n\nRegroupons artificiellement à l’aide de valeurs fictives les deux premières espèces en irisA, et le reste en irisB :\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLa fonction summarise est une fonction “terminale”, elle synthétise et “dégroupe” d’une dimension\n(il est possible de garder les groupes avec .groups = \"keep\")"
+  },
+  {
+    "objectID": "Notebooks/1_tp_groupby_dplyr.html#pour-aller-plus-loin",
+    "href": "Notebooks/1_tp_groupby_dplyr.html#pour-aller-plus-loin",
+    "title": "TP group_by",
+    "section": "Pour aller plus loin :",
+    "text": "Pour aller plus loin :\n\nsummarize peut s’écrire aussi summarise (ça dépend si vous êtes plutôt USA ou GB)\nSi vous avez terminé vos opérations de groupe, il est plutôt conseillé de revenir à un jeu de données non groupé pour éviter les erreurs\nDans le summarize, il n’est pas conseillé de chainer les variables Si on reprend l’opération précédente, en une fois dans le summarise, cela donne des résultats étonnants\nComme en SQL (e.g having-count), vous pouvez filtrer les groupes selon des conditions sur ces dits-groupes\n\n\n\n\n\n\n\n\n\nExercice (à vous de compléter !) :\n\nCalculer les quantiles par espèce d’iris sur la longueur des pétales\n\n\n\n\n\n\n\n\n\n\nGarder les espèces dont la longueur moyenne des sépales est supérieur à 5.5\n\n\n\n\n\n\n\n\n\n\nEt calculer la longueur moyenne des pétales de ces espèces"
+  },
+  {
+    "objectID": "Exercices/1_group_by.html",
+    "href": "Exercices/1_group_by.html",
+    "title": "Apprendre le group_by de dplyr",
     "section": "",
-    "text": "Exercice ggplot2"
+    "text": "Exercice group_by"
   },
   {
     "objectID": "Quizs/1_raccourcis_Rstudio_quiz.html",
@@ -203,45 +203,94 @@
     "text": "Newslett’R\n\nChaque semaine, nous vous proposons une astuce en R, accompagnée de quiz et d’exercices, pour tous les niveaux – débutant, avancé ou expert – afin de perfectionner votre maîtrise de R.\n\n\n\nStar this website on Github\n\n\n\nLes dernières newslett’R : \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLes raccourcis R avec Rstudio\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer un projet dans Rstudio : le fichier Rproj\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 21, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nAides-mémoires\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 4, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nAide-mémoire SAS-R\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 25, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nLecture des données\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nStructuration des projets\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistiques de base avec dplyr\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 20, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nEcrire de la donnée avec dplyr\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJul 28, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nTransformer des variables avec across\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJul 28, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nDuckdb\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nSep 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nBonnes pratiques\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nSep 13, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "Exercices/1_group_by.html",
-    "href": "Exercices/1_group_by.html",
-    "title": "Apprendre le group_by de dplyr",
+    "objectID": "Exercices/2_ggplot2.html",
+    "href": "Exercices/2_ggplot2.html",
+    "title": "Apprendre ggplot2",
     "section": "",
-    "text": "Exercice group_by"
+    "text": "Exercice ggplot2"
   },
   {
-    "objectID": "Notebooks/1_tp_groupby_dplyr.html",
-    "href": "Notebooks/1_tp_groupby_dplyr.html",
-    "title": "TP group_by",
+    "objectID": "Exercices/3_tidyr.html",
+    "href": "Exercices/3_tidyr.html",
+    "title": "Apprendre tidyr",
     "section": "",
-    "text": "Ce TP permet d’apprendre à produire des regroupements et des agrégats avec la librairie Dplyr"
+    "text": "Exercice tidyr"
   },
   {
-    "objectID": "Notebooks/1_tp_groupby_dplyr.html#tp-group_by-avec-dplyr",
-    "href": "Notebooks/1_tp_groupby_dplyr.html#tp-group_by-avec-dplyr",
-    "title": "TP group_by",
+    "objectID": "ressources.html",
+    "href": "ressources.html",
+    "title": "Newslett'R",
     "section": "",
-    "text": "Ce TP permet d’apprendre à produire des regroupements et des agrégats avec la librairie Dplyr"
+    "text": "utilitR\nAide-mémoire SAS - R - pandas"
   },
   {
-    "objectID": "Notebooks/1_tp_groupby_dplyr.html#prérequis",
-    "href": "Notebooks/1_tp_groupby_dplyr.html#prérequis",
-    "title": "TP group_by",
+    "objectID": "ressources.html#pour-en-savoir-plus-sur-r",
+    "href": "ressources.html#pour-en-savoir-plus-sur-r",
+    "title": "Newslett'R",
+    "section": "",
+    "text": "utilitR\nAide-mémoire SAS - R - pandas"
+  },
+  {
+    "objectID": "Notebooks/2_tp_ggplot2.html",
+    "href": "Notebooks/2_tp_ggplot2.html",
+    "title": "TP ggplot2",
+    "section": "",
+    "text": "Ce TP permet d’apprendre à construire des graphiques avec la librairie ggplot2"
+  },
+  {
+    "objectID": "Notebooks/2_tp_ggplot2.html#tp-avec-ggplot2",
+    "href": "Notebooks/2_tp_ggplot2.html#tp-avec-ggplot2",
+    "title": "TP ggplot2",
+    "section": "",
+    "text": "Ce TP permet d’apprendre à construire des graphiques avec la librairie ggplot2"
+  },
+  {
+    "objectID": "Notebooks/2_tp_ggplot2.html#prérequis",
+    "href": "Notebooks/2_tp_ggplot2.html#prérequis",
+    "title": "TP ggplot2",
     "section": "Prérequis",
-    "text": "Prérequis\nInstallation et chargement de Dplyr"
+    "text": "Prérequis\nInstallation et chargement de Dplyr et de ggplot2"
   },
   {
-    "objectID": "Notebooks/1_tp_groupby_dplyr.html#les-fondamentaux-avec-dplyr",
-    "href": "Notebooks/1_tp_groupby_dplyr.html#les-fondamentaux-avec-dplyr",
-    "title": "TP group_by",
-    "section": "Les fondamentaux avec Dplyr",
-    "text": "Les fondamentaux avec Dplyr\nNous travaillerons avec le dataset iris\n\n\n\n\n\n\n\n\nRegardons les premiers individus de ce jeu de données\n\n\n\n\n\n\n\n\nNous avons quatre variables quantitatives (longueur et largeur du sépale, longueur et largeur de la pétale) et une variable catégorielle (l’espèce de l’iris)\n\n[illustration Wikipedia]\n\nCombien il y a d’espèces d’iris dans le jeu de données ?\n\n\n\n\n\n\n\n\n\n\nCombien d’individus par espèce ?\n\n\n\n\n\n\n\n\n\nEn voilà un jeu de données bien équilibré :)\nDplyr lit automatiquement les noms de variables à l’intérieur des fonctions dplyr (dplyr::group_by, dplyr::count), il y a une “traduction” automatique.\nA ce sujet, attention, la plupart du temps dplyr souhaite en général les noms des variables sans “” (à de rares exceptions)\nUn aperçu des “effets de bord” que vous pouvez avoir avec des guillemets :\n\n\n\n\n\n\n\n\nIci, on s’en sort plutôt bien car c’est bien ce que nous souhaitons faire\n\n\n\n\n\n\n\n\nCela vaccine bien : il faut plutôt ne pas mettre de guillemets (sauf dans un éventuel by sur les jointures dplyr)\n\n\n\n\n\n\n\n\nSi nous reprenons notre objet de comptage comptage_group_by, nous pouvons nous apercevoir que c’est un objet tibble 3*2 et qu’il est actuellement groupé par “Species”. Toute opération d’agrégat/groupe sera faite par rapport à cette variable.\n\n\n\n\n\n\n\n\nVous pouvez voir le groupe aussi avec group_vars()\n\n\n\n\n\n\n\n\nPour défaire le group (et éventuellement regrouper avec une autre variable), nous pouvons utiliser la commande ungroup :\n\n\n\n\n\n\n\n\nRegroupons artificiellement à l’aide de valeurs fictives les deux premières espèces en irisA, et le reste en irisB :\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLa fonction summarise est une fonction “terminale”, elle synthétise et “dégroupe” d’une dimension\n(il est possible de garder les groupes avec .groups = \"keep\")"
+    "objectID": "Notebooks/2_tp_ggplot2.html#les-fondamentaux-avec-ggplot2",
+    "href": "Notebooks/2_tp_ggplot2.html#les-fondamentaux-avec-ggplot2",
+    "title": "TP ggplot2",
+    "section": "Les fondamentaux avec Ggplot2",
+    "text": "Les fondamentaux avec Ggplot2\nNous travaillerons avec le dataset mpg fourni avec ggplot2 et nous suivrons les possibilités énoncés dans le cheat sheet de ggplot2 par Rstudio (https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://ggplot2.tidyverse.org/reference/mpg.html\nCe jeu de données représente des modèles populaires de voitures aux Etats-Unis entre 1999 et 2008\nOn s’intéressera à deux variables quantitatives\n\ncty = city miles per gallon (nombre de miles parcourus par gallon en ville)\nhwy = highway miles per gallon (nombre de miles parcourus par gallon sur autoroute)\n\net une variable qualitative :\n\ncyl =number of cylinders (nombre de cylindres du moteur; quatre modalités 4 5 6 8)\n\nLes deux variables prennent des valeurs entières entre 9 et 19 et 12 et 22"
   },
   {
-    "objectID": "Notebooks/1_tp_groupby_dplyr.html#pour-aller-plus-loin",
-    "href": "Notebooks/1_tp_groupby_dplyr.html#pour-aller-plus-loin",
-    "title": "TP group_by",
-    "section": "Pour aller plus loin :",
-    "text": "Pour aller plus loin :\n\nsummarize peut s’écrire aussi summarise (ça dépend si vous êtes plutôt USA ou GB)\nSi vous avez terminé vos opérations de groupe, il est plutôt conseillé de revenir à un jeu de données non groupé pour éviter les erreurs\nDans le summarize, il n’est pas conseillé de chainer les variables Si on reprend l’opération précédente, en une fois dans le summarise, cela donne des résultats étonnants\nComme en SQL (e.g having-count), vous pouvez filtrer les groupes selon des conditions sur ces dits-groupes\n\n\n\n\n\n\n\n\n\nExercice (à vous de compléter !) :\n\nCalculer les quantiles par espèce d’iris sur la longueur des pétales\n\n\n\n\n\n\n\n\n\n\nGarder les espèces dont la longueur moyenne des sépales est supérieur à 5.5\n\n\n\n\n\n\n\n\n\n\nEt calculer la longueur moyenne des pétales de ces espèces"
+    "objectID": "Notebooks/2_tp_ggplot2.html#philosophie-générale",
+    "href": "Notebooks/2_tp_ggplot2.html#philosophie-générale",
+    "title": "TP ggplot2",
+    "section": "Philosophie générale",
+    "text": "Philosophie générale\nGgplot2 se présente comme un librairie de grammaire de graphique. L’idée est de composer plusieurs éléments/verbes pour construire le graphique pas à pas.\nUne première fonction rapide (fonction qplot pour “quick plot”; dépréciée mais utile) permet de construire un graphique sans personnalisation. On peut représenter facilement le nuage de point cty*hwy | cyl\n\n\n\n\n\n\n\n\nEt une version plus modulaire et personnalisée :\n\n\n\n\n\n\n\n\nLa grammaire est la suivante :\n\nJeu de données et sélection des variables = ggplot()\nUne fonction géométrique (nuage de point, histogramme, courbe, ligne)\n(Optionnellement, par défaut rien) d’autres fonctions géométriques (comme des lignes notamment)\n(Optionnellement, par défaut cartésien) une fonction de représentation des coordonnées (cartésien, polaire)\n(Optionnellement, par défaut facet_null) une fonction de facettage (cadre de présentation : monographique, multigraphique)\n(Optionnellement, par défaut automatique) une fonction d’échelle\n(Optionnellement, par défault theme_gray) une fonction de thème (thème minimal, thème classique)\n\nGgplot2 peut représenter les données à une dimension, deux dimensions et trois dimensions."
+  },
+  {
+    "objectID": "Notebooks/2_tp_ggplot2.html#données-à-une-dimension",
+    "href": "Notebooks/2_tp_ggplot2.html#données-à-une-dimension",
+    "title": "TP ggplot2",
+    "section": "Données à une dimension",
+    "text": "Données à une dimension\nIl s’agit majoritairement des comptages d’une variable, comme un histogramme\nOn travaille avec la variable hwy comme variable discrète (elle est continue, mais comme elle prend des valeurs finis d’entier, on va la considérer comme une variable discrète dans un premier temps)\n1- D’abord, on peut initialiser un graphique vide en explicitant la variable\n\n\n\n\n\n\n\n\n2 - Ensuite, on rajoute un type de graphique (ici un histogramme à barre pour une variable discrète)\n\n\n\n\n\n\n\n\n3- Même chose, pour une variable continue (displ) :\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOn peut s’amuser à faire les trois en même temps, même si cela n’a ici pas d’utilité !"
+  },
+  {
+    "objectID": "Notebooks/2_tp_ggplot2.html#données-à-deux-dimensions-ou-plus",
+    "href": "Notebooks/2_tp_ggplot2.html#données-à-deux-dimensions-ou-plus",
+    "title": "TP ggplot2",
+    "section": "Données à deux dimensions ou plus",
+    "text": "Données à deux dimensions ou plus\nOn considère les variables cty et hwy comme des variables “continues”\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEntre une variable quanti et quali :\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIl y a plein d’autres fonctions pour deux ou trois variables, vous pouvez vous référer au sheet cheat !"
+  },
+  {
+    "objectID": "Notebooks/2_tp_ggplot2.html#personnalisation-graphique",
+    "href": "Notebooks/2_tp_ggplot2.html#personnalisation-graphique",
+    "title": "TP ggplot2",
+    "section": "Personnalisation graphique",
+    "text": "Personnalisation graphique\n\nSystème de coordonnées\nMise à l’échelle\nDisposition du/des graphique(s)\nLabels et légendes\nThèmes graphiques\n\nIl est plutôt rare de modifier le système de coordonnées, pour cela se référer à la documentation et au cheat sheet.\nPour la mise à l’échelle, il est plutôt commun de limiter le max ou min\n\n\n\n\n\n\n\n\nOu passer par l’option dans la partie coordonnées (non vue)\n\n\n\n\n\n\n\n\nGGplot2 gère relativement bien la mise à l’échelle automatique, pour plus de précision si besoin se réferer à la documentation ou au cheat sheet.\nL’ajout de label et de légende se fait avec un module +labs()\n\n\n\n\n\n\n\n\nOn peut disposer plusieurs graphiques côte à côte\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDernier élement, des thèmes automatiques pour agrémenter le visuel\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIl y a possibilité de choisir les palettes de couleurs dans les modules concernées (histogramme, courbes, surfaces, etc) et cela est laissé en exercice :)"
+  },
+  {
+    "objectID": "Notebooks/2_tp_ggplot2.html#pour-aller-plus-loin",
+    "href": "Notebooks/2_tp_ggplot2.html#pour-aller-plus-loin",
+    "title": "TP ggplot2",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\nIl existe des fonctions stat_ qui permettent de produire des graphiques par défaut, avec une syntaxe condensée (comme qplot)"
   }
 ]
