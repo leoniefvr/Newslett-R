@@ -1,14 +1,11 @@
 [
   {
-    "listing": "/expertise.html",
-    "items": []
-  },
-  {
     "listing": "/exercices.html",
     "items": [
       "/Exercices/1_group_by.html",
       "/Exercices/2_ggplot2.html",
-      "/Exercices/3_tidyr.html"
+      "/Exercices/3_tidyr.html",
+      "/Exercices/4_stringr.html"
     ]
   },
   {
@@ -54,5 +51,9 @@
       "/Actus/10_duckdb.html",
       "/Actus/11_bonnes_pratiques.html"
     ]
+  },
+  {
+    "listing": "/expertise.html",
+    "items": []
   }
 ]
