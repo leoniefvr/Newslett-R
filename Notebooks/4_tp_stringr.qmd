@@ -27,7 +27,7 @@ library("stringr")
 
 ```{webr}
 #| label: Import données
-df <- read.csv2("../data/donnees_synthetiques_structure_iae.csv")
+df <- read.csv2("./data/donnees_synthetiques_structure_iae.csv")
 ```
 
 ```{webr}
@@ -41,7 +41,7 @@ Les Siret sont des identifiants à 14 caractères, avec les 9 premiers caractèr
 
 ```{webr}
 #| label: substring
-df %>% select(id_siae,siret_signature) %>% mutate(siren_signature=str_sub(siret_signature,1,9))
+df %>% select(id_siae,siret_signature) %>% mutate(siren_signature=str_sub(siret_signature,1,9)) %>% head(10)
 ```
 
 Remarquez que read.csv2 a inféré la colonne siret_signature comme du numérique ..., ce qui peut nous faire perdre des 0 en début de chaîne. Quand on utilise str_sub, la fonction convertir en caractères puis découpe et donne une chaîne de caractères.
@@ -73,7 +73,7 @@ On peut compter le nombre d'un caractère. Par exemple, le nombre de 0 dans les 
 ```{webr}
 #| label: comptez les zéros
 
-df %>% transmute(as.character(siret_actualise),comptage_zero=str_count(siret_actualise,"0"))
+df %>% transmute(as.character(siret_actualise),comptage_zero=str_count(siret_actualise,"0")) %>% head(10)
 
 ```
 
@@ -82,7 +82,7 @@ On peut compter combien il y a deux zéros consécutifs
 ```{webr}
 #| label: comptez les zéros consécutifs
 
-df %>% transmute(as.character(siret_actualise),comptage_zero=str_count(siret_actualise,"00"))
+df %>% transmute(as.character(siret_actualise),comptage_zero=str_count(siret_actualise,"00")) %>% head(10)
 
 ```
 
@@ -91,7 +91,7 @@ Ici, on voit que c'est deux zéros non rémisés : "444 490 395 00035" 000 compt
 ```{webr}
 #| label: comptez les zéros consécutifs (regex)
 
-df %>% transmute(as.character(siret_actualise),comptage_zero=str_count(siret_actualise,"(?=00)"))
+df %>% transmute(as.character(siret_actualise),comptage_zero=str_count(siret_actualise,"(?=00)")) %>% head(10)
 ```
 
 Admettons qu'on souhaite remplacer les 44 par des 99 :
