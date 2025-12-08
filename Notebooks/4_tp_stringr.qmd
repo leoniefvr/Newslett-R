@@ -1,0 +1,178 @@
+---
+title: "TP stringr"
+editor: visual
+format:
+  live-html:
+    embed-resources: true
+resources:
+  - ../data/donnees_synthetiques_structure_iae.csv
+engine: knitr
+---
+
+## TP chaîne de caractère avec stringr !
+
+Ce TP permet d'apprendre à manipuler des chaînes de caractères
+
+## Prérequis
+
+Installation et chargement de Dplyr et de stringr
+
+```{webr}
+#| label: Import dplyr et stringr
+library("dplyr")
+library("stringr")
+```
+
+## Import des données
+
+```{webr}
+#| label: Import données
+df <- read.csv2("../data/donnees_synthetiques_structure_iae.csv")
+```
+
+```{webr}
+#| label: vue colonnes
+df %>% select(id_siae,siret_signature) %>% head(10)
+```
+
+## 1- Opérations basiques (str_sub, str_length, str_pad)
+
+Les Siret sont des identifiants à 14 caractères, avec les 9 premiers caractères étant le siren + 5 caractère identifiant l'établissement. Il est assez fréquent de manipuler des siren à partir des siret, pour vérification ou agrégation au niveau entreprise (Unité Légale).
+
+```{webr}
+#| label: substring
+df %>% select(id_siae,siret_signature) %>% mutate(siren_signature=str_sub(siret_signature,1,9))
+```
+
+Remarquez que read.csv2 a inféré la colonne siret_signature comme du numérique ..., ce qui peut nous faire perdre des 0 en début de chaîne. Quand on utilise str_sub, la fonction convertir en caractères puis découpe et donne une chaîne de caractères.
+
+Vérifions rapidement qu'on n'a pas perdu les 0 :
+
+```{webr}
+#| label: vérification 1
+df_verification <- df %>% select(id_siae,siret_signature) %>% mutate(siret_signature_char=as.character(siret_signature)) %>% mutate(len_siret_signature_char=str_length(siret_signature_char)) 
+df_verification  %>% select(-siret_signature) %>% head(10)
+```
+
+```{webr}
+#| label: vérification string 2
+df_verification %>% filter(len_siret_signature_char!=14)
+```
+
+Ok tout est bon. Dans le cas contraire, il aurait fallu rajouter les 0 à gauche pour arriver à 14 caractères avec str_pad(str, 14, side="left",pad="0). On peut quand même s'amuser à pratiquer le pad sur l'identifiant id_siae (6 caractères) :
+
+```{webr}
+#| label: pad string
+df_verification %>% select(id_siae) %>% mutate(id_siae_pad=str_pad(id_siae,6,side="left",pad="0")) %>% head(10)
+```
+
+## 2 - Opérations avancées (str_count, str_replace)
+
+On peut compter le nombre d'un caractère. Par exemple, le nombre de 0 dans les siret, ce qui n'est pas forcément intéressant, mais on peut prendre par exemple La Disparition de Georges Perec et vérifier qu'il n'y a pas de lettre "e".
+
+```{webr}
+#| label: comptez les zéros
+
+df %>% transmute(as.character(siret_actualise),comptage_zero=str_count(siret_actualise,"0"))
+
+```
+
+On peut compter combien il y a deux zéros consécutifs
+
+```{webr}
+#| label: comptez les zéros consécutifs
+
+df %>% transmute(as.character(siret_actualise),comptage_zero=str_count(siret_actualise,"00"))
+
+```
+
+Ici, on voit que c'est deux zéros non rémisés : "444 490 395 00035" 000 compte un unique doublon 00 non remisé. Pour avoir le comptage avec remise, il faut passer par les expressions régulières.
+
+```{webr}
+#| label: comptez les zéros consécutifs (regex)
+
+df %>% transmute(as.character(siret_actualise),comptage_zero=str_count(siret_actualise,"(?=00)"))
+```
+
+Admettons qu'on souhaite remplacer les 44 par des 99 :
+
+```{webr}
+#| label: remplacement simple
+
+df %>% transmute(siret_init=as.character(siret_actualise),siret=str_replace(siret_actualise,"44","99")) %>% head(10)
+```
+
+Là pareil, il s'arrête au premier match : 44449039500... =\> 99449039500
+
+Il faut lui préciser "tout" (sans remise, car cela n'a pas de sens pour cette opération) :
+
+```{webr}
+#| label: remplacement tout
+
+df %>% transmute(siret_init=as.character(siret_actualise),siret=str_replace_all(siret_actualise,"44","99")) %>% head(10)
+```
+
+444 490 395 00... est bien remplacé par 99 9990 395 00... ce qui est bien ce qui est souhaité !
+
+## 3 - Opérations expertes (expression régulières)
+
+Les expressions régulières sont des expressions informatiques puissantes. Dans un cas d'usage simple, on peut les assimiler à des textes à trous. Si vous jouez à des jeux de lettre, pour faire le maximum de points, on s'appuie sur des lettres déjà posées.
+
+Si on a des lettres : APOLER, on cherchera des mots avec une lettre supplémentaire en PO\*LERA, POR\*ALE, \*EPLORA
+
+(Si vous voulez une aide c'est par ici : www.langue-au-chat.fr)
+
+Ici on va juste chercher le motif "0" puis n"importe quel chiffre puis un "0", donc "010" "020" "030" etc. : on utilise str_detect et str_match avec le caractère joker "." qui veut dire tout caractère. (Pour être plus précis, il faudrait dire \d ou \[0-9\], pour restreindre aux chiffres, mais les sirets ici sont plus "safe")
+
+```{webr}
+#| label: detect_regex
+
+df %>% transmute(siret_init=as.character(siret_actualise),detect=str_detect(siret_actualise,"0.0")) %>% head(10)
+```
+
+```{webr}
+#| label: match_regex
+
+df %>% transmute(siret_init=as.character(siret_actualise),detect=str_detect(siret_actualise,"0.0"),match=str_match(siret_actualise,"0.0")) %>% head(10)
+```
+
+```{webr}
+#| label: match_regex 2
+df %>% transmute(siret_init=as.character(siret_actualise),detect=str_detect(siret_actualise,"0[0-9]0"),match=str_match(siret_actualise,"0[0-9]0")) %>% head(10)
+```
+
+On peut s'amuser à ajouter un nombre indéfini de caractère entre nos zéros (\* = 0 à n /  + = 1 à n )
+
+```{webr}
+#| label: match_regex 3
+df %>% transmute(siret_init=as.character(siret_actualise),detect=str_detect(siret_actualise,"0[0-9]+0"),match=str_match(siret_actualise,"0[0-9]+0")) %>% head(10)
+
+```
+
+```{webr}
+#| label: match_regex 4
+df %>% transmute(siret_init=as.character(siret_actualise),detect=str_detect(siret_actualise,"0[0-9]*0"),match=str_match(siret_actualise,"0[0-9]*0")) %>% head(10)
+```
+
+Ces fonctions donnent la chaîne la plus longue qui respecte l'expression regulière. Pour avoir la chaîne la plus courte, il faut rajouter un ? au quantifieur \*
+
+```{webr}
+#| label: match_regex 5
+df %>% transmute(siret_init=as.character(siret_actualise),detect=str_detect(siret_actualise,"0[0-9]*?0"),match=str_match(siret_actualise,"0[0-9]*?0")) %>% head(10)
+```
+
+## 4- Stringr vs R base
+
+Les fonctions utilisées ci-dessus proviennent de la librairie stringr. L'avantage de cette libraire est que la quasi totalité des fonctions commencent par str\_
+
+En R base, pour récupérer un motif, on utilise des fonctions dont il faut connaître le nom (de manière non exhaustive) :
+
+-   grepl (str_dectect)
+
+-   regmatches /regexpr (str_extract)
+
+-   length/nchar (str_length)
+
+-   sub (str_replace)
+
+-   substr (str_sub)

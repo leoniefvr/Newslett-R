@@ -1,0 +1,12 @@
+---
+  title: "Apprendre stringr"
+date: "2025-12-11"
+author: ""
+tags:
+  - Exercices
+categories:
+  - Exercices
+image: ../img/13_tidyr.png
+---
+  
+[Exercice stringr](../Notebooks/4_tp_stringr.qmd)
