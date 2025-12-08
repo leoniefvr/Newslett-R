@@ -1,5 +1,5 @@
 ---
-  title: "Apprendre stringr"
+title: "Apprendre stringr"
 date: "2025-12-11"
 author: ""
 tags:
