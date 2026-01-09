@@ -140,76 +140,6 @@
     "text": "Comment appelle-t-on un tableau bidimensionnel en R ?\n\n\nDataFrame\nVector\nMatrix\nArray\n\n\nQuel symbole est utilisé pour assigner une valeur à une variable en R ?\n\n\n=\n-&gt;\n&lt;-\n:\n\n\nQuelle commande permet d´afficher les premières lignes d’un DataFrame en R ?\n\n\nview()\nhead()\ntop()\nsummary()\n\n\nQuel package est célèbre pour la manipulation de données en R ?\n\n\nggplot2\ndplyr\nshiny\nknitr"
   },
   {
-    "objectID": "Actus/4_aide_memoire.html",
-    "href": "Actus/4_aide_memoire.html",
-    "title": "Aide-mémoire SAS-R",
-    "section": "",
-    "text": "Le saviez-vous ? Un aide-mémoire est disponible pour vous guider dans la conversion de code SAS vers d’autres langages tels que R, DuckDB et Python. Retrouvez-le à cette adresse Aide-mémoire SAS - R - pandas] ! Ce guide est également collaboratif : vous pouvez y contribuer en proposant de nouvelles traductions, en l’enrichissant ou en corrigeant d’éventuelles erreurs. N’hésitez pas à participer !"
-  },
-  {
-    "objectID": "Actus/7_stat_dplyr.html",
-    "href": "Actus/7_stat_dplyr.html",
-    "title": "Statistiques de base avec dplyr",
-    "section": "",
-    "text": "filter() = Filtrer des lignes\nselect() = Sélectionner des colonnes\nmutate() = Créer de nouvelles variables\nsummarise() = Calculer des statistiques résumées\ngroup_by() = Grouper avant de résumer\narrange() = Trier des lignes\n\nExemple pour le summarise :\n\ndata %&gt;%\n  summarise(\n    mean_var = mean(ma_variable, na.rm = TRUE),\n    median_var = median(ma_variable, na.rm = TRUE)\n    min_var = min(ma_variable, na.rm = TRUE),\n    max_var = max(ma_variable, na.rm = TRUE),\n    sd_var = sd(ma_variable, na.rm = TRUE),\n    n_obs = n()\n)\nPour plus d’informations pour les fonctions utilisables dans le summarise : Documentation dplyr\net vous, quelle est votre fonction préférée ?"
-  },
-  {
-    "objectID": "Actus/1_raccourcis_Rstudio.html",
-    "href": "Actus/1_raccourcis_Rstudio.html",
-    "title": "Les raccourcis R avec Rstudio",
-    "section": "",
-    "text": "Boostez votre productivité sur RStudio avec ces 10 raccourcis indispensables ! Exécutez du code en un clin d’œil, naviguez rapidement entre les fichiers, formatez votre script proprement et commentez en un geste. Que vous soyez débutant ou expert, ces raccourcis vous feront gagner un temps précieux et optimiseront votre workflow. 🚀💡\n\n\n\nRaccourcis R Studio\n\n\nSi vous voulez tester vos connaissances en R : Quiz1"
-  },
-  {
-    "objectID": "Actus/6_structuration_projet.html",
-    "href": "Actus/6_structuration_projet.html",
-    "title": "Structuration des projets",
-    "section": "",
-    "text": "Une fois ton projet créé dans RStudio avec un fichier .Rproj, il est temps de passer à la vitesse supérieure : organiser proprement ton espace de travail.\n🔹 Dossier data/ : pour stocker tes données brutes. Attention, elles sont souvent sensibles, donc on évite de les versionner avec Git.\n🔹 Dossier R/ ou scripts/ : ici, tu ranges tous tes scripts R. Fini le code éparpillé !\n🔹 Dossier outputs/ : pour les résultats générés par tes analyses. Tu peux même le subdiviser :\noutputs/tmp/ pour les sorties temporaires (non suivies par Git),\noutputs/final/ pour les résultats finaux (eux aussi souvent exclus de Git).\n💡 Une structure claire, c’est du temps gagné, moins d’erreurs, et une collaboration facilitée.\n\n\n\nExemple vu de Rstudio"
-  },
-  {
-    "objectID": "Actus/8_ecriture_donnees.html",
-    "href": "Actus/8_ecriture_donnees.html",
-    "title": "Ecrire de la donnée avec dplyr",
-    "section": "",
-    "text": "En parquet (format privilégié) : write_parquet() =&gt; write_parquet(data, “fichier.parquet”)\nEn csv : write.csv() =&gt; write.csv(data, “fichier.csv”, row.names = FALSE)\nEn xlsx : write_xlsx() =&gt; write_xlsx(data, “fichier.xlsx”)\nEn Rds (format R non interopérable) : saveRDS() =&gt; saveRDS(data, “fichier.rds”)"
-  },
-  {
-    "objectID": "Actus/11_bonnes_pratiques.html",
-    "href": "Actus/11_bonnes_pratiques.html",
-    "title": "Bonnes pratiques",
-    "section": "",
-    "text": "Bonnes pratiques en R"
-  },
-  {
-    "objectID": "Actus/3_sheet_cheat.html",
-    "href": "Actus/3_sheet_cheat.html",
-    "title": "Aides-mémoires",
-    "section": "",
-    "text": "Il existe de nombreuses cheat sheets (aide mémoire en format poster) pour vous aider. Voici quelques-unes de nos préférées :\n\nBase R Cheat Sheet\nDplyr (en français)\nGgplot2 (en français)\nLubridate (gestion des dates en R)\nSQL Basics Cheat Sheet\nStringr (manipulation de chaîne de caractères et expressions régulières)\n\nN’hésitez pas à les consulter et à les partager !"
-  },
-  {
-    "objectID": "Actus/2_rproj.html",
-    "href": "Actus/2_rproj.html",
-    "title": "Créer un projet dans Rstudio : le fichier Rproj",
-    "section": "",
-    "text": "Créer un projet RStudio permet d´organiser tous vos scripts R et les fichiers (données, sorties…) relatifs à un même projet statistique. Un projet RStudio est un environnement isolé qui évite les conflits entre différents scripts et packages de projets statistiques distincts.\n\nPour créer un projet RStudio, il suffit d´aller dans File &gt; New Project &gt; New Directory &gt; New Project &gt; (renseigner le nom de son projet, cliquer « git » et « renv » si besoin) &gt; Create Project\nRStudio va créer un fichier .Rproj à la racine du dossier du projet choisi, qui permet entre autres d’indiquer à R que vous travaillez dans ce dossier (working directory). En double-cliquant sur le Rproj, RStudio s’ouvre directement dans votre espace projet, et vous pouvez utiliser les chemins relatifs !\nEn haut à droite de l’interface RStudio, vous pouvez naviguer entre vos différents projets.\nPour la configuration du projet RStudio, il est conseillé de ne pas sauvegarder l´espace de travail (données en mémoire visibles dans votre environnement), ni de le recharger, pour des raisons de reproductibilité.\n\n\n\n\nVue RStudio du Rproj\n\n\nSi vous voulez tester vos connaissances en R : Quiz2"
-  },
-  {
-    "objectID": "Actus/9_transformer_across.html",
-    "href": "Actus/9_transformer_across.html",
-    "title": "Transformer des variables avec across",
-    "section": "",
-    "text": "Depuis dplyr 1.0, certaines fonctions comme mutate_at(), mutate_if(), mutate_all() sont dépréciées au profit de la fonction plus polyvalente across(). Elle permet d’appliquer facilement des opérations à plusieurs colonnes selon des critères précis dans mutate(), summarise(), filter() etc.\nlibrary(dplyr)\n# Exemple iris : calculer le carré de toutes les colonnes numériques\ndatasets::iris %&gt;% mutate(across(where(is.numeric), ~ .x^2))\nDans la fonction across(), on peut passer une fonction anonyme pour définir la transformation à appliquer à chaque colonne sélectionnée. Cette fonction anonyme est écrite avec la syntaxe tilde (~).\n• Le tilde ~ signifie “fonction anonyme”. • .x représente la colonne en cours de traitement. • Donc, ~ .x ^2 signifie « pour chaque valeur dans la colonne, calcule son carré ».\n# Exemple : diviser par 2 uniquement les colonnes qui commencent par \"Petal\"\ndatasets::iris %&gt;%  mutate(across(starts_with(\"Petal\"), ~ .x / 2))\n# Multiplier par 10 toutes les colonnes sauf Species\ndatasets::iris %&gt;%  mutate(across(-Species, ~ .x * 10))\nRemarque : across conserve les noms originaux des colonnes en les transformant.\nOn peut aussi utiliser everything() pour sélectionner toutes les colonnes : il est souvent utilisé dans select()\n# Réordonner en mettant Species en premier, puis tout le reste\ndatasets::iris %&gt;%  select(Species, everything())"
-  },
-  {
-    "objectID": "Actus/5_lecture_donnees.html",
-    "href": "Actus/5_lecture_donnees.html",
-    "title": "Lecture des données",
-    "section": "",
-    "text": "📢 Aujourd’hui, on vous apprend à lire des données en R ! Il existe plusieurs formats de réprésentation des données :\n🔹 Fichiers plats (CSV, TXT, TSV, etc.)\n👉 Utilisez read.csv(), read.table() ou fread() (plus rapide avec {data.table}).\n🔹 Fichiers Excel et formats spécifiques (JSON, XML, YAML, etc.)\n👉 Pour Excel : readxl::read_excel() ou openxlsx::read.xlsx().\n👉 Pour JSON : jsonlite::fromJSON(), pour XML : xml2::read_xml(), et pour YAML : yaml::read_yaml().\n🔹 Bases de données\n👉 Pour SQL : DBI::dbReadTable(), pour SQLite : RSQLite::dbReadTable(), ou encore RODBC::sqlQuery() pour l’ODBC.\n🔹 Web et HTML\n👉 Pour lire du HTML : rvest::read_html() permet de scraper des pages web facilement.\n👉 Vous pouvez aussi récupérer des données via des API avec httr::GET().\n🔹 Parquet\n👉 Utilisez arrow::read_parquet() ou arrow::open_dataset() pour lire des fichiers Parquet.\n🌟 Astuce : Avec ces fonctions, vous pouvez ajuster le paramètre memory = TRUE ou memory = FALSE.\n\nmemory = TRUE : Charge directement les données sous forme de data.frame dans R, ce qui est plus pratique si vous avez besoin de manipuler immédiatement l’ensemble des données.\nmemory = FALSE : Permet d’effectuer des opérations plus ciblées sans charger toute la table en mémoire. Idéal lorsque vous travaillez avec de très gros fichiers et souhaitez filtrer ou transformer les données avant de les charger en mémoire à l’aide de la fonction arrow::collect()\n\nBonus : La librairie RIO\n👉 La librairie {rio} simplifie la lecture de fichiers dans différents formats, en offrant une méthode universelle avec rio::import() pour des fichiers CSV, Excel, JSON, SAS, et bien plus encore !\n🛠️ Et vous, quel format utilisez-vous le plus ? 😊"
-  },
-  {
     "objectID": "Actus/10_duckdb.html",
     "href": "Actus/10_duckdb.html",
     "title": "Duckdb",
@@ -238,6 +168,279 @@
     "text": "# à ajouter dans le .gitignore : \n*.duckdb*\n*.wal\n*.tmp"
   },
   {
+    "objectID": "Actus/5_lecture_donnees.html",
+    "href": "Actus/5_lecture_donnees.html",
+    "title": "Lecture des données",
+    "section": "",
+    "text": "📢 Aujourd’hui, on vous apprend à lire des données en R ! Il existe plusieurs formats de réprésentation des données :\n🔹 Fichiers plats (CSV, TXT, TSV, etc.)\n👉 Utilisez read.csv(), read.table() ou fread() (plus rapide avec {data.table}).\n🔹 Fichiers Excel et formats spécifiques (JSON, XML, YAML, etc.)\n👉 Pour Excel : readxl::read_excel() ou openxlsx::read.xlsx().\n👉 Pour JSON : jsonlite::fromJSON(), pour XML : xml2::read_xml(), et pour YAML : yaml::read_yaml().\n🔹 Bases de données\n👉 Pour SQL : DBI::dbReadTable(), pour SQLite : RSQLite::dbReadTable(), ou encore RODBC::sqlQuery() pour l’ODBC.\n🔹 Web et HTML\n👉 Pour lire du HTML : rvest::read_html() permet de scraper des pages web facilement.\n👉 Vous pouvez aussi récupérer des données via des API avec httr::GET().\n🔹 Parquet\n👉 Utilisez arrow::read_parquet() ou arrow::open_dataset() pour lire des fichiers Parquet.\n🌟 Astuce : Avec ces fonctions, vous pouvez ajuster le paramètre memory = TRUE ou memory = FALSE.\n\nmemory = TRUE : Charge directement les données sous forme de data.frame dans R, ce qui est plus pratique si vous avez besoin de manipuler immédiatement l’ensemble des données.\nmemory = FALSE : Permet d’effectuer des opérations plus ciblées sans charger toute la table en mémoire. Idéal lorsque vous travaillez avec de très gros fichiers et souhaitez filtrer ou transformer les données avant de les charger en mémoire à l’aide de la fonction arrow::collect()\n\nBonus : La librairie RIO\n👉 La librairie {rio} simplifie la lecture de fichiers dans différents formats, en offrant une méthode universelle avec rio::import() pour des fichiers CSV, Excel, JSON, SAS, et bien plus encore !\n🛠️ Et vous, quel format utilisez-vous le plus ? 😊"
+  },
+  {
+    "objectID": "Actus/9_transformer_across.html",
+    "href": "Actus/9_transformer_across.html",
+    "title": "Transformer des variables avec across",
+    "section": "",
+    "text": "Depuis dplyr 1.0, certaines fonctions comme mutate_at(), mutate_if(), mutate_all() sont dépréciées au profit de la fonction plus polyvalente across(). Elle permet d’appliquer facilement des opérations à plusieurs colonnes selon des critères précis dans mutate(), summarise(), filter() etc.\nlibrary(dplyr)\n# Exemple iris : calculer le carré de toutes les colonnes numériques\ndatasets::iris %&gt;% mutate(across(where(is.numeric), ~ .x^2))\nDans la fonction across(), on peut passer une fonction anonyme pour définir la transformation à appliquer à chaque colonne sélectionnée. Cette fonction anonyme est écrite avec la syntaxe tilde (~).\n• Le tilde ~ signifie “fonction anonyme”. • .x représente la colonne en cours de traitement. • Donc, ~ .x ^2 signifie « pour chaque valeur dans la colonne, calcule son carré ».\n# Exemple : diviser par 2 uniquement les colonnes qui commencent par \"Petal\"\ndatasets::iris %&gt;%  mutate(across(starts_with(\"Petal\"), ~ .x / 2))\n# Multiplier par 10 toutes les colonnes sauf Species\ndatasets::iris %&gt;%  mutate(across(-Species, ~ .x * 10))\nRemarque : across conserve les noms originaux des colonnes en les transformant.\nOn peut aussi utiliser everything() pour sélectionner toutes les colonnes : il est souvent utilisé dans select()\n# Réordonner en mettant Species en premier, puis tout le reste\ndatasets::iris %&gt;%  select(Species, everything())"
+  },
+  {
+    "objectID": "Actus/2_rproj.html",
+    "href": "Actus/2_rproj.html",
+    "title": "Créer un projet dans Rstudio : le fichier Rproj",
+    "section": "",
+    "text": "Créer un projet RStudio permet d´organiser tous vos scripts R et les fichiers (données, sorties…) relatifs à un même projet statistique. Un projet RStudio est un environnement isolé qui évite les conflits entre différents scripts et packages de projets statistiques distincts.\n\nPour créer un projet RStudio, il suffit d´aller dans File &gt; New Project &gt; New Directory &gt; New Project &gt; (renseigner le nom de son projet, cliquer « git » et « renv » si besoin) &gt; Create Project\nRStudio va créer un fichier .Rproj à la racine du dossier du projet choisi, qui permet entre autres d’indiquer à R que vous travaillez dans ce dossier (working directory). En double-cliquant sur le Rproj, RStudio s’ouvre directement dans votre espace projet, et vous pouvez utiliser les chemins relatifs !\nEn haut à droite de l’interface RStudio, vous pouvez naviguer entre vos différents projets.\nPour la configuration du projet RStudio, il est conseillé de ne pas sauvegarder l´espace de travail (données en mémoire visibles dans votre environnement), ni de le recharger, pour des raisons de reproductibilité.\n\n\n\n\nVue RStudio du Rproj\n\n\nSi vous voulez tester vos connaissances en R : Quiz2"
+  },
+  {
+    "objectID": "Actus/6_structuration_projet.html",
+    "href": "Actus/6_structuration_projet.html",
+    "title": "Structuration des projets",
+    "section": "",
+    "text": "Une fois ton projet créé dans RStudio avec un fichier .Rproj, il est temps de passer à la vitesse supérieure : organiser proprement ton espace de travail.\n🔹 Dossier data/ : pour stocker tes données brutes. Attention, elles sont souvent sensibles, donc on évite de les versionner avec Git.\n🔹 Dossier R/ ou scripts/ : ici, tu ranges tous tes scripts R. Fini le code éparpillé !\n🔹 Dossier outputs/ : pour les résultats générés par tes analyses. Tu peux même le subdiviser :\noutputs/tmp/ pour les sorties temporaires (non suivies par Git),\noutputs/final/ pour les résultats finaux (eux aussi souvent exclus de Git).\n💡 Une structure claire, c’est du temps gagné, moins d’erreurs, et une collaboration facilitée.\n\n\n\nExemple vu de Rstudio"
+  },
+  {
+    "objectID": "Actus/8_ecriture_donnees.html",
+    "href": "Actus/8_ecriture_donnees.html",
+    "title": "Ecrire de la donnée avec dplyr",
+    "section": "",
+    "text": "En parquet (format privilégié) : write_parquet() =&gt; write_parquet(data, “fichier.parquet”)\nEn csv : write.csv() =&gt; write.csv(data, “fichier.csv”, row.names = FALSE)\nEn xlsx : write_xlsx() =&gt; write_xlsx(data, “fichier.xlsx”)\nEn Rds (format R non interopérable) : saveRDS() =&gt; saveRDS(data, “fichier.rds”)"
+  },
+  {
+    "objectID": "Actus/13_lubridate.html",
+    "href": "Actus/13_lubridate.html",
+    "title": "Travailler efficacement avec les dates dans R grâce à lubridate",
+    "section": "",
+    "text": "La manipulation de dates est souvent fastidieuse en R : formatages différents, fuseaux horaires, calculs de durées complexes… Le package lubridate simplifie grandement ces opérations en rendant le code plus lisible et plus robuste."
+  },
+  {
+    "objectID": "Actus/13_lubridate.html#introduction",
+    "href": "Actus/13_lubridate.html#introduction",
+    "title": "Travailler efficacement avec les dates dans R grâce à lubridate",
+    "section": "",
+    "text": "La manipulation de dates est souvent fastidieuse en R : formatages différents, fuseaux horaires, calculs de durées complexes… Le package lubridate simplifie grandement ces opérations en rendant le code plus lisible et plus robuste."
+  },
+  {
+    "objectID": "Actus/13_lubridate.html#avantages-de-lubridate",
+    "href": "Actus/13_lubridate.html#avantages-de-lubridate",
+    "title": "Travailler efficacement avec les dates dans R grâce à lubridate",
+    "section": "Avantages de lubridate",
+    "text": "Avantages de lubridate\n\nLisibilité accrue : les fonctions utilisent des noms explicites comme ymd() (year-month-day) ou mdy() (month-day-year).\nRobustesse : pas besoin de jongler avec les formats compliqués de as.Date() ou strptime(). 3. Flexibilité : il gère automatiquement les heures, minutes, secondes, et les fuseaux horaires.\nCalculs simples : additionner ou soustraire des jours, comparer des durées, obtenir le début ou la fin d’une période se fait en une seule commande."
+  },
+  {
+    "objectID": "Actus/13_lubridate.html#fonctions-principales-les-plus-utilisées",
+    "href": "Actus/13_lubridate.html#fonctions-principales-les-plus-utilisées",
+    "title": "Travailler efficacement avec les dates dans R grâce à lubridate",
+    "section": "Fonctions principales les plus utilisées",
+    "text": "Fonctions principales les plus utilisées\n\n1. Conversion et parsing de dates\n\nymd(“2023-09-10”) → crée une date à partir d’un format année-mois-jour.\ndmy(“10-09-2023”) → jour-mois-année.\nmdy(“09/10/2023”) → mois-jour-année.\nIdem avec ymd_hms(“2023-09-10 15:30:45”) pour inclure l’heure.\n\n\n\n2. Extraction de composantes\n\nyear(date) → année.\nmonth(date, label = TRUE) → mois (sous forme de texte si label=TRUE).\nday(date), wday(date, label = TRUE) → jour du mois ou jour de la semaine.\nhour(), minute(), second() pour l’horaire.\n\n\n\n3. Calculs sur les dates\n\ndate + days(10) → ajoute 10 jours.\ndate - months(1) → retire 1 mois.\ninterval(start, end) → définit une période.\nas.duration() ou as.period() pour transformer un intervalle en durée.\n\n\n\n4. Opérations courantes pour le travail en séries temporelles\n\nCréer une séquence régulière : seq(from = ymd(“2023-01-01”), by = “1 month”, length.out = 12) → génère 12 dates mensuelles.\nAligner sur le début ou la fin d’une période : floor_date(date, “month”) → premier jour du mois. ceiling_date(date, “quarter”) → premier jour du trimestre suivant. round_date(date, “week”) → arrondi à la semaine la plus proche.\nDécouper une série temporelle en intervalles fixes : cut_date &lt;- floor_date(dates, “quarter”) → utile pour grouper des observations par mois, trimestre, année.\nObtenir la date courante ou relative : today() → date du jour. now() → date + heure actuelle. rollback(date) → fin du mois précédent."
+  },
+  {
+    "objectID": "Actus/13_lubridate.html#conclusion",
+    "href": "Actus/13_lubridate.html#conclusion",
+    "title": "Travailler efficacement avec les dates dans R grâce à lubridate",
+    "section": "Conclusion",
+    "text": "Conclusion\nAvec lubridate, les dates deviennent faciles à manipuler et à lire : au lieu de lignes complexes de code, on utilise des fonctions au nom intuitif. Cela réduit les erreurs de calculs temporels et permet de gagner en productivité, que ce soit pour gérer des échéances, analyser des séries temporelles ou produire des rapports périodiques."
+  },
+  {
+    "objectID": "Actus/15_markdown.html",
+    "href": "Actus/15_markdown.html",
+    "title": "Markdown",
+    "section": "",
+    "text": "R Markdown (fichiers .Rmd) permet de mélanger :\nR Markdown permet de produire un document reproductible en HTML, PDF ou Word, qui inclut à la fois le code de production, les résultats obtenus avec ce programme et du texte pour commenter la méthode et les résultats. A la création du document .Rmd, vous pouvez choisir votre format de document : HTML, Word, PDF."
+  },
+  {
+    "objectID": "Actus/15_markdown.html#installation-et-création-dun-premier-document",
+    "href": "Actus/15_markdown.html#installation-et-création-dun-premier-document",
+    "title": "Markdown",
+    "section": "Installation et création d’un premier document",
+    "text": "Installation et création d’un premier document\nInstaller le package : install.packages(“rmarkdown”)\nCréer un .Rmd dans RStudio : File → New File → R Markdown…"
+  },
+  {
+    "objectID": "Actus/15_markdown.html#du-texte-en-markdown",
+    "href": "Actus/15_markdown.html#du-texte-en-markdown",
+    "title": "Markdown",
+    "section": "Du texte en Markdown",
+    "text": "Du texte en Markdown\nLe texte peut être mis en forme avec les commandes suivantes :\n\nTitres : #, ##, ###, plus il y a d’#, plus le titre est petit\nGras : gras\nItalique : italique\nListe :\n\nitem 1\nitem 2\n\nLien : texte"
+  },
+  {
+    "objectID": "Actus/15_markdown.html#du-code-r-dans-des-chunks",
+    "href": "Actus/15_markdown.html#du-code-r-dans-des-chunks",
+    "title": "Markdown",
+    "section": "Du code R dans des chunks",
+    "text": "Du code R dans des chunks\n\nsummary(mtcars)\n\n      mpg             cyl             disp             hp       \n Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  \n 1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  \n Median :19.20   Median :6.000   Median :196.3   Median :123.0  \n Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  \n 3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  \n Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  \n      drat             wt             qsec             vs        \n Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  \n 1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  \n Median :3.695   Median :3.325   Median :17.71   Median :0.0000  \n Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  \n 3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  \n Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  \n       am              gear            carb      \n Min.   :0.0000   Min.   :3.000   Min.   :1.000  \n 1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  \n Median :0.0000   Median :4.000   Median :2.000  \n Mean   :0.4062   Mean   :3.688   Mean   :2.812  \n 3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  \n Max.   :1.0000   Max.   :5.000   Max.   :8.000  \n\n\nDans un chunk, vous pouvez contrôler :\n\nL’affichage du code dans le document : echo = TRUE\nL’exécution du code au moment de « rendre » le document (voir plus bas) : eval = TRUE. Si eval = FALSE, le code ne sera pas exécuté, mais il pourra s’afficher si echo = TRUE.\nL’affichage des warnings associés aux fonctions de la cellule : warning = FALSE\nLes formats des résultats, par exemple la taille du graphique produit par la cellule : fig.width=7, fig.height=4 Exemple :\n\n\nplot(mtcars$wt, mtcars$mpg)\n\n\n\n\n\n\n\n\nPour tester le code pendant la rédaction du document .Rmd, l’interface RStudio permet d’exécuter une seule cellule, ou plusieurs cellules à la suite :"
+  },
+  {
+    "objectID": "Actus/15_markdown.html#obtention-du-rendu",
+    "href": "Actus/15_markdown.html#obtention-du-rendu",
+    "title": "Markdown",
+    "section": "Obtention du rendu",
+    "text": "Obtention du rendu\nPour visualer votre document, utilisez le bouton Knit de Rstudio. Au moment où vous appelez knit, l’ensemble des cellules de code pour lesquelles l’option eval est fixée à TRUE sont exécutées."
+  },
+  {
+    "objectID": "Actus/15_markdown.html#pour-en-savoir-plus",
+    "href": "Actus/15_markdown.html#pour-en-savoir-plus",
+    "title": "Markdown",
+    "section": "Pour en savoir plus :",
+    "text": "Pour en savoir plus :\n29 Produire des documents avec R Markdown\n30 Produire des rapports automatisés avec R Markdown"
+  },
+  {
+    "objectID": "Actus/11_bonnes_pratiques.html",
+    "href": "Actus/11_bonnes_pratiques.html",
+    "title": "Bonnes pratiques",
+    "section": "",
+    "text": "Bonnes pratiques en R"
+  },
+  {
+    "objectID": "Actus/16_quarto.html",
+    "href": "Actus/16_quarto.html",
+    "title": "Quarto",
+    "section": "",
+    "text": "Comme Rmarkdown, quarto permet de produire des rapports automatisés, mais ils présentent de nombreux outils supplémentaires et avantages par rapport à Rmarkdown qui sont présentés ici."
+  },
+  {
+    "objectID": "Actus/16_quarto.html#quarto-est-multi-langage",
+    "href": "Actus/16_quarto.html#quarto-est-multi-langage",
+    "title": "Quarto",
+    "section": "1) quarto est multi-langage",
+    "text": "1) quarto est multi-langage\nQuarto est conçu pour produire des documents reproductibles en combinant plusieurs langages (notamment R, Python, Julia et Observable JavaScript) au sein d’un même projet ou d’un même document.\n\nTutoriel : création d’un document multi-langage\n\na. Créer un fichier rapport.qmd.\n\n\nb. Définir un format de sortie dans l’en-tête YAML (ex. HTML) :\n---\ntitle: \"Rapport multi-langage\"\nformat: html\n---\n\n\nc. Insérer des blocs de code dans le langage souhaité.\nExemples de blocs (syntaxe Quarto Markdown : identique à Markdown + code fences) :\n```{r} summary(cars) ```\n```{python} import pandas as pd pd.DataFrame({“x”:[1,2], “y”:[3,4]}) ```\nDans l’en-tête, les options pour l’ensemble des chunks peuvent être définies : Exemple d’options globales :\n---\ntitle: \"Rapport multi-langage\"\nformat: html\nexecute:\n  echo: true\n  warning: false\n  message: false\n---"
+  },
+  {
+    "objectID": "Actus/16_quarto.html#adoption-du-format-.qmd-en-remplacement-de-.rmd",
+    "href": "Actus/16_quarto.html#adoption-du-format-.qmd-en-remplacement-de-.rmd",
+    "title": "Quarto",
+    "section": "2) Adoption du format .qmd en remplacement de .Rmd",
+    "text": "2) Adoption du format .qmd en remplacement de .Rmd\nQuarto introduit le format .qmd (Quarto Markdown), destiné à remplacer .Rmd pour une chaîne de publication plus standardisée et plus polyvalente. Le format .qmd conserve le principe “texte + code”, tout en offrant une meilleure portabilité entre environnements (RStudio, VS Code, Jupyter)."
+  },
+  {
+    "objectID": "Actus/16_quarto.html#production-de-présentations-slides-à-partir-dun-.qmd",
+    "href": "Actus/16_quarto.html#production-de-présentations-slides-à-partir-dun-.qmd",
+    "title": "Quarto",
+    "section": "3) Production de présentations (slides) à partir d’un .qmd",
+    "text": "3) Production de présentations (slides) à partir d’un .qmd\nQuarto permet de générer des présentations/slides directement depuis un document .qmd.\n\nTutoriel : créer des slides Reveal.js\n\na. Créer slides.qmd.\n\n\nb. Définir le format de présentation dans le YAML :\n---\ntitle: \"Présentation Quarto\"\nformat:\n  revealjs:\n    theme: simple\n    slide-number: true\n---\n\n\nc. Créer les diapositives : une diapositive correspond en pratique à une section.\nExemple minimal :\n## Contexte\n- Objectif du projet\n- Périmètre\n- Livrables\n \n## Méthodologie\n1. Données\n2. Modèle\n3. Résultats\n\n\nd. Rendre la présentation : via interface (RStudio : Render)"
+  },
+  {
+    "objectID": "Actus/16_quarto.html#génération-de-sites-web-à-partir-de-.qmd",
+    "href": "Actus/16_quarto.html#génération-de-sites-web-à-partir-de-.qmd",
+    "title": "Quarto",
+    "section": "4) Génération de sites web à partir de .qmd",
+    "text": "4) Génération de sites web à partir de .qmd\nQuarto peut servir de générateur de site, permettant de construire un site web à partir d’un ensemble de documents .qmd (documentation, portfolio, notes techniques, rapports publiés).\n\nTutoriel concret (créer un site Quarto multi-pages)\n\na. Créer un projet Rstudio et choisir quarto website\n\n\nb. Remplir le fichier de configuration _quarto.yml à la racine :\nproject:\n  type: website\n \nwebsite:\n  title: \"Mon site Quarto\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: Accueil\n      - href: rapports.qmd\n        text: Rapports\n      - href: a-propos.qmd\n        text: À propos\n \nformat:\n  html:\n    toc: true\n    theme: cosmo\n\n\nc. Créer les pages du site web en documents .qmd\n• index.qmd\n• rapports.qmd\n• a-propos.qmd\n\n\nd. Prévisualiser le site localement :\nquarto preview\n\n\ne. Générer le site (fichiers prêts à déployer) :\nquarto render"
+  },
+  {
+    "objectID": "Actus/3_sheet_cheat.html",
+    "href": "Actus/3_sheet_cheat.html",
+    "title": "Aides-mémoires",
+    "section": "",
+    "text": "Il existe de nombreuses cheat sheets (aide mémoire en format poster) pour vous aider. Voici quelques-unes de nos préférées :\n\nBase R Cheat Sheet\nDplyr (en français)\nGgplot2 (en français)\nLubridate (gestion des dates en R)\nSQL Basics Cheat Sheet\nStringr (manipulation de chaîne de caractères et expressions régulières)\n\nN’hésitez pas à les consulter et à les partager !"
+  },
+  {
+    "objectID": "Actus/12_renv.html",
+    "href": "Actus/12_renv.html",
+    "title": "Gérer ses environnements R avec renv",
+    "section": "",
+    "text": "Dans un projet R, il arrive souvent qu’un code qui fonctionnait parfaitement cesse de marcher quelques mois plus tard, ou qu’il ne fonctionne pas de la même manière chez un collègue. La raison est simple : les packages R évoluent rapidement, et notre environnement de travail change au fil du temps. Le package renv permet de résoudre ce problème en apportant trois bénéfices majeurs :\n\nReproductibilité temporelle : renv enregistre les versions exactes des packages utilisés dans un projet. Relancer une analyse six mois plus tard donnera le même résultat.\nPartage simplifié : renv permet de transférer un projet à un collègue. Si le projet fonctionne sur votre machine, il fonctionnera sur la sienne, car renv reproduit l’environnement logiciel.\nIsolation par projet : chaque projet possède sa propre bibliothèque. Vous pouvez utiliser une version donnée d’un package dans un projet, et une autre version dans un autre, sans conflit."
+  },
+  {
+    "objectID": "Actus/12_renv.html#introduction",
+    "href": "Actus/12_renv.html#introduction",
+    "title": "Gérer ses environnements R avec renv",
+    "section": "",
+    "text": "Dans un projet R, il arrive souvent qu’un code qui fonctionnait parfaitement cesse de marcher quelques mois plus tard, ou qu’il ne fonctionne pas de la même manière chez un collègue. La raison est simple : les packages R évoluent rapidement, et notre environnement de travail change au fil du temps. Le package renv permet de résoudre ce problème en apportant trois bénéfices majeurs :\n\nReproductibilité temporelle : renv enregistre les versions exactes des packages utilisés dans un projet. Relancer une analyse six mois plus tard donnera le même résultat.\nPartage simplifié : renv permet de transférer un projet à un collègue. Si le projet fonctionne sur votre machine, il fonctionnera sur la sienne, car renv reproduit l’environnement logiciel.\nIsolation par projet : chaque projet possède sa propre bibliothèque. Vous pouvez utiliser une version donnée d’un package dans un projet, et une autre version dans un autre, sans conflit."
+  },
+  {
+    "objectID": "Actus/12_renv.html#utilisation",
+    "href": "Actus/12_renv.html#utilisation",
+    "title": "Gérer ses environnements R avec renv",
+    "section": "Utilisation",
+    "text": "Utilisation\nL’intégration de renv se fait directement dans un projet RStudio.\nUne seule fois au démarrage du projet : renv::init()\nFonctions principales :\n\nrenv::install(“dplyr”) : installe un package dans l’environnement du projet.\nrenv::status() : vérifie les différences entre l’état courant et l’environnement enregistré.\nrenv::snapshot() : enregistre l’état actuel des packages dans un fichier de référence.\nrenv::update(“dplyr”) : met à jour un package dans le projet. renv::remove(“dplyr”) : supprime un package du projet.\nrenv::restore() : recrée l’environnement à partir du fichier enregistré (utile pour un collègue qui récupère le projet). En pratique, il suffit donc de travailler normalement avec R, puis de faire renv::snapshot() pour garder une trace des versions utilisées."
+  },
+  {
+    "objectID": "Actus/12_renv.html#partage-de-projet-avec-git",
+    "href": "Actus/12_renv.html#partage-de-projet-avec-git",
+    "title": "Gérer ses environnements R avec renv",
+    "section": "Partage de projet avec Git",
+    "text": "Partage de projet avec Git\nPour travailler en équipe, il faut combiner renv avec Git.\nÀ versionner :\n\nrenv/activate.R : permet à renv de s’activer automatiquement à l’ouverture du projet.\nrenv.lock : fichier qui enregistre toutes les versions exactes des packages.\n\nÀ ignorer (mettre dans .gitignore) :\n\nrenv/library/ : c’est la bibliothèque locale avec les packages installés. Elle ne doit pas être partagée, car chaque collaborateur pourra la recréer via renv::restore().\n\nAinsi, chacun peut cloner le projet, lancer renv::restore() et retrouver exactement le même environnement."
+  },
+  {
+    "objectID": "Actus/12_renv.html#limites",
+    "href": "Actus/12_renv.html#limites",
+    "title": "Gérer ses environnements R avec renv",
+    "section": "Limites",
+    "text": "Limites\nLa principale limite concerne la version de R elle-même : le fichier renv.lock enregistre la version utilisée, mais renv ne l’installe pas. Si vous ou vos collègues utilisez des versions différentes de R, il peut y avoir des problèmes de compatibilité. La bonne pratique est donc d’indiquer la version de R dans la documentation du projet, et de vérifier dans RStudio → Tools → Project Options → R version que vous utilisez bien la version recommandée. Si plusieurs versions de R sont installées sur la machine, il est possible de choisir celle à utiliser par projet."
+  },
+  {
+    "objectID": "Actus/1_raccourcis_Rstudio.html",
+    "href": "Actus/1_raccourcis_Rstudio.html",
+    "title": "Les raccourcis R avec Rstudio",
+    "section": "",
+    "text": "Boostez votre productivité sur RStudio avec ces 10 raccourcis indispensables ! Exécutez du code en un clin d’œil, naviguez rapidement entre les fichiers, formatez votre script proprement et commentez en un geste. Que vous soyez débutant ou expert, ces raccourcis vous feront gagner un temps précieux et optimiseront votre workflow. 🚀💡\n\n\n\nRaccourcis R Studio\n\n\nSi vous voulez tester vos connaissances en R : Quiz1"
+  },
+  {
+    "objectID": "Actus/7_stat_dplyr.html",
+    "href": "Actus/7_stat_dplyr.html",
+    "title": "Statistiques de base avec dplyr",
+    "section": "",
+    "text": "filter() = Filtrer des lignes\nselect() = Sélectionner des colonnes\nmutate() = Créer de nouvelles variables\nsummarise() = Calculer des statistiques résumées\ngroup_by() = Grouper avant de résumer\narrange() = Trier des lignes\n\nExemple pour le summarise :\n\ndata %&gt;%\n  summarise(\n    mean_var = mean(ma_variable, na.rm = TRUE),\n    median_var = median(ma_variable, na.rm = TRUE)\n    min_var = min(ma_variable, na.rm = TRUE),\n    max_var = max(ma_variable, na.rm = TRUE),\n    sd_var = sd(ma_variable, na.rm = TRUE),\n    n_obs = n()\n)\nPour plus d’informations pour les fonctions utilisables dans le summarise : Documentation dplyr\net vous, quelle est votre fonction préférée ?"
+  },
+  {
+    "objectID": "Actus/4_aide_memoire.html",
+    "href": "Actus/4_aide_memoire.html",
+    "title": "Aide-mémoire SAS-R",
+    "section": "",
+    "text": "Le saviez-vous ? Un aide-mémoire est disponible pour vous guider dans la conversion de code SAS vers d’autres langages tels que R, DuckDB et Python. Retrouvez-le à cette adresse Aide-mémoire SAS - R - pandas] ! Ce guide est également collaboratif : vous pouvez y contribuer en proposant de nouvelles traductions, en l’enrichissant ou en corrigeant d’éventuelles erreurs. N’hésitez pas à participer !"
+  },
+  {
+    "objectID": "Actus/14_parquet.html",
+    "href": "Actus/14_parquet.html",
+    "title": "Le format Parquet et son usage avec {arrow} dans R",
+    "section": "",
+    "text": "Format de fichier colonne (contrairement au CSV, qui stocke ligne par ligne).\nDéveloppé par Apache, largement utilisé dans l’écosystème Big Data (DuckDB, Spark etc.)\nAuto-descriptif : chaque fichier contient les métadonnées décrivant le schéma des colonnes.\nCompression efficace : les données d’une même colonne sont contiguës, ce qui compresse mieux et accélère la lecture.\n\nParquet est idéal pour stocker de gros volumes de données tabulaires et pour les analyser de façon performante."
+  },
+  {
+    "objectID": "Actus/14_parquet.html#quest-ce-que-le-format-parquet",
+    "href": "Actus/14_parquet.html#quest-ce-que-le-format-parquet",
+    "title": "Le format Parquet et son usage avec {arrow} dans R",
+    "section": "",
+    "text": "Format de fichier colonne (contrairement au CSV, qui stocke ligne par ligne).\nDéveloppé par Apache, largement utilisé dans l’écosystème Big Data (DuckDB, Spark etc.)\nAuto-descriptif : chaque fichier contient les métadonnées décrivant le schéma des colonnes.\nCompression efficace : les données d’une même colonne sont contiguës, ce qui compresse mieux et accélère la lecture.\n\nParquet est idéal pour stocker de gros volumes de données tabulaires et pour les analyser de façon performante."
+  },
+  {
+    "objectID": "Actus/14_parquet.html#avantages-de-parquet",
+    "href": "Actus/14_parquet.html#avantages-de-parquet",
+    "title": "Le format Parquet et son usage avec {arrow} dans R",
+    "section": "2. Avantages de Parquet",
+    "text": "2. Avantages de Parquet\n\nLecture sélective : possibilité de charger uniquement certaines colonnes.\nPerformance : lecture/écriture bien plus rapides que CSV sur des gros jeux de données.\nTaille réduite : selon les données, Parquet peut réduire la taille par un facteur 3 à 10 comparé au CSV.\nInteropérabilité : format standard compatible avec R, DuckDB, Python-Pandas, Spark, etc.\nTypes des variables disponibles : prend en charge les types complexes (dates avec fuseau, listes, …)."
+  },
+  {
+    "objectID": "Actus/14_parquet.html#lire-et-écrire-des-données-parquet-avec-arrow",
+    "href": "Actus/14_parquet.html#lire-et-écrire-des-données-parquet-avec-arrow",
+    "title": "Le format Parquet et son usage avec {arrow} dans R",
+    "section": "3. Lire et écrire des données Parquet avec {arrow}",
+    "text": "3. Lire et écrire des données Parquet avec {arrow}\n\nLire un fichier unique\nlibrary(arrow)\n# Lecture standard : charge immédiatement en mémoire un data.frame R\ndf &lt;- read_parquet(\"data.parquet\")\n# Lecture lazy (sans charger immédiatement, recommandée) :\ndf_lazy &lt;- read_parquet(\"data.parquet\", as_data_frame = FALSE)\n\n\nLire plusieurs fichiers comme un Dataset : recommandée\nds &lt;- open_dataset(\"dossier_parquet/\")\nopen_dataset() construit un Dataset Arrow qui représente plusieurs fichiers Parquet. C’est une approche lazy : seules les métadonnées sont chargées, pas les données elles-mêmes.\n\n\nDifférence :\nFichier unique → read_parquet(). Plusieurs fichiers (par ex. partitionnés par année, région, etc.) → open_dataset().\n\n\nÉcrire un fichier ou un dataset\nwrite_parquet(df, \"output.parquet\")  # fichier unique\nwrite_dataset(df, \"output_dataset/\", partitioning = \"region\")  # dataset partitionné"
+  },
+  {
+    "objectID": "Actus/14_parquet.html#lazy-evaluation-collect-et-principe-de-travail-avec-arrow",
+    "href": "Actus/14_parquet.html#lazy-evaluation-collect-et-principe-de-travail-avec-arrow",
+    "title": "Le format Parquet et son usage avec {arrow} dans R",
+    "section": "4. Lazy evaluation, collect() et principe de travail avec Arrow",
+    "text": "4. Lazy evaluation, collect() et principe de travail avec Arrow\nQuand vous manipulez un objet Arrow (Dataset ou Table), les opérations sont lazy :\n\nLes verbes dplyr (filter, mutate, group_by, summarise…) ne sont pas exécutés immédiatement.\nArrow construit un plan de calcul différé.\n\nCe plan est exécuté uniquement quand vous appelez collect() Ce qui se passe avant et après collect()\n\nAvant : vous manipulez un objet Arrow (léger, ne charge pas les données, peut représenter plusieurs Go de fichiers).\nAprès : vous obtenez un data.frame / tibble R classique, affichable et manipulable avec R de manière classique."
+  },
+  {
+    "objectID": "Actus/14_parquet.html#programmation-adaptée-au-format-colonne",
+    "href": "Actus/14_parquet.html#programmation-adaptée-au-format-colonne",
+    "title": "Le format Parquet et son usage avec {arrow} dans R",
+    "section": "5. Programmation adaptée au format colonne",
+    "text": "5. Programmation adaptée au format colonne\n\nPrincipes\n\nTravailler vectoriel : utiliser les verbes dplyr (filter, mutate, summarise) au lieu de boucles for ligne par ligne.\nSélectionner tôt : limiter les colonnes/observations dès le départ pour réduire la taille des données.\nAgrégations efficaces : sum, mean, count sont rapides car opérés colonne par colonne.\nPartitionner intelligemment : si vous utilisez souvent une variable pour filtrer ou grouper (ex. region), il est utile de stocker les données sous forme de dataset partitionné.\n\nExemple d’écriture partitionnée :\nwrite_dataset(df, \"ventes_dataset/\", partitioning = \"region\")"
+  },
+  {
+    "objectID": "Actus/14_parquet.html#exemple-concret-avec-dataset-partitionné",
+    "href": "Actus/14_parquet.html#exemple-concret-avec-dataset-partitionné",
+    "title": "Le format Parquet et son usage avec {arrow} dans R",
+    "section": "6. Exemple concret avec dataset partitionné",
+    "text": "6. Exemple concret avec dataset partitionné\nImaginons que nous avons des ventes par région stockées en dataset partitionné :\n\nlibrary(arrow)\nlibrary(dplyr)\nlibrary(lubridate)\n \n# Charger le dataset partitionné\nds &lt;- open_dataset(\"ventes_dataset/\")\n \n# Analyse :\nres &lt;- ds %&gt;%\n filter(region == \"Nord\") %&gt;% # 1) Filtrer uniquement la région \"Nord\" (Arrow lit uniquement la partition Nord → gain énorme)\n mutate(mois = floor_date(date, \"month\")) %&gt;%  # vectoriel, pas de boucle\n group_by(mois) %&gt;% # 3) Calculer le chiffre d’affaires par mois\nsummarise(chiffre_affaires = sum(montant, na.rm = TRUE)) %&gt;% \n collect() # 4) Rapatrier seulement le résultat agrégé avec summarise (bien plus petit que la table de base)\nprint(res)\n\nCommentaires\nLe filtre sur region est très efficace car Arrow lit seulement les fichiers Parquet de la partition region = “Nord”. La transformation de date en mois est vectorielle et rapide. L’agrégation par mois se fait sans charger toutes les données en mémoire. collect() rapatrie seulement le résultat agrégé, beaucoup plus léger que la table initiale."
+  },
+  {
+    "objectID": "Actus/14_parquet.html#conclusion",
+    "href": "Actus/14_parquet.html#conclusion",
+    "title": "Le format Parquet et son usage avec {arrow} dans R",
+    "section": "7. Conclusion",
+    "text": "7. Conclusion\nParquet est un format optimisé pour le stockage et l’échange de gros volumes de données tabulaires. Avec {arrow}, R peut exploiter Parquet de manière lazy et vectorielle, sans saturer la mémoire. La clé est d’adopter une programmation adaptée aux données colonnes :\n\nsélectionner tôt,\ngrouper/agréger côté Arrow,\nutiliser des datasets partitionnés pour optimiser les accès récurrents,\nn’utiliser collect() qu’au dernier moment pour rapatrier un résultat final plus petit.\n\nRésultat : une analyse bien plus rapide, reproductible et scalable qu’avec des formats ligne classiques comme le CSV."
+  },
+  {
     "objectID": "Quizs/2_rproj_quiz.html",
     "href": "Quizs/2_rproj_quiz.html",
     "title": "Créer un projet dans Rstudio : le fichier Rproj - Quiz",
@@ -249,7 +452,7 @@
     "href": "index.html",
     "title": "Newslett'R",
     "section": "",
-    "text": "Newslett’R\n\nChaque semaine, nous vous proposons une astuce en R, accompagnée de quiz et d’exercices, pour tous les niveaux – débutant, avancé ou expert – afin de perfectionner votre maîtrise de R.\n\n\n\nStar this website on Github\n\n\n\nLes dernières newslett’R : \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLes raccourcis R avec Rstudio\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer un projet dans Rstudio : le fichier Rproj\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 21, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nAides-mémoires\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 4, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nAide-mémoire SAS-R\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 25, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nLecture des données\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nStructuration des projets\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistiques de base avec dplyr\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 20, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nEcrire de la donnée avec dplyr\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJul 28, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nTransformer des variables avec across\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJul 28, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nDuckdb\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nSep 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nBonnes pratiques\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nSep 13, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "Newslett’R\n\nChaque semaine, nous vous proposons une astuce en R, accompagnée de quiz et d’exercices, pour tous les niveaux – débutant, avancé ou expert – afin de perfectionner votre maîtrise de R.\n\n\n\nStar this website on Github\n\n\n\nLes dernières newslett’R : \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGérer ses environnements R avec renv\n\n\n\nNewsletter\n\n\n\n\n\n\n\nLéonie Fauvre\n\n\nJan 9, 2025\n\n\n\n\n\n\n\n\n\n\n\nTravailler efficacement avec les dates dans R grâce à lubridate\n\n\n\nNewsletter\n\n\n\n\n\n\n\nLéonie Fauvre\n\n\nJan 9, 2025\n\n\n\n\n\n\n\n\n\n\n\nLe format Parquet et son usage avec {arrow} dans R\n\n\n\nNewsletter\n\n\n\n\n\n\n\nLéonie Fauvre\n\n\nJan 9, 2025\n\n\n\n\n\n\n\n\n\n\n\nMarkdown\n\n\n\nNewsletter\n\n\n\n\n\n\n\nLéonie Fauvre\n\n\nJan 9, 2025\n\n\n\n\n\n\n\n\n\n\n\nQuarto\n\n\n\nNewsletter\n\n\n\n\n\n\n\nLéonie Fauvre\n\n\nJan 9, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nLes raccourcis R avec Rstudio\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer un projet dans Rstudio : le fichier Rproj\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nMar 21, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nAides-mémoires\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 4, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nAide-mémoire SAS-R\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nApr 25, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nLecture des données\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nStructuration des projets\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistiques de base avec dplyr\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJun 20, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nEcrire de la donnée avec dplyr\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJul 28, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nTransformer des variables avec across\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nJul 28, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nDuckdb\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nSep 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nBonnes pratiques\n\n\n\nNewsletter\n\n\n\n\n\n\n\n\n\n\nSep 13, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "Exercices/2_ggplot2.html",

@@ -24,6 +24,11 @@
   {
     "listing": "/index.html",
     "items": [
+      "/Actus/12_renv.html",
+      "/Actus/13_lubridate.html",
+      "/Actus/14_parquet.html",
+      "/Actus/15_markdown.html",
+      "/Actus/16_quarto.html",
       "/Actus/1_raccourcis_Rstudio.html",
       "/Actus/2_rproj.html",
       "/Actus/3_sheet_cheat.html",
@@ -40,6 +45,11 @@
   {
     "listing": "/debute.html",
     "items": [
+      "/Actus/12_renv.html",
+      "/Actus/13_lubridate.html",
+      "/Actus/14_parquet.html",
+      "/Actus/15_markdown.html",
+      "/Actus/16_quarto.html",
       "/Actus/1_raccourcis_Rstudio.html",
       "/Actus/2_rproj.html",
       "/Actus/3_sheet_cheat.html",
