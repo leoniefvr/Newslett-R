@@ -1,0 +1,123 @@
+---
+title: "Le format Parquet et son usage avec {arrow} dans R"
+date: "2025-01-09"
+author: "Léonie Fauvre"
+tags:
+  - Newsletter
+  - Initiation
+categories:
+  - Newsletter
+---
+
+## 1. Qu’est-ce que le format Parquet ?
+
+-   **Format de fichier colonne** (contrairement au CSV, qui stocke ligne par ligne).
+-   Développé par Apache, largement utilisé dans l’écosystème Big Data (DuckDB, Spark etc.)
+-   **Auto-descriptif** : chaque fichier contient les métadonnées décrivant le schéma des colonnes.
+-   **Compression efficace** : les données d’une même colonne sont contiguës, ce qui compresse mieux et accélère la lecture.
+
+Parquet est idéal pour stocker de gros volumes de données tabulaires et pour les analyser de façon performante.
+
+## 2. Avantages de Parquet
+
+-   **Lecture sélective** : possibilité de charger uniquement certaines colonnes.
+-   **Performance** : lecture/écriture bien plus rapides que CSV sur des gros jeux de données.
+-   **Taille réduite** : selon les données, Parquet peut réduire la taille par un facteur 3 à 10 comparé au CSV.
+-   **Interopérabilité** : format standard compatible avec R, DuckDB, Python-Pandas, Spark, etc.
+-   **Types des variables disponibles** : prend en charge les types complexes (dates avec fuseau, listes, …).
+
+## 3. Lire et écrire des données Parquet avec {arrow}
+
+### Lire un fichier unique
+
+``` r
+library(arrow)
+# Lecture standard : charge immédiatement en mémoire un data.frame R
+df <- read_parquet("data.parquet")
+# Lecture lazy (sans charger immédiatement, recommandée) :
+df_lazy <- read_parquet("data.parquet", as_data_frame = FALSE)
+```
+
+### Lire plusieurs fichiers comme un Dataset : recommandée
+
+``` r
+ds <- open_dataset("dossier_parquet/")
+```
+
+open_dataset() construit un Dataset Arrow qui représente plusieurs fichiers Parquet. C’est une approche lazy : seules les métadonnées sont chargées, pas les données elles-mêmes.
+
+### Différence :
+
+Fichier unique → read_parquet(). Plusieurs fichiers (par ex. partitionnés par année, région, etc.) → open_dataset().
+
+### Écrire un fichier ou un dataset
+
+``` r
+write_parquet(df, "output.parquet")  # fichier unique
+write_dataset(df, "output_dataset/", partitioning = "region")  # dataset partitionné
+```
+
+## 4. Lazy evaluation, collect() et principe de travail avec Arrow
+
+Quand vous manipulez un objet Arrow (Dataset ou Table), les opérations sont lazy :
+
+-   Les verbes **dplyr** (filter, mutate, group_by, summarise…) ne sont pas exécutés immédiatement.
+-   Arrow construit un **plan de calcul différé**.
+
+Ce plan est exécuté uniquement quand vous appelez collect() Ce qui se passe avant et après collect()
+
+-   **Avant** : vous manipulez un objet Arrow (léger, ne charge pas les données, peut représenter plusieurs Go de fichiers).
+-   **Après** : vous obtenez un data.frame / tibble R classique, affichable et manipulable avec R de manière classique.
+
+## 5. Programmation adaptée au format colonne
+
+### Principes
+
+-   **Travailler vectoriel** : utiliser les verbes dplyr (filter, mutate, summarise) au lieu de boucles for ligne par ligne.
+-   **Sélectionner tôt** : limiter les colonnes/observations dès le départ pour réduire la taille des données.
+-   **Agrégations efficaces** : sum, mean, count sont rapides car opérés colonne par colonne.
+-   **Partitionner intelligemment** : si vous utilisez souvent une variable pour filtrer ou grouper (ex. region), il est utile de stocker les données sous forme de **dataset partitionné**.
+
+Exemple d’écriture partitionnée :
+
+``` r
+write_dataset(df, "ventes_dataset/", partitioning = "region")
+```
+
+## 6. Exemple concret avec dataset partitionné
+
+Imaginons que nous avons des ventes par région stockées en dataset partitionné :
+
+``` r
+
+library(arrow)
+library(dplyr)
+library(lubridate)
+ 
+# Charger le dataset partitionné
+ds <- open_dataset("ventes_dataset/")
+ 
+# Analyse :
+res <- ds %>%
+ filter(region == "Nord") %>% # 1) Filtrer uniquement la région "Nord" (Arrow lit uniquement la partition Nord → gain énorme)
+ mutate(mois = floor_date(date, "month")) %>%  # vectoriel, pas de boucle
+ group_by(mois) %>% # 3) Calculer le chiffre d’affaires par mois
+summarise(chiffre_affaires = sum(montant, na.rm = TRUE)) %>% 
+ collect() # 4) Rapatrier seulement le résultat agrégé avec summarise (bien plus petit que la table de base)
+print(res)
+```
+
+### Commentaires
+
+Le filtre sur region est très efficace car Arrow lit seulement les fichiers Parquet de la partition region = "Nord". La transformation de date en mois est vectorielle et rapide. L’agrégation par mois se fait sans charger toutes les données en mémoire. collect() rapatrie seulement le résultat agrégé, beaucoup plus léger que la table initiale.
+
+## 7. Conclusion
+
+Parquet est un format optimisé pour le stockage et l’échange de gros volumes de données tabulaires. Avec {arrow}, R peut exploiter Parquet de manière **lazy** et **vectorielle**, sans saturer la mémoire. La clé est d’adopter une programmation adaptée aux données colonnes :
+
+-   sélectionner tôt,
+-   grouper/agréger côté Arrow,
+-   utiliser des datasets partitionnés pour optimiser les accès récurrents,
+-   n’utiliser collect() qu’au dernier moment pour rapatrier un résultat final plus petit.
+
+***Résultat : une analyse bien plus rapide, reproductible et scalable qu’avec des formats ligne classiques comme le CSV.***

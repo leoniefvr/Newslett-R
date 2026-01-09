@@ -1,0 +1,54 @@
+---
+title: "Gérer ses environnements R avec renv"
+date: "2025-01-09"
+author: "Léonie Fauvre"
+tags:
+  - Newsletter
+  - Initiation
+categories:
+  - Newsletter
+---
+
+## Introduction
+
+Dans un projet R, il arrive souvent qu’un code qui fonctionnait parfaitement cesse de marcher quelques mois plus tard, ou qu’il ne fonctionne pas de la même manière chez un collègue. La raison est simple : les packages R évoluent rapidement, et notre environnement de travail change au fil du temps. Le package renv permet de résoudre ce problème en apportant trois bénéfices majeurs :
+
+1.  **Reproductibilité temporelle** : renv enregistre les versions exactes des packages utilisés dans un projet. Relancer une analyse six mois plus tard donnera le même résultat.
+
+2.  **Partage simplifié** : renv permet de transférer un projet à un collègue. Si le projet fonctionne sur votre machine, il fonctionnera sur la sienne, car renv reproduit l’environnement logiciel.
+
+3.  **Isolation par projet** : chaque projet possède sa propre bibliothèque. Vous pouvez utiliser une version donnée d’un package dans un projet, et une autre version dans un autre, sans conflit.
+
+## Utilisation
+
+L’intégration de renv se fait directement dans un projet RStudio.
+
+Une seule fois au démarrage du projet : renv::init()
+
+*Fonctions principales* :
+
+-   renv::install("dplyr") : installe un package dans l’environnement du projet.
+-   renv::status() : vérifie les différences entre l’état courant et l’environnement enregistré.
+-   renv::snapshot() : enregistre l’état actuel des packages dans un fichier de référence.
+-   renv::update("dplyr") : met à jour un package dans le projet. renv::remove("dplyr") : supprime un package du projet.
+-   renv::restore() : recrée l’environnement à partir du fichier enregistré (utile pour un collègue qui récupère le projet). En pratique, il suffit donc de travailler normalement avec R, puis de faire renv::snapshot() pour garder une trace des versions utilisées.
+
+## Partage de projet avec Git
+
+Pour travailler en équipe, il faut combiner renv avec Git.
+
+**À versionner** :
+
+-   renv/activate.R : permet à renv de s’activer automatiquement à l’ouverture du projet.
+
+-   renv.lock : fichier qui enregistre toutes les versions exactes des packages.
+
+**À ignorer** (mettre dans .gitignore) :
+
+-   renv/library/ : c’est la bibliothèque locale avec les packages installés. Elle ne doit pas être partagée, car chaque collaborateur pourra la recréer via renv::restore().
+
+Ainsi, chacun peut cloner le projet, lancer renv::restore() et retrouver exactement le même environnement.
+
+## Limites
+
+La principale limite concerne la version de R elle-même : le fichier renv.lock enregistre la version utilisée, mais renv ne l’installe pas. Si vous ou vos collègues utilisez des versions différentes de R, il peut y avoir des problèmes de compatibilité. La bonne pratique est donc d’indiquer la version de R dans la documentation du projet, et de vérifier dans **RStudio → Tools → Project Options → R version** que vous utilisez bien la version recommandée. Si plusieurs versions de R sont installées sur la machine, il est possible de choisir celle à utiliser par projet.

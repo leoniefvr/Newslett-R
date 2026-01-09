@@ -1,0 +1,65 @@
+---
+title: "Markdown"
+date: "2025-01-09"
+author: "Léonie Fauvre"
+tags:
+  - Newsletter
+  - Initiation
+categories:
+  - Newsletter
+---
+
+**R Markdown** (fichiers .Rmd) permet de mélanger :
+
+-   du **texte**, appelé « markdown »
+-   du **code R**, encapsulé dans des cellules de codes appelées « chunks »
+-   et le **résultat** : tableaux, graphiques, valeurs calculées
+
+R Markdown permet de produire un document **reproductible** en **HTML, PDF ou Word**, qui inclut à la fois le code de production, les résultats obtenus avec ce programme et du texte pour commenter la méthode et les résultats. A la création du document .Rmd, vous pouvez choisir votre format de document : HTML, Word, PDF.
+
+## Installation et création d’un premier document
+
+Installer le package : install.packages("rmarkdown")
+
+Créer un .Rmd dans RStudio : *File → New File → R Markdown…*
+
+## Du texte en Markdown
+
+Le texte peut être mis en forme avec les commandes suivantes :
+
+-   Titres : #, ##, ###, plus il y a d’#, plus le titre est petit
+-   **Gras** : **gras**
+-   Italique : *italique*
+-   Liste :
+    -   item 1
+    -   item 2
+-   Lien : [texte](https://exemple.com)
+
+## Du code R dans des chunks
+
+```{r}
+summary(mtcars)
+```
+
+Dans un chunk, vous pouvez contrôler :
+
+-   L’affichage du code dans le document : echo = TRUE
+-   L’exécution du code au moment de « rendre » le document (voir plus bas) : eval = TRUE. Si eval = FALSE, le code ne sera pas exécuté, mais il pourra s’afficher si echo = TRUE.
+-   L’affichage des warnings associés aux fonctions de la cellule : warning = FALSE
+-   Les formats des résultats, par exemple la taille du graphique produit par la cellule : fig.width=7, fig.height=4 Exemple :
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+plot(mtcars$wt, mtcars$mpg)
+```
+
+Pour tester le code pendant la rédaction du document .Rmd, l’interface RStudio permet d’exécuter une seule cellule, ou plusieurs cellules à la suite :
+
+## Obtention du rendu
+
+Pour visualer votre document, utilisez le bouton Knit de Rstudio. Au moment où vous appelez knit, l’ensemble des cellules de code pour lesquelles l’option eval est fixée à TRUE sont exécutées.
+
+## Pour en savoir plus :
+
+[29 Produire des documents avec R Markdown](https://book.utilitr.org/03_Fiches_thematiques/Fiche_rmarkdown.html)
+
+[30 Produire des rapports automatisés avec R Markdown](https://book.utilitr.org/03_Fiches_thematiques/Fiche_rmarkdown_param_report.html)

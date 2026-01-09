@@ -1,0 +1,143 @@
+---
+title: "Quarto"
+date: "2025-01-09"
+author: "Léonie Fauvre"
+tags:
+  - Newsletter
+  - Initiation
+categories:
+  - Newsletter
+---
+
+Comme Rmarkdown, quarto permet de produire des rapports automatisés, mais ils présentent de nombreux outils supplémentaires et avantages par rapport à Rmarkdown qui sont présentés ici.
+
+## 1) quarto est multi-langage
+
+Quarto est conçu pour produire des documents reproductibles en combinant plusieurs langages (notamment R, Python, Julia et Observable JavaScript) au sein d’un même projet ou d’un même document.
+
+### Tutoriel : création d’un document multi-langage
+
+#### a. Créer un fichier rapport.qmd.
+
+#### b. Définir un format de sortie dans l’en-tête YAML (ex. HTML) :
+
+``` r
+---
+title: "Rapport multi-langage"
+format: html
+---
+```
+
+#### c. Insérer des blocs de code dans le langage souhaité.
+
+Exemples de blocs (syntaxe Quarto Markdown : identique à Markdown + code fences) :
+
+```{r}
+summary(cars)
+```
+
+```{python}
+import pandas as pd
+pd.DataFrame({"x":[1,2], "y":[3,4]})
+```
+
+Dans l’en-tête, les options pour l’ensemble des chunks peuvent être définies : Exemple d’options globales :
+
+```         
+---
+title: "Rapport multi-langage"
+format: html
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+```
+
+## 2) Adoption du format .qmd en remplacement de .Rmd
+
+Quarto introduit le format .qmd (Quarto Markdown), destiné à remplacer .Rmd pour une chaîne de publication plus standardisée et plus polyvalente. Le format .qmd conserve le principe “texte + code”, tout en offrant une meilleure portabilité entre environnements (RStudio, VS Code, Jupyter).
+
+## 3) Production de présentations (slides) à partir d’un .qmd
+
+Quarto permet de générer des présentations/slides directement depuis un document .qmd.
+
+### Tutoriel : créer des slides Reveal.js
+
+#### a. Créer slides.qmd.
+
+#### b. Définir le format de présentation dans le YAML :
+
+``` r
+---
+title: "Présentation Quarto"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+---
+```
+
+#### c. Créer les diapositives : une diapositive correspond en pratique à une section.
+
+``` r
+Exemple minimal :
+## Contexte
+- Objectif du projet
+- Périmètre
+- Livrables
+ 
+## Méthodologie
+1. Données
+2. Modèle
+3. Résultats
+```
+
+#### d. Rendre la présentation : via interface (RStudio : Render)
+
+## 4) Génération de sites web à partir de .qmd
+
+Quarto peut servir de générateur de site, permettant de construire un site web à partir d’un ensemble de documents .qmd (documentation, portfolio, notes techniques, rapports publiés).
+
+### Tutoriel concret (créer un site Quarto multi-pages)
+
+#### a. Créer un projet Rstudio et choisir quarto website
+
+#### b. Remplir le fichier de configuration \_quarto.yml à la racine :
+
+```         
+project:
+  type: website
+ 
+website:
+  title: "Mon site Quarto"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Accueil
+      - href: rapports.qmd
+        text: Rapports
+      - href: a-propos.qmd
+        text: À propos
+ 
+format:
+  html:
+    toc: true
+    theme: cosmo
+```
+
+#### c. Créer les pages du site web en documents .qmd
+
+• index.qmd
+
+• rapports.qmd
+
+• a-propos.qmd
+
+#### d. Prévisualiser le site localement :
+
+quarto preview
+
+#### e. Générer le site (fichiers prêts à déployer) :
+
+quarto render
