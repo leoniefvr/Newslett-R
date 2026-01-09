@@ -32,14 +32,15 @@ format: html
 
 Exemples de blocs (syntaxe Quarto Markdown : identique à Markdown + code fences) :
 
-```{r}
+\```{r}
 summary(cars)
-```
+\```
 
-```{python}
+\```{python}
 import pandas as pd
 pd.DataFrame({"x":[1,2], "y":[3,4]})
-```
+\```
+
 
 Dans l’en-tête, les options pour l’ensemble des chunks peuvent être définies : Exemple d’options globales :
 
